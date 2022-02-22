@@ -1,0 +1,793 @@
+body {
+  margin: 0px;
+}
+.cat_opt > div > ul > a > li:hover {
+  color: red;
+}
+#karthik_mininav_bar {
+  width: 100%;
+  height: 49px;
+  border: 1px solid #f0f0f0;
+  display: flex;
+}
+
+#karthik_mininav_bar > div {
+  border: 1px solid #f0f0f0;
+}
+
+#karthik_fb {
+  flex: 0.7;
+}
+
+#karthik_t {
+  flex: 0.7;
+}
+
+#karthik_in {
+  flex: 0.7;
+}
+
+#karthik_insta {
+  flex: 0.7;
+}
+
+#karthik_yt {
+  flex: 0.7;
+}
+
+#karthik_pin {
+  flex: 0.7;
+}
+
+#karthik_ph {
+  flex: 6;
+}
+
+#karthik_help {
+  padding-left: 1em;
+  font-size: 105%;
+  flex: 15;
+  /* padding: 0.7rem 1rem; */
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#karthik_mininav {
+  padding-bottom: 2rem;
+  padding-left: 1rem;
+  font-size: 105%;
+  display: flex;
+}
+
+#hello_btn:hover {
+  cursor: pointer;
+  color: red;
+}
+
+#karthik_cart {
+  flex: 1;
+  color: black;
+}
+
+#karthik_menu {
+  flex: 1;
+}
+
+.fa {
+  padding: 13px 12px;
+}
+
+.fa:hover {
+  color: red;
+}
+
+#dashboard_dropdown {
+  width: 10%;
+  right: 12px;
+  position: absolute;
+  top: 52px;
+  background-color: white;
+
+  margin-right: 6%;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 1, 0.3) 0px 1px 3px -1px;
+}
+.vissible_toggle {
+  display: none;
+}
+
+#karthik_d {
+  margin-left: 10%;
+  /* display: none; */
+}
+#karthik_d {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px;
+}
+#karthik_d a {
+  text-decoration: none;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 25px;
+}
+#karthik_d li :hover {
+  color: red;
+}
+#karthik_d li {
+  text-decoration: none;
+  list-style: none;
+}
+
+/* #karthik_count {
+  width: 5%;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 000.1rem 000.2rem;
+} */
+
+#karthik_create_container {
+  background-color: white;
+  width: 39%;
+  height: 570px;
+  margin-left: 30%;
+  display: none;
+  position: absolute;
+  top: 7%;
+  font-family: "Lato", arial, tahoma;
+  z-index: 10;
+}
+
+#create_header {
+  padding-top: 1.5%;
+  padding-bottom: 7.5%;
+  padding-left: 5%;
+
+  height: 20px;
+  display: flex;
+
+  background-color: red;
+}
+
+#karthik_create_icon {
+  width: 3%;
+  height: 50%;
+}
+
+#karthik_cross_btn {
+  background-color: transparent;
+  border: 0;
+  color: black;
+  font-size: large;
+  font-size: 25px;
+  margin-top: 7px;
+  margin-right: 20px;
+}
+#create_header > h2 {
+  padding-right: 38%;
+}
+#details {
+  padding-top: 4%;
+  padding-left: 7%;
+}
+
+#name {
+  width: 43.5%;
+}
+
+#last_name {
+  width: 43.5%;
+}
+
+#div1 {
+  padding-bottom: 4%;
+  display: flex;
+  gap: 10px;
+}
+#back_click {
+  color: black;
+  text-decoration: none;
+}
+
+#div1 > input {
+  padding: 10px 0px;
+  padding-right: 6%;
+  margin-right: 25px;
+  border: 1px solid #c7c4c4;
+}
+
+#div2 > input {
+  padding-right: 6%;
+  height: 40px;
+  border: 1px solid #c7c4c4;
+  width: 88%;
+}
+
+#div2 {
+  padding-bottom: 4%;
+}
+
+#div3 {
+  padding-bottom: 4%;
+}
+
+#div3 > input {
+  padding-right: 6%;
+  height: 40px;
+  border: 1px solid #c7c4c4;
+  width: 88%;
+}
+
+#div4 {
+  padding-bottom: 4%;
+  padding-bottom: 10%;
+}
+
+#div4 > input {
+  padding-right: 6%;
+  height: 40px;
+  border: 1px solid #c7c4c4;
+  width: 88%;
+}
+
+#create_btn {
+  border: 0;
+  background-color: red;
+  color: white;
+  width: 90%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+/*----------------------------------------------- login -----------------------------------*/
+#sdiv1 {
+  margin-top: 20px;
+}
+#karthik_signin_container {
+  margin-left: 30%;
+
+  width: 40%;
+  height: 659px;
+  display: none;
+  background-color: white;
+  z-index: 10;
+  margin-left: 30%;
+  position: absolute;
+  top: 7%;
+}
+.bg-model {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.7;
+  position: fixed;
+  top: 0px;
+  display: none;
+  z-index: 1;
+}
+
+#sign_header {
+  display: flex;
+  padding-top: 1.5%;
+  padding-bottom: 7.5%;
+  padding-left: 5%;
+
+  height: 20px;
+  background-color: red;
+  font-size: large;
+}
+
+#cross_btn {
+  /* background-color: transparent;
+  border: 0;
+  color: black;*/
+  margin-left: 70%;
+  background-color: transparent;
+  border: 0;
+  color: black;
+  font-size: large;
+  font-size: 25px;
+  margin-top: 7px;
+  margin-right: 20px;
+}
+form label {
+  font-family: "Lato", arial, tahoma;
+}
+
+#signin_details {
+  padding-left: 5%;
+  padding-top: 2.5%;
+}
+
+#sdiv1 > input {
+  width: 95%;
+  padding: 8px;
+  border-radius: 0px;
+  border: 1px solid #e1e1e1;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+#sdiv2 > input {
+  width: 95%;
+  padding: 8px;
+  border-radius: 0px;
+  border: 1px solid #e1e1e1;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+#sdiv2 {
+  padding-bottom: 1%;
+}
+
+#new_join_gift {
+  padding-left: 27%;
+  color: red;
+  font-size: xx-large;
+}
+
+#signup_btn {
+  border: 0;
+  padding: 3%;
+}
+
+#signup_area {
+  padding-top: 4%;
+  padding-left: 40%;
+  padding-bottom: 10%;
+}
+
+#sigin_options {
+  width: 99%;
+  height: 90px;
+  padding-bottom: 10%;
+}
+
+#fb_logo {
+  margin-left: 22%;
+}
+
+#karthik_login_btn {
+  border: 0;
+  background-color: red;
+  color: white;
+  width: 95%;
+  height: 36px;
+}
+
+#sigin_options > p {
+  text-align: center;
+}
+
+/* this is the css of top nav */
+.top_header {
+  border: 1px solid rgb(209, 207, 207);
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.header-social {
+  border: 50px;
+  /* border: 2px solid cyan; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.social {
+  /* border: 2px solid springgreen; */
+  margin: 0px;
+  height: 100%;
+  padding: 0px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+}
+.social li {
+  margin: 0px;
+  padding: 17px;
+  border: 1px solid rgb(209, 207, 207);
+  list-style: none;
+  font-size: 14px;
+  border-top: none;
+  border-bottom: none;
+}
+.social li:hover .fab {
+  color: red;
+}
+.social li:hover {
+  cursor: pointer;
+}
+
+.social a {
+  color: grey;
+}
+.phone {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(209, 207, 207);
+  padding-left: 15px;
+  padding-right: 15px;
+  color: grey;
+}
+.help {
+  color: grey;
+  margin-left: 15px;
+}
+.help:hover a {
+  color: red;
+}
+.help a {
+  color: grey;
+  text-decoration: none;
+}
+
+.right_header .account {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+.right_header .account div {
+  display: flex;
+  margin-right: 15px;
+  padding: 14px;
+  padding-right: 5px;
+  border-left: 1px solid rgb(209, 207, 207);
+}
+.cart,
+.fas {
+  font-size: 20px;
+}
+.cart a {
+  color: black;
+}
+.cart a:hover {
+  color: red;
+  cursor: pointer;
+}
+.cart-count {
+  background-color: #f10102;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 7px;
+  text-align: center;
+  line-height: 15px;
+  font-size: 13px;
+  position: absolute;
+  top: 4px;
+  right: 60px;
+}
+.hello_signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.right_header .account .hello_signin {
+  border-left: none;
+}
+.right_header .account .hello_signin i {
+  font-size: 13px;
+}
+
+/* this is the design of mid filter nav bar */
+
+.mid_nav {
+  background-color: #f10102;
+  height: 50px;
+  z-index: 2;
+}
+.cat_nav {
+  margin: auto;
+  /* width: calc(100% - 150px);
+  border: 3px solid white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+.cat_nav div {
+  color: white;
+  font-family: "Lato", arial, tahoma;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: auto;
+  line-height: 25px;
+  padding-left: 2.4%;
+  padding-right: 2.4%;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.cat_nav div:hover {
+  background-color: rgba(255, 255, 255, 0.279);
+}
+
+.cat_nav i {
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+.cat_opt {
+  width: 75%;
+  height: auto;
+
+  background-color: white;
+  position: absolute;
+  left: 10%;
+  transform: translateX(0%);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  display: flex;
+  justify-content: space-between;
+  visibility: hidden;
+  z-index: 2;
+}
+
+.cat_opt div {
+  margin-left: 3%;
+  margin-top: 1.6%;
+  height: auto;
+  margin-bottom: 2%;
+}
+.cat_opt a,
+.cat_opt li {
+  text-decoration: none;
+  list-style: none;
+}
+.cat_opt ul {
+  padding: 0px;
+  margin: 0px;
+}
+.cat_opt div h3 {
+  color: #f10102;
+  font-family: "Lato", arial, tahoma;
+  margin: 2px;
+  margin-bottom: 10px;
+}
+.cat_opt div li {
+  color: rgb(95, 94, 94);
+  line-height: 25px;
+}
+.cat_opt img {
+  padding-right: 5px;
+}
+.cat_aniversary {
+  background-color: white;
+  position: absolute;
+  right: 50%;
+  width: 400px;
+  height: auto;
+  display: flex;
+  z-index: 5;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  display: flex;
+  justify-content: space-between;
+  visibility: hidden;
+  z-index: 5;
+}
+
+.cat_aniversary ul {
+  padding: 0px;
+  margin: 0px;
+}
+.cat_aniversary li {
+  list-style: none;
+  color: rgb(95, 94, 94);
+  line-height: 25px;
+}
+.cat_aniversary a {
+  text-decoration: none;
+}
+.cat_aniversary div h3 {
+  color: rgb(88, 85, 85);
+  margin: 2px;
+  margin-bottom: 10px;
+}
+.cat_aniversary div {
+  margin-left: 3%;
+  margin-top: 1.6%;
+  height: auto;
+  margin-bottom: 3%;
+}
+.cat_birth {
+  width: 500px;
+  z-index: 5;
+  transform: translateX(15%);
+}
+.valentine {
+  visibility: hidden;
+  width: 120px;
+  height: auto;
+  padding: 10px;
+  right: 46%;
+  right: 50%;
+  transform: translateX(20%);
+}
+.valentine li {
+  color: black;
+}
+.recipient {
+  visibility: hidden;
+  width: 120px;
+  padding: 10px;
+  right: 25.5%;
+  z-index: 5;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.sticky div p {
+  color: black;
+}
+.sticky div i {
+  color: black;
+}
+
+/* right sliding nav bar */
+.nav_btn:hover {
+  cursor: pointer;
+}
+.slide_nav {
+  background-color: white;
+  width: 270px;
+  height: 100vh;
+  position: fixed;
+  right: -300px;
+  top: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: 0.5s linear;
+  z-index: 5;
+}
+.active {
+  width: 270px;
+  right: 0px;
+}
+.close {
+  right: 10px;
+  top: 10px;
+  position: absolute;
+}
+.stickers {
+  width: 100%;
+  height: 55px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.slide_nav a {
+  margin: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+.slide_nav p {
+  margin: 0px;
+}
+.contact {
+  background-color: #0090c5;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact p {
+  align-items: center;
+  color: white;
+}
+.slide_nav i {
+  font-size: 14px;
+}
+
+/* this is the top_seacrch css */
+.mid_search {
+  padding: 15px;
+  width: 100%;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.search_mic {
+  width: 700px;
+  height: 42px;
+  display: flex;
+  align-content: center;
+}
+.search_mic button {
+  background-color: #f0f0f0;
+  border: 1px solid #dbdbdb;
+  font-size: 30px;
+}
+.search_mic button span {
+  font-size: 30px;
+  padding: 6px;
+}
+.search_mic input {
+  padding-left: 10px;
+  width: 80%;
+  border-radius: 0px;
+  border: 1px solid rgb(95, 94, 94);
+}
+.gift_logo {
+  margin-left: 3%;
+}
+.gift_now_btn {
+  background-color: burlywood;
+  color: white;
+  /* width: 75px; */
+  display: flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: linear-gradient(to right, #a20b6a, #d80806);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 10px;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+.gift_now_btn a {
+  text-decoration: none;
+  color: white;
+  margin-right: 5px;
+  font-family: "Lato", arial, tahoma;
+  font-weight: normal;
+}
+.hatke {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1.5%;
+  /* margin-bottom: 2%; */
+}
+.sticky_nav i {
+  font-size: 16px;
+}
+.stickers img {
+  height: 100%;
+}
+#search_result_div {
+  border: 2px solid rgb(187, 184, 184);
+  width: 616px;
+  height: auto;
+  position: absolute;
+  background-color: white;
+  display: none;
+  z-index: 10;
+}
+#search_result_div > div {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  font-family: "Lato", arial, tahoma;
+  font-weight: normal;
+  width: 600px;
+  border-bottom: 2px solid rgb(198, 197, 197);
+  margin: auto;
+  margin-top: 10px;
+}
+#search_result_div img {
+  width: 100px;
+  cursor: pointer;
+}

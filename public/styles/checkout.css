@@ -1,0 +1,200 @@
+.Bs_orange_line_div {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 1%;
+    justify-content: space-evenly;
+}
+.Bs_orange1 {
+    position: relative;
+    width: 50%;
+    
+}
+.Bs_line,.Bs_line2 {
+    width: 100%;
+    margin-top: 2%;
+    height: 6px;
+    background-color: rgb(255,85,1);
+    border-radius: 20px;
+}
+.Bs_line2 {
+    background-color: rgb(228,228,228);
+}
+.Bs_number,.Bs_number2 {
+    margin: auto;
+    position: absolute;
+    left: 48%;
+    padding: 5px 10px;
+    border: 4px solid rgb(255,85,1);
+    background-color: white;
+    border-radius: 50%;
+}
+.Bs_number2 {
+    top: 0px;
+    border: 4px solid rgb(228,228,228);
+
+}
+.Bs_orange1>span {
+    position: absolute;
+}
+
+.Bs_orange2 {
+    position: relative;
+    width: 49%;
+}
+.Bs_orange1>p:last-child,.Bs_orange2>p:last-child {
+    width: 100%;
+    margin-top: 5%;
+    font-size: 21px;
+    font-family: Lato, arial, tahoma;
+    text-align: center;
+}
+.Bs_number>img {
+    border-radius: 50%;
+    height: 10px;
+}
+#Bs_main {
+    width: 90%;
+    display: flex;
+    /* border: 1px solid black; */
+    margin: auto;
+}
+#Bs_main_div1 {
+    flex: 1.4;
+    border-top: 1px solid rgb(180, 180, 180);
+
+}
+#Bs_your_details {
+    margin-left: 5%;
+    font-size: 21px;
+    margin-bottom: 1%;
+    width: 55%;
+    font-family:  Lato, arial, tahoma;
+}
+#Bs_your_details2 {
+    margin-top: 1%;
+    font-family: Lato, arial, tahoma;;
+    font-size: 21px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgb(180, 180, 180);
+}
+#Bs_main_form {
+    width: 100%;
+}
+#Bs_main_form>p {
+    font-size: 18px;
+    margin: 1%;
+    font-family: Lato, arial, tahoma;;
+}
+#Bs_main_form>input,#Bs_main_form>select {
+    margin: 1%;
+    width: 70%;
+    padding: 10px 0px;
+    border: 1px solid rgb(228,228,228);
+}
+#Bs_main_form>select {
+    margin: 1%;
+}
+#Bs_main_form_indiv {
+    border-bottom: 1px solid rgb(177, 177, 177);
+    border-top: 1px solid rgb(148, 143, 143);
+}
+#Bs_form_div {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    font-family: Lato, arial, tahoma;
+}
+#Bs_main_form>p>span {
+    font-size: 21px;
+    color: red;
+}
+#Bs_main_form>input:last-child {
+    width: 12%;
+    background-color: red;
+    color: whitesmoke;
+    float: right;
+}
+/* right side css */
+#Bs_main_div2 {
+    margin-left: 10px;
+    margin-top: 0%;
+    flex: 0.89;
+}
+#Bs_main_div2>div {
+    margin: 0%;
+    margin-top: 0%;
+    background-color: rgb(245,245,245);;
+    border: 1px solid rgb(221, 220, 220);
+    border-bottom: none;
+}
+.Bs_total_Citems_div {
+    width: 85%;
+    display: flex;
+    margin: auto;
+    cursor: pointer;
+    margin-bottom: 5%;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(180, 180, 180);
+}
+#Bs_dropdown_img>img {
+    transform: rotate(90deg);
+    font-size: 21px;
+    height: 20px;
+    transition: transform 0.2s;
+}
+#Bs_dropdown_img {
+    margin-right: 4%;
+}
+#Bs_total_Citems {
+    font-size: 21px;
+    color: rgb(90, 89, 89);
+}
+.Bs_pro_img_div {
+    height: 100px;
+}
+.Bs_pro_img_div>img {
+    height: 100px;
+}
+#Bs_image_div {
+    width: 100%;
+}
+#Bs_image_div>img {
+    width: 100%;
+    height: 200px;
+}
+.Bs_pro_main_div {
+    padding: 10px 20px;
+    width: 80%;
+    margin: auto;
+    border-bottom: 1px solid rgb(180, 180, 180);
+}
+.Bs_cart_p3 {
+    margin: 0%;
+    color: red;
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: auto;
+}
+.Bs_cart_p2 {
+    margin-bottom: 2.42%;
+}
+.Bs_cart_p1 {
+    margin: auto;
+    margin: 0%;
+    margin-bottom: 1%;
+    width: 98%;
+    font-family: Lato, arial, tahoma;;
+    font-size: 21px;
+    color: rgb(148, 137, 137);
+    margin-top: 2%;
+}
+.Bs_cart_p3::before {
+    content: '₹';
+}
+.Bs_cart_p3::after {
+    content: '.00';
+}
+.BS_label_checkbox {
+    color: red;
+}

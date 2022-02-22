@@ -1,0 +1,253 @@
+* {
+  font-family: "Lato", arial, tahoma;
+  box-sizing: border-box;
+}
+body {
+  background: #ffffff;
+}
+
+#jewellery_header {
+  border: 1px solid white;
+  top: 20px;
+  height: 180px;
+  background-image: url("https://style.giftcart.com/pub/media/catalog/category/Jewellery.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 180px;
+}
+#nav_name {
+  border: 1px solid #eeeeee;
+  width: 300px;
+  margin-top: 30px;
+  margin-left: 50px;
+  text-align: center;
+}
+#nav_name h1 {
+  font: 30px;
+  font-family: "Lato", arial, tahoma;
+  color: #222222;
+}
+#nav_name a {
+  padding-bottom: 15px;
+  color: #222222;
+  margin: 0;
+  text-decoration: none;
+  font-style: italic;
+}
+#nav_name a:nth-child(2):hover {
+  color: red;
+}
+
+/* ///////////// Filter ////////////////////// */
+.nav_header {
+  height: 60px;
+  display: flex;
+  width: 95%;
+  align-items: baseline;
+  padding: 0.5rem;
+  gap: 1rem;
+  border: 0.5px solid #e7e7e7;
+  margin: auto;
+  margin-top: 10px;
+}
+.filter {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #878787;
+  cursor: pointer;
+  padding: 0;
+}
+.link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #878787;
+  cursor: pointer;
+  padding: 0;
+}
+.dropdown.active > .link,
+.link:hover {
+  color: black;
+}
+
+.dropdown {
+  position: relative;
+  z-index: 3;
+}
+.dropdown-menu {
+  position: absolute;
+
+  width: 600px;
+  height: 230px;
+  left: 0;
+  top: 20px;
+  background-color: white;
+  padding: 0.75rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+.dropdown.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.information-grid {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+
+  gap: 2rem;
+}
+.dropdown-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 20px;
+}
+.linkactive {
+  text-decoration: underline;
+  font-weight: normal;
+  color: black;
+}
+
+.dropdown-links a {
+  margin-top: 5px;
+  padding: 5px;
+  color: #222222;
+  font-size: medium;
+}
+
+.dropdown-links a:hover {
+  color: white;
+}
+.sorting {
+  display: flex;
+  position: relative;
+  margin-left: 65%;
+  color: #878787;
+
+  width: 40%;
+}
+.sorting h4 {
+  margin-top: 6%;
+}
+.options {
+  height: 35px;
+  margin-top: 10px;
+  margin-left: 3%;
+
+  width: 40%;
+}
+.arrow {
+  width: 15%;
+  height: 35px;
+  margin-top: 10px;
+  margin-left: 4%;
+}
+
+/* /////////////////////container//////////////////// */
+#jewellery_container {
+  width: 95%;
+  margin: auto;
+  height: fit-content;
+  background: transparent;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  gap: 0.6%;
+  padding: 2%;
+}
+#jewellery_container p {
+  font-weight: lighter;
+}
+.divmain {
+  width: 95%;
+  position: relative;
+  /* height: 450px; */
+  padding: 2%;
+  margin-top: 2%;
+
+  background: transparent;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+#jewellery_container div img {
+  width: 100%;
+  height: 65%;
+}
+.divmain {
+  transform: scale(1);
+}
+.divmain:hover {
+  transform: scale(1.03);
+}
+
+.mrp_div {
+  display: flex;
+  width: 100%;
+  /* top: -40px; */
+  justify-content: space-between;
+}
+
+.mrp_div>p:nth-child(2) {
+  color: red;
+  font-size: 21px;
+  margin-right: 4%;
+}
+
+.mrp_div>p:nth-child(1) {
+  color: #878787;
+}
+.main_titleDiv {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  height:38px;
+  overflow: hidden;
+  justify-content: space-between;
+}
+.main_titleDiv>div:nth-child(1) {
+  background: transparent;
+  position: relative;
+  flex: 9;
+  box-shadow: none;
+}
+.main_titleDiv div:hover {
+  color: red;
+  cursor: default;
+}
+.main_titleDiv div:nth-child(2) {
+  position: relative;
+  flex: 1;
+  top: 15px;
+}
+.star_div {
+  width: 100%;
+  margin: auto;
+}
+
+/* ////////////////////////////////////////////////////////// */
+#jewellery_info {
+  border: 1px solid lightgray;
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  position: relative;
+  top: 140px;
+  line-height: 22px;
+}
+p:nth-child(2) {
+  font-size: 14px;
+}
+p:nth-child(3) {
+  font-size: 18px;
+}
+p:nth-child(4) {
+  font-size: 18px;
+}
+.Bs_mrp_div {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}

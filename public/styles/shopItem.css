@@ -1,0 +1,556 @@
+.common
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+#sam_fb_img {
+    width: 96%;
+} 
+#Sam_alert_popup_message
+{
+    display: block;
+    background-color: rgba(253, 194, 0, 0.925);
+    width: 100%;
+    height: 40px;
+    display: flex;
+}
+#sam_alert_line
+{
+    width: 72%;
+    margin: auto;
+    font-size: 14px;
+    font-weight: 600;
+}
+#sam_c19_alert
+{
+    color: red;
+}
+#sam_X
+{
+    margin-top:7px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#Sam_body
+{
+    width: 80%;
+    margin: auto;
+}
+#Sam_div1_links
+{
+    display: flex;
+    margin-top: 10px;
+}
+#Sam_home_link
+{
+    padding-left: 30px;
+    color: darkgrey;
+    cursor: pointer;
+}
+hr{
+    background-color: rgb(192, 189, 189);
+}
+#Sam_Display_nd_details
+{
+    display: flex;
+    height: auto;
+}
+#Sam_image_display
+{
+    width: 50%;
+    margin-top: 30px;
+    background-color: transparent;
+    margin-right: 3%;
+    height: 750px;
+}
+#Sam_image_display>img
+{
+    width: 100%;
+    height: 75%;
+}
+#Sam_category_page
+{
+    margin-left: 5px;
+    color: darkgrey;
+    cursor: pointer;
+}
+#Sam_name_product
+{
+    margin-left: 5px;
+    color: darkgrey;
+    cursor: pointer;
+}
+#Sam_details_display
+{
+    width: 50%;
+    background-color: transparent;
+    height: auto;
+}
+#Sam_details_display>h1
+{
+    line-height: 38px;
+    margin-left: 5px;
+    font-size: 38px;
+    font-weight: 450;
+}
+#Sam_details_display>.sam_priceValue
+{
+    
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(196, 195, 195);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#Sam_details_display>:nth-child(3)
+{
+    margin-top: 30px;
+    display: flex;
+}
+#Sam_details_display>:nth-child(4)
+{
+    margin-top: -40px;
+}
+#Sam_details_display>:nth-child(3)>:nth-child(2)
+{
+    margin-top: -35px;
+    font-weight: 400;
+    color: red;
+}
+#Sam_details_display>:nth-child(3)>:nth-child(1)
+{
+    
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(196, 195, 195);
+    font-family: -apple-syste
+}
+#sam_save_amount
+{
+    margin-left: 5px;
+    color: red;
+}
+#Sam_add_price_here
+{
+    margin-left: 5px;
+    color: darkgrey;
+    display: flex;
+}
+#Sam_add_price_here>p{
+    font-size: 26px;
+
+}
+#Sam_add_price_here>:nth-child(3)
+{
+    margin-left: 20px;
+    margin-top: 26px;
+    color: silver;
+    text-decoration: line-through;
+}
+#Sam_add_price_here>:nth-child(4)
+{
+    /* margin: 2px; */
+    margin-top: 26px;
+    color: silver;
+    text-decoration: line-through;
+
+}
+#sam_product_spec
+{
+    display: flex;
+}
+#sam_product_spec>div
+{ 
+    margin-left: 5px;
+    font-size: 17px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#sam_product_spec>div>span
+{
+    font-size: 12px;
+    margin-left: 5px;
+    font-weight: 600;
+}
+#sam_product_spec>:nth-child(2):hover
+{
+    color: red;
+    cursor: pointer;
+}
+.sam_checked /* to acheive star rating*/
+{  
+    color: red;
+}
+#sam_rating_star>.Bs_star_image_div>:nth-child(5)
+{
+    font-size: 20px;
+}
+
+#sam_rating_add>img
+{
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
+}
+
+#sam_rating_add:hover{
+    color: red;
+    cursor: pointer;
+}
+#sam_delivery_report
+{
+    display: flex;
+    color: darkgrey
+}
+#sam_delivery_report>img
+{
+    width:20px;
+    height: 15px;
+    margin-right:4px;
+    font-weight: 400px;
+    
+    /* border-radius: 10px; */
+}
+#sam_related_to_del
+{
+    margin-top: 40px;
+    display: flex;
+    font-weight: 400;
+    
+}
+#sam_delevery_check
+{
+    display: flex;
+    margin-left: 30px;
+    color: red;
+}
+#sam_delevery_check:hover
+{
+    cursor: pointer;
+}
+#sam_delievry_pincode_check>#sam_alert_append_div
+{
+    width: 80%;
+    height: 70px;
+    padding-left:15px;
+    background-color: rgb(223,240,216);
+    color: silver;
+    display: none;
+}
+#sam_free_delivery_shift_left
+{
+    padding-left: 20px;
+    margin-top: -20px;
+}
+#sam_delevery_check>img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;   
+}
+#sam_delievry_pincode_check
+{
+    display: none;
+}
+#sam_delievry_pincode_check>#sam_please_wait_message /* please wait feature css*/
+{
+    width: 80%;
+    color: darkgrey;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: -10px;
+    margin-bottom: -15px;
+    height: 20px;
+    padding-left: -15px;
+    background-color: transparent;
+    /* padding-left: 15px; */
+    display: none;
+}
+#sam_input_pincode
+{
+    margin-top: 40px;
+    width: 80%;
+    height: 30px;
+    /* border-radius: 2px; */
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 500px;
+    color: silver;
+    border: 0.5px solid silver;
+}
+#sam_delievry_pincode_check>div
+{
+    margin-top: 20px;
+    width: 65px;
+    height: 35px;
+    background-color:red;
+    color:white;
+    cursor: pointer;
+    padding-left: 15px;
+    padding-top: 10px;
+    margin-bottom: 30px;
+}
+#sam_cartItem_retated
+{
+    display: flex;
+    margin-top: 40px;
+}
+#sam_item_count
+{
+    display: flex;
+}
+#sam_item_count>div
+{
+    width: 25px;
+    font-weight: 900;
+    color: rgb(97, 93, 93);
+    font-style: bolder;
+    height: 50px;
+    font-size: 30px;
+    padding-left: 8px;
+    background-color: rgba(192, 192, 192, 0.425);
+    border: 1px solid rgba(169, 169, 169, 0.226);
+}
+#sam_item_count>#sam_display_value_count
+{
+    font-size: 14px;
+    font-weight: 300;
+    width: 25px;
+    height: 30px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    padding-left: 13px;
+
+}
+.curser  /*   use for giving curser change in multiple divs*/
+{
+    cursor: pointer;
+}
+#sam_add_to_cart
+{
+    width: 220px;
+    color: white;
+    height: 45px;
+    font-size: 26px;
+    padding-top: 5px;
+    margin-left: 10px;
+    background-color:darkorange;
+    text-align: center;
+}
+#sam_cartItem_retated>.color
+{
+    background-color:red;
+}
+
+#sam_wishlist
+{
+    display: flex;
+    margin-top: 40px;
+}
+/* #sam_wishlist>i{
+    
+} */
+#sam_wishlist:hover
+{
+    color: red;
+    cursor: pointer;
+}
+
+/* wishlist heart css */
+/* 
+#sam_heart_common
+{
+    z-index: 1;
+    position: absolute;
+    color: transparent;
+    width: 15px;
+    height: 10px;
+    background-color: black;
+    
+}
+
+.sam_heart_rigth
+{
+    margin-left: 4px;
+    transform: rotate(-45deg);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.sam_heart_left
+{
+    transform: rotate(45deg);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+} */
+/* wish list heart css */
+#sam_wishlist_add
+{
+    margin-left: 30px;
+    margin-top: -3px;
+}
+#sam_wrap_obtion
+{
+    display: flex;
+    margin-top: 40px;
+    width: 97%;
+    height: 50px;
+    padding-top: 15px;
+    padding-left: 15px;
+    border: 1px solid silver;
+}
+#sam_wrap_gift
+{
+    width: 140px;
+    height: 25px;
+    font-size: 18px;
+    border-bottom: 3px solid silver;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+
+}
+#sam_wrap_gift:hover
+{
+    border-bottom: 3px solid steelblue;
+    cursor: pointer;
+}
+#sam_gift_card:hover
+{
+    border-bottom: 3px solid steelblue;
+    cursor: pointer;
+}
+#sam_gift_card
+{
+    margin-left: 20px;
+    width: 75px;
+    height: 25px;
+    font-size: 18px;
+    border-bottom: 3px solid silver;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+#sam_hr
+{
+    height: 50px;
+    border-bottom: 1px solid silver;
+}
+#sam_fb_img
+{
+    margin-top: 40px;
+    /* height: 80px; */
+}
+
+
+
+/* key values css */
+
+#sam_elaborate_margin
+{
+    margin-top: 90px;
+}
+#sam_flex{
+    display:flex;
+border: 1px solid transparent;
+}
+#sam_flex>:nth-child(1){
+    width: 20%;
+    height: 30px;
+    font-size: 17px;
+    font-weight: 490;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: 1px solid silver;
+    padding-top: 20px;
+    padding-left: 2px;
+}
+#sam_flex>.sam_hover_div:hover
+{
+    background-color: silver;
+}
+#sam_keyfeatures{
+    z-index:10;
+    position: absolute;
+    width: 59.9%;
+    height: auto;
+    margin-left: 20%;
+    font-size: 12px;
+    font-weight: 300;
+    /* height: 30px; */
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* padding-top: 20px; */
+    /* margin-top: 20px; */
+    /* padding-left: -10%; */
+    display: none;
+    border: 1px solid transparent;
+    
+}
+#sam_bullet_change
+{
+    color:rgba(0, 0, 0, 0.74);
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 450;
+}
+#sam_appending_data_div
+{
+    font-size: 16px;
+    color:rgba(0, 0, 0, 0.466);
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-left: 20px;
+    width: 95%;
+}
+#sam_heading_in_disclaimer
+{
+    font-size: 18px;
+    color:rgba(0, 0, 0, 0.733);
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-left: 20px;
+    width: 95%;
+}
+#sam_appending_data_div1_manuf
+{
+    font-size: 18px;
+    color:rgba(0, 0, 0, 0.466);
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-left: 18px;
+    width: 40%;
+}
+#sam_flex>#sam_review_Edit1
+{
+    width: 30%;
+    margin-top: -20px;
+    font-size: 28px;
+    color: rgba(0, 0, 0, 0.719);
+    font-weight: 600;
+
+}
+#sam_flex>#sam_review_Edit1+div
+{
+    border-top: solid 1px silver ;
+    width: 65%;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+#sam_only_signin_user
+{
+    width: 100%;
+    height: 30px;
+    font-size: 17px;
+    font-weight: 490;
+    color: rgba(0, 0, 0, 0.678);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: 1px solid transparent;
+    padding-top: 20px;
+    padding-left: 2px;
+}
+#sam_only_signin_user>span{
+    color: black;
+}
+#sam_only_signin_user>span:hover
+{
+    color: red;
+    cursor: pointer;
+}

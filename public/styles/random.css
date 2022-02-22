@@ -1,0 +1,224 @@
+* {
+  font-family: "Lato", arial, tahoma;
+  box-sizing: border-box;
+}
+body {
+  background: #ffffff;
+}
+
+#jewellery_header {
+  border: 1px solid white;
+  top: 20px;
+  height: 180px;
+  background-image: url("https://style.giftcart.com/pub/media/catalog/category/perfume.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 180px;
+}
+#nav_name {
+  border: 1px solid #eeeeee;
+  width: 300px;
+  margin-top: 30px;
+  margin-left: 50px;
+  text-align: center;
+}
+#nav_name h1 {
+  font: 30px;
+  font-family: "Lato", arial, tahoma;
+  color: #222222;
+}
+#nav_name a {
+  padding-bottom: 15px;
+  color: #222222;
+  margin: 0;
+  text-decoration: none;
+  font-style: italic;
+}
+#nav_name a:nth-child(2):hover {
+  color: red;
+}
+
+/* ///////////// Filter ////////////////////// */
+.nav_header {
+  height: 60px;
+  display: flex;
+  width: 95%;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 1rem;
+  border: 0.5px solid #e7e7e7;
+  margin: auto;
+  margin-top: 10px;
+  justify-content: space-around;
+}
+.filters p {
+  color: #878787;
+}
+.filters p:hover {
+  color: #222;
+  cursor: pointer;
+}
+.filters {
+  display: flex;
+  width: 100%;
+
+  align-items: center;
+}
+.filters a {
+  text-decoration: none;
+  margin-left: 2%;
+}
+.anchor:hover {
+  cursor: pointer;
+  background: #cccccc;
+  color: #222222;
+}
+.anchor {
+  color: #878787;
+}
+
+.dropdowncontent {
+  position: absolute;
+  margin-top: 20px;
+  width: 300px;
+  background: white;
+  height: 70px;
+  display: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  z-index: 2;
+  margin-left: -5.5%;
+}
+.dropdowncontent a {
+  margin-top: 15px;
+  padding: 4%;
+
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+  font-family: "roboto", sans-serif;
+}
+.dropdowncontent a:hover {
+  color: white;
+}
+
+.show {
+  display: flex;
+}
+
+.sorting {
+  display: flex;
+  position: relative;
+  justify-content: right;
+  color: #878787;
+  width: 100%;
+}
+.sorting h4 {
+  margin-top: 6%;
+}
+.options {
+  height: 35px;
+  margin-top: 10px;
+  margin-left: 1%;
+  width: 10%;
+}
+.arrow {
+  height: 35px;
+  margin-top: 10px;
+  margin-left: 2%;
+}
+/* /////////////////////container//////////////////// */
+#jewellery_container {
+  width: 95%;
+  background: transparent;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: 450px;
+  margin: auto;
+  gap: 0.6%;
+  padding: 2%;
+  padding-bottom: 0%;
+}
+.divmain {
+  width: 96%;
+  position: relative;
+  /* padding: 2%; */
+  /* height: 450px; */
+  height: 95%;
+  margin-top: 2%;
+  font-size: 17px;
+  background: transparent;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.BS_img_div {
+  height: 60%;
+  width: 100%;
+}
+.BS_img_div>img {
+  width: 100%;
+  height: 100%;
+}
+.divmain:hover {
+  transform: scale(1.01,1.01);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.mrp_div {
+  display: flex;
+  font-size: 19px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.mrp_div p:nth-child(2) {
+  color: red;
+  margin-top: 3%;
+  
+  margin-right: 4%;
+}
+
+.mrp_div p:nth-child(1) {
+  color: #878787;
+  margin-top: 3%;
+  margin-left: 2%;
+}
+.main_titleDiv {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  margin-top: 9px;
+  justify-content: space-between;
+}
+.main_titleDiv div:nth-child(1) {
+  background: transparent;
+  position: relative;
+  flex: 9;
+  box-shadow: none;
+  margin-left: 2%;
+}
+.main_titleDiv div:hover {
+  color: red;
+  cursor: default;
+}
+.main_titleDiv div:nth-child(2) {
+  position: relative;
+  flex: 1;
+  top: 15px;
+}
+.star_div {
+  width: 100%;
+  margin-left: 2%;
+  color: red;
+}
+
+/* ////////////////////////////////////////////////////////// */
+#jewellery_info {
+  border: 1px solid lightgray;
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  position: relative;
+  top: 140px;
+  line-height: 22px;
+}
