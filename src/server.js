@@ -1,27 +1,26 @@
 const express = require("express");
 
-const PORT = process.env.PORT || 2000;
+const port = process.env.PORT || 2000;
 
 const path = require("path");
 
 const connect = require("./conflig/db");
 // this is the models that we will require for this project
 
-// product will have all the data 
-const Product = require('./models/product.model')
+// product will have all the data
+const Product = require("./models/product.model");
 
 // user will be the current user who is visiting the site
-const User = require('./models/user.model')
+const User = require("./models/user.model");
 
 // wishlist will be depending on user parent child relationship
-const Wishlist = require('./models/wishlist.model')
+const Wishlist = require("./models/wishlist.model");
 
 // cart will be depending on user parent child relationship
-const Cart = require('./models/cart.model')
+const Cart = require("./models/cart.model");
 
 // address will be depending on user parent child relationship
-const Address = require('./models/address.model')
-
+const Address = require("./models/address.model");
 
 const static_path = path.join(__dirname, "../public");
 
@@ -59,9 +58,9 @@ app.use("/payment.html", (req, res) => {
 });
 
 app.use("/perfume.html", (req, res) => {
-    // const product = await Product.find({sub_category : 'perfumes' }).lean().exec();
+  // const product = await Product.find({sub_category : 'perfumes' }).lean().exec();
 
-  res.render("perfume", {product});
+  res.render("perfume", { product });
 });
 
 app.use("/random.html", (req, res) => {
@@ -76,11 +75,19 @@ app.use("/wishlist_layout.html", (req, res) => {
   res.render("wishlist_layout");
 });
 
-app.listen(PORT, async () => {
+app.listen(port, async () => {
   try {
     await connect();
-    console.log(`listening to port ${PORT}`);
+    console.log(`listening to port ${port}`);
   } catch (err) {
     console.log(err.message);
+  }
+});
+
+app.get("/", (req, res) => {
+  try {
+    res.render("index", { text: "here" });
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
   }
 });
