@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 2000;
 
 const path = require('path');
 
-const connect = require("./confligs/db");
+const connect = require("./conflig/db");
 
 const static_path = path.join(__dirname,"../public")
 
