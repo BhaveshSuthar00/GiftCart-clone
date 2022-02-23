@@ -28,10 +28,12 @@ app.use('/checkout.html', (req,res)=>{
 })
 
 app.use('/index.html', (req,res)=>{
+
     res.render('index', {text:"here"});
 })
 
-app.use('/jewellery.html', (req,res)=>{
+app.use('/jewellery.html',async (req,res)=>{
+    // let jew = await Product.find({category : "jewellery"}).lean().exec();
     res.render('jewellery')
 })
 
@@ -44,10 +46,13 @@ app.use('/perfume.html', (req,res)=>{
 })
 
 app.use('/random.html', (req,res)=>{
+    
     res.render('random')
 })
 
 app.use('/shopitem.html', (req,res)=>{
+    const req2 = req.params.id;
+    
     res.render('shopitem')
 })
 
