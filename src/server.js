@@ -5,6 +5,23 @@ const PORT = process.env.PORT || 2000;
 const path = require("path");
 
 const connect = require("./conflig/db");
+// this is the models that we will require for this project
+
+// product will have all the data 
+const Product = require('./models/product.model')
+
+// user will be the current user who is visiting the site
+const User = require('./models/user.model')
+
+// wishlist will be depending on user parent child relationship
+const Wishlist = require('./models/wishlist.model')
+
+// cart will be depending on user parent child relationship
+const Cart = require('./models/cart.model')
+
+// address will be depending on user parent child relationship
+const Address = require('./models/address.model')
+
 
 const static_path = path.join(__dirname, "../public");
 
@@ -16,6 +33,7 @@ app.use(express.static(static_path));
 
 app.set("view engine", "ejs");
 
+// use the following routes to render your page with the data you required for your page
 app.use("/admin.html", (req, res) => {
   res.render("admin", { text: "here" });
 });
@@ -40,7 +58,9 @@ app.use("/payment.html", (req, res) => {
 });
 
 app.use("/perfume.html", (req, res) => {
-  res.render("perfume");
+    // const product = await Product.find({sub_category : 'perfumes' }).lean().exec();
+
+  res.render("perfume", {product});
 });
 
 app.use("/random.html", (req, res) => {
