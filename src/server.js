@@ -9,24 +9,31 @@ const connect = require("./conflig/db");
 
 // product will have all the data
 const Product = require("./models/product.model");
-
+const productController = require('./controllers/product_controller')
 // user will be the current user who is visiting the site
 const User = require("./models/user.model");
+const userController = require('./controllers/user_controller')
 
 // wishlist will be depending on user parent child relationship
 const Wishlist = require("./models/wishlist.model");
+const wishlistController = require('./controllers/wishlist_controller')
 
 // cart will be depending on user parent child relationship
 const Cart = require("./models/cart.model");
+const cartController = require('./controllers/cart_controller')
 
 // address will be depending on user parent child relationship
 const Address = require("./models/address.model");
+const addressController = require('./controllers/address_controller')
+
+
 
 const static_path = path.join(__dirname, "../public");
 
 const app = express();
 
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(static_path));
@@ -34,45 +41,39 @@ app.use(express.static(static_path));
 app.set("view engine", "ejs");
 
 // use the following routes to render your page with the data you required for your page
-app.use("/admin.html", (req, res) => {
-  res.render("admin", { text: "here" });
-});
-app.use("/cart.html", (req, res) => {
-  res.render("cart");
-});
+// app.use("/admin", adminController);
 
-app.use("/checkout.html", (req, res) => {
-  res.render("checkout");
-});
+app.use("/cart", cartController);
 
-app.use("/index.html", (req, res) => {
-  res.render("index", { text: "here" });
-});
+app.use("/product", productController) 
 
-app.use("/jewellery.html", (req, res) => {
-  res.render("jewellery");
-});
+app.use("/shopitem", productController)
 
-app.use("/payment.html", (req, res) => {
-  res.render("payment");
+app.use("/wishlist_layout", wishlistController);
+
+
+app.use("/index", (req, res) => {
+  try {
+    res.render("index");
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
 });
 
-app.use("/perfume.html", (req, res) => {
-  // const product = await Product.find({sub_category : 'perfumes' }).lean().exec();
-
-  res.render("perfume", { product });
+app.use("/checkout", (req, res) => {
+  try {
+    res.render("checkout");
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
 });
 
-app.use("/random.html", (req, res) => {
-  res.render("random");
-});
-
-app.use("/shopitem.html", (req, res) => {
-  res.render("shopitem");
-});
-
-app.use("/wishlist_layout.html", (req, res) => {
-  res.render("wishlist_layout");
+app.use("/payment", (req, res) => {
+  try {
+    res.render("payment");
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
 });
 
 app.listen(port, async () => {
@@ -81,13 +82,5 @@ app.listen(port, async () => {
     console.log(`listening to port ${port}`);
   } catch (err) {
     console.log(err.message);
-  }
-});
-
-app.get("/", (req, res) => {
-  try {
-    res.render("index", { text: "here" });
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
   }
 });

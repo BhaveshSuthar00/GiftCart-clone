@@ -108,7 +108,7 @@
        heart_div.onclick=()=>{
          arr.push(data[index])
          localStorage.setItem("wishListData",JSON.stringify(arr))
-         window.location.href = "/wishlist_layout.html"
+         window.location.href = "/wishlist_layout"
        }
        
        
@@ -121,7 +121,7 @@
   
   localStorage.setItem("clickedJewelleryData", JSON.stringify(data))
   
-  window.location.href = './shopItem.html'
+  window.location.href = './shopItem'
   
   
   }

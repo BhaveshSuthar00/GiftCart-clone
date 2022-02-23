@@ -9,8 +9,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <link rel="stylesheet" href="./styles/wishlist_layout.css">
-    <link rel="stylesheet" href="./styles/landing_page.css">
+    <link rel="stylesheet" href="/styles/wishlist_layout.css">
+    <link rel="stylesheet" href="/styles/landing_page.css">
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
@@ -67,7 +67,7 @@
             <button id="update_wishlist" class="wo">UPDATE WISHLIST</button>
             <button id="share_wishlist" class="wo">SHARE WISHLIST</button>
             <button id="add_to_cartall" class="wo">ADD ALL TO CART</button>
-            <button id="wishlist_back"><a href="index.html">Back</a></button>
+            <button id="wishlist_back"><a href="index">Back</a></button>
           </div>
         </div>
       </div>
@@ -93,6 +93,6 @@
     cart_count.textContent = `${getcart.length}`;
     let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
-        window.location.href = './random.html'
+        window.location.href = '/product/random'
     })
 </script>

@@ -77,6 +77,6 @@ function FormData(event) {
             phone_number
         }
         localStorage.setItem('Address_users',JSON.stringify(obj));
-        window.location.href = './payment.html';
+        window.location.href = './payment';
     };
 }

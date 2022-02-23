@@ -9,7 +9,7 @@ document.getElementById("sam_X").addEventListener("click",function disappearDiv(
 //>>>>>>> click on home page <<<<<<<<<// lines 9 to 13
 document.getElementById("Sam_home_link").addEventListener("click",function ()
 {
-    window.location.href ="/index.html"
+    window.location.href ="/index"
 })
 
 //>>>>>>>>> click on product cateogy <<<<<<// lines 15 to 28
@@ -18,11 +18,11 @@ document.getElementById("Sam_category_page").addEventListener("click",function (
     console.log(cat)
     if( cat =='<i>/ jewellery</i>')
     {
-        window.location.href="/jewellery.html"
+        window.location.href="/jewellery"
     }
     if(cat =='<i>/ perfumes</i>')
     {
-        window.location.href="/perfume.html"
+        window.location.href="/perfume"
 
     }
 })
@@ -33,11 +33,11 @@ document.getElementById("Sam_name_product").addEventListener("click",function ()
     console.log(cat)
     if( cat =='<i>/ jewellery</i>')
     {
-        window.location.href="/jewellery.html"
+        window.location.href="/jewellery"
     }
     if(cat =='<i>/ perfumes</i>')
     {
-        window.location.href="/perfume.html"
+        window.location.href="/perfume"
 
     }
 })

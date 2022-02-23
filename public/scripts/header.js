@@ -224,7 +224,7 @@ async function navbar_responsive(){
       if (data.username === username) {
         alert(`Welcome ${data.email.toUpperCase()}`);
         localStorage.setItem("current_user", JSON.stringify(data));
-        window.location.href = "./index.html";
+        window.location.href = "./index";
       } else {
         alert("Invalid Email or Password");
       }
@@ -344,7 +344,7 @@ async function navbar_responsive(){
             category
           }
           localStorage.setItem('clickedJewelleryData',JSON.stringify(obj))
-          window.location.href = "shopitem.html"
+          window.location.href = "shopitem"
         }
         location.append(div);
 

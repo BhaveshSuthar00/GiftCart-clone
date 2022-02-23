@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jewellery</title>
-    <link rel="stylesheet" href="./styles/jewellery.css" />
+    <link rel="stylesheet" href="/styles/jewellery.css" />
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link rel="stylesheet" href="styles/landing_page.css" />
+    <link rel="stylesheet" href="/styles/landing_page.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -27,7 +27,7 @@
     <div id="jewellery_header">
       <div id="nav_name">
         <h1>JEWELLERY</h1>
-        <a href="/index.html">Home</a>
+        <a href="/index">Home</a>
         <a> / jewellery</a>
       </div>
     </div>
@@ -88,20 +88,6 @@
     </div>
 
     <div id="jewellery_container">
-      
-      <!-- <%= jwt.forEach(function(elem) {  %>
-        <div class="container_ind_product">
-          
-          <div>
-            <img src=`<% elem.image %>` alt="">
-          </div>
-          <div class="main_titleDiv">
-            <p> <%elem.title %></p>
-            <p></p>
-            <p></p>
-          </div>
-        </div>
-      <%= } %> -->
     </div>
     <div id="jewellery_info">
       <h1>Online Jewellery Shopping</h1>
@@ -175,7 +161,7 @@
 
   let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
-        window.location.href = './random.html'
+        window.location.href = '/product/random'
     })
   ///////////////////////script for jewelry data ends here///////////////////////////
 </script>

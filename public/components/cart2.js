@@ -34,7 +34,7 @@ function displayTable (items,location) {
             items.splice(index,1)
             localStorage.setItem('productlist',JSON.stringify(items));
             displayTable(items,location);
-            window.location.href = './cart.html';
+            window.location.href = '/cart';
         });
 
 

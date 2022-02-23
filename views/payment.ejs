@@ -207,6 +207,7 @@
               class="Bs_inp"
               type="text"
               placeholder="Enter Card Number"
+              maxlength="16"
             />
             <p class="Bs_py_text2">CVV</p>
             <input
@@ -271,7 +272,7 @@
           alert(
             `Transaction Successful. Transaction Id ${response.razorpay_payment_id}`
           );
-          window.location.href = "./index.html";
+          window.location.href = "./index";
         }
       },
     };
@@ -295,6 +296,6 @@
     cart_count.textContent = `${getcart.length}`;
     let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
-        window.location.href = './random.html'
+        window.location.href = '/product/random'
     })
   </script>
