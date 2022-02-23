@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="./styles/landing_page.css" />
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/cart.css">
+    <script
+    src="https://kit.fontawesome.com/2281802e38.js"
+    crossorigin="anonymous"
+  ></script>
+  <link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+  rel="stylesheet"
+/>
+  <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://style.giftcart.com/pub/media/favicon/stores/1/16x16.png"
+    />
+</head>
+<body>
+    <div class="nav_bar_container"></div>
+
+    <div id="Bs-link-to-home">
+        <a href="./index.html">Home</a>
+        <span>/</span>
+        <a href="./perfume.html">shopping</a>
+    </div>
+    <div id="Bs_main_div">
+        <div id="Bs_product_list">
+            <div class="linediv"></div>
+            <div id="Bs_list_div">
+                <table id="Bs_items_list_table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>ITEM</th>
+                            <th>PRICE</th>
+                            <th>QTY</th>
+                            <th>SUBTOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Bs_table_data">
+                        
+                    </tbody>
+                </table>
+                <div class="Bs_continue_btn_div">
+                    <a href="./index.html"><button>CONTINUE SHOPPING</button></a>
+                </div>
+            </div>
+        </div>
+        <div id="Bs_checkout_list">
+            <div>
+               <div id="Bs_checkout_list_div1">
+                   <p>TOTAL</p>
+                   <p>
+                       <span>Subtotal</span>
+                       <span class="Bs_total_price">0</span>
+                   </p>
+                   <p>
+                       <span>Order total</span>
+                       <span class="Bs_total_price2">0</span>
+                   </p>
+               </div>
+               <div id="Bs_checkout_list_div2">
+                    <a href="./checkout.html"><button>PROCEED TO CHECKOUT</button></a>
+               </div>
+               <div id="Bs_checkout_list_div3">
+                    <p>APPLY DISCOUNT CODE</p>
+                    <input type="text" placeholder="Entere discount code">
+                    <button>APPLY DISCOUNT</button>
+               </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 20px;" id="footer">
+      
+    </div>
+</body>
+</html>
+<script type="module">
+    import footer from "./components/footer.js";
+    let footerDiv=document.getElementById("footer");
+    footerDiv.innerHTML=footer();
+</script>
+
+
+<script type="module">
+    // navbar html are imported here
+    import navbar_part from "./components/navbar.js";
+    let navbar_com = await navbar_part();
+    document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+    // navbar logic are imported here
+    import navbar_responsive from "./scripts/header.js";
+    await navbar_responsive();
+    let getcart = JSON.parse(localStorage.getItem('productlist'));
+
+    // console.log(getcart.length)
+    let cart_count = document.getElementById('cart_cc');
+    cart_count.textContent = `${getcart.length}`;
+
+    let clickdiv = document.querySelector('.material-icons-outlined');
+    clickdiv.addEventListener('click',()=>{
+        window.location.href = './random.html'
+    })
+</script>
+<script type="module">
+
+    var arr = JSON.parse(localStorage.getItem('productlist')) || [];
+    
+    let main_div = document.getElementById('Bs_table_data');
+
+    import displayTable from "./components/cart2.js";
+    
+    let total2 = document.querySelector('.Bs_total_price2');
+    async function display() {
+        try {
+            let response = await displayTable(arr,main_div);
+            let total = document.querySelector('.Bs_total_price');
+            total.innerText = null;
+            total.innerText = response;
+            
+            total2.innerText = null;
+            total2.innerText = response;
+        
+        }
+        catch(error) {
+            console.log('error',error);
+        }
+    }
+
+    display();
+
+    
+    let chee = document.getElementById('Bs_checkout_list_div2');
+    chee.addEventListener('click',()=>{
+        let dp2 = document.getElementsByClassName('product_count');
+        for(let i = 0; i<dp2.length; i++){
+            arr[i].product_count = dp2[i].value;
+        }
+        localStorage.setItem('productlist',JSON.stringify(arr));
+    })
+
+    let btnss = document.querySelectorAll('#Bs_update_btn');
+    for(let i = 0; i<btnss.length; i++){
+        btnss[i].addEventListener('click',dd);
+
+    }
+    function dd() {
+        var tt = 0;
+        let total_price = document.getElementsByClassName('Bs_product_price2');
+        for(let i = 0; i<total_price.length; i++){
+        tt += Number(total_price[i].textContent);
+        }
+        total2.innerText = null;
+        total2.innerText = tt;
+        // if(tt === undefined){
+        //     console.log(tt)
+        // }
+        localStorage.setItem('total_price',JSON.stringify(tt));
+    }
+    
+</script>
