@@ -28,6 +28,7 @@ const static_path = path.join(__dirname, "../public");
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(static_path));
 
