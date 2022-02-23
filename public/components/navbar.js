@@ -476,7 +476,7 @@ async function navbar_part(){
         <li><a href="#">My Orders</a></li>
         <li><a href="./wishlist_layout">My Wish List</a></li>
         <li><a href="#" id="karthik_createAct_click">Create Account</a></li>
-        <li><a href="#" id="karthik_sigin_click">Sign In</a></li>
+        <li><a href="/register" id="karthik_sigin_click">Sign In</a></li>
       </ul>
     </div>
     <!-------------------------------------------- login box ---------------------------------------->

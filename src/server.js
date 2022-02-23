@@ -43,7 +43,15 @@ app.set("view engine", "ejs");
 // use the following routes to render your page with the data you required for your page
 // app.use("/admin", adminController);
 
+<<<<<<< Updated upstream
 app.use("/cart", cartController);
+=======
+
+
+app.use("/checkout.html", (req, res) => {
+  res.render("checkout");
+});
+>>>>>>> Stashed changes
 
 app.use("/product", productController) 
 
