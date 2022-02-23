@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jewellery</title>
+    <link rel="stylesheet" href="./styles/jewellery.css" />
+    <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="styles/landing_page.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://style.giftcart.com/pub/media/favicon/stores/1/16x16.png"
+    />
+  </head>
+  <body>
+    <div class="nav_bar_container"></div>
+    <div id="jewellery_header">
+      <div id="nav_name">
+        <h1>JEWELLERY</h1>
+        <a href="/index.html">Home</a>
+        <a> / jewellery</a>
+      </div>
+    </div>
+    <div class="nav_header">
+      <a href="#" class="filter">FILTER:</a>
+      <div class="dropdown" data-dropdown>
+        <button class="link" data-dropdown-button>Category</button>
+        <div class="dropdown-menu information-grid">
+          <div>
+            <div>
+              <div class="dropdown-links">
+                <a href="#" class="linkactive">Fashion Jewellery</a>
+                <a href="#" class="link">Jewellery Sets</a>
+                <a href="#" class="link">Personalised Jewellery</a>
+                <a href="#" class="link">Bangles and Bracelets</a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <div class="dropdown-links">
+                <a href="#" class="linkactive">Necklace</a>
+                <a href="#" class="linkactive">Precious Jewellery</a>
+                <a href="#" class="link">Cufflinks</a>
+                <a href="#" class="link">Pendants</a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div>
+              <div class="dropdown-links">
+                <a href="#" class="link">Earrings</a>
+                <a href="#" class="link">Rings</a>
+                <a href="#" class="link">Earrings</a>
+                <a href="#" class="link">Pendants</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="link" data-dropdown-button>Price</button>
+      <button class="link" data-dropdown-button>Color</button>
+
+      <div class="sorting">
+        <h3>Sort By</h3>
+        <select name="Relevance" class="options">
+          <option value="Relevance">Relevance</option>
+          <option value="Price">Price</option>
+          <option value="New">New</option>
+        </select>
+        <button class="arrow">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="jewellery_container"></div>
+    <div id="jewellery_info">
+      <h1>Online Jewellery Shopping</h1>
+      <p>
+        Giftcart.com offers a lovely selection of jewellery, which any woman
+        would take a shining to instantly. From necklaces toearrings, rings to
+        bracelets and bangles, we have it all. Not just jewellery for women, we
+        have a little bit of bling for men as well – cufflinks and youth
+        oriented punk jewellery. Whether it’s for a casual occasion or an
+        elegant formal occasion, there is something for everyone. Check out our
+        collection of fashion, semi-precious and precious jewellery. Online
+        Jewellery Shopping at Giftcart will bring you ornaments, which are best
+        fitted for special occasions and also those, which one can flaunt every
+        day. However, giving jewellery as a gift to a loved one is truly
+        gratifying.
+      </p>
+      <p>
+        Classic Jewellery for Special Occasions Special occasions, such as
+        weddings and other grand events call for statement jewellery. Classic
+        jewellery is timeless and present a look that is always in style. A
+        variety of precious and semi-precious jewellery is available here.
+        Choose from glittering gold rings, twinkling diamond pendants, silver
+        earrings and more. In addition to that, you will be presented with a
+        wide range of ornaments available as single piece and as a set, with
+        designs based on traditional kundan art. Each and every piece is so
+        intricately designed and quite reasonably priced here. Therefore, it’s
+        hard to let our classic jewellery collection pass. Giftcart wishes to
+        make your Online Jewellery Shopping significant and memorable.
+        Therefore, make a special occasion extra special for your loved one with
+        jewellery gifts.
+      </p>
+      <p>
+        Fashion Jewellery for Everyday Wear Cool, casual and funky describe the
+        fashion jewellery available at Giftcart.com. With their subtle designs,
+        they are ideal for daytime wear. Although, they are less bold, these
+        pieces of jewellery are quite attractive. Their contemporary designs
+        make them a perfect match for all kinds of attire. Check out the
+        pendants and earrings with sleek floral designs and also those crafted
+        as hearts, butterflies, dolphins and fish. Such attractive jewellery
+        pieces, made of precious and semi-precious metals, make charming gifts
+        for young girls and women.
+      </p>
+    </div>
+  </body>
+</html>
+
+<!-- /////////////////////script for jewelry data starts here  -->
+<script type="module">
+  // navbar html are imported here
+  import navbar_part from "./components/navbar.js";
+  let navbar_com = await navbar_part();
+  document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+  // navbar logic are imported here
+  import navbar_responsive from "./scripts/header.js";
+  await navbar_responsive();
+  let getcart = JSON.parse(localStorage.getItem("productlist"));
+
+  let cart_count = document.getElementById("cart_cc");
+  cart_count.textContent = `${getcart.length}`;
+
+  let jewellery_div = document.getElementById("jewellery_container");
+  import { getJewellery, appendJewellery } from "./scripts/jewellery.js";
+  const url = "https://giftcartbackendapp.herokuapp.com/api/products";
+
+  let data = await getJewellery(url);
+  let filter_data = data.filter((el) => {
+    return el.category == "jewellery";
+  });
+
+  appendJewellery(filter_data, jewellery_div);
+
+  let clickdiv = document.querySelector('.material-icons-outlined');
+    clickdiv.addEventListener('click',()=>{
+        window.location.href = './random.html'
+    })
+  ///////////////////////script for jewelry data ends here///////////////////////////
+</script>
+
+<script>
+  document.addEventListener("click", (e) => {
+    const isDropdownButton = e.target.matches("[data-dropdown-button]");
+    if (!isDropdownButton && e.target.closest("[data-dropdown]") != null)
+      return;
+
+    let currentDropdown;
+    if (isDropdownButton) {
+      currentDropdown = e.target.closest("[data-dropdown]");
+      currentDropdown.classList.toggle("active");
+    }
+
+    document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+      if (dropdown === currentDropdown) return;
+      dropdown.classList.remove("active");
+    });
+  });
+</script>
