@@ -25,6 +25,7 @@ const cartController = require("./controllers/cart_controller");
 // address will be depending on user parent child relationship
 const Address = require("./models/address.model");
 const addressController = require("./controllers/address_controller");
+const adminController = require("./controllers/admin_controller");
 
 const static_path = path.join(__dirname, "../public");
 
@@ -42,6 +43,7 @@ app.set("view engine", "ejs");
 // app.use("/admin", adminController);
 
 app.use("/cart", cartController);
+app.use("/admin", adminController);
 
 app.use("/product", productController);
 

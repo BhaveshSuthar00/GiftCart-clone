@@ -330,7 +330,7 @@
 
   async function deleteProduct(id) {
     try {
-      let response = await fetch(`http://localhost:2000/product/single/${id}`, {
+      let response = await fetch(`http://localhost:2000/product/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -348,14 +348,14 @@
   let search_logo = document.querySelector("#search_logo");
   search_logo.addEventListener("click", () => {
     let id = search.value;
-    let url = `http://localhost:2000/product/single/single/${id}`;
+    let url = `http://localhost:2000/product/${id}`;
     getDataFromDataBase(url);
   });
 
   search.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       let id = search.value;
-      let url = `http://localhost:2000/product/single/${id}`;
+      let url = `http://localhost:2000/product/${id}`;
       getDataFromDataBase(url);
     }
   });
@@ -395,7 +395,7 @@
       }
       console.log(option);
 
-      let response = await fetch(`http://localhost:2000/product/single/${id}`, {
+      let response = await fetch(`http://localhost:2000/product/${id}`, {
         method: option,
         body: data,
 
