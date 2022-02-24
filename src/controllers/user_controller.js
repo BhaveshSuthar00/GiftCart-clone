@@ -68,9 +68,7 @@ router.get("/login/account", async (req, res) => {
       res.send(error.message);
     }
   });
-  user.then(function(user){
-    console.log(user);
-  })
+
   
 // localStorage.setItem()
 const newToken = (user) => {
