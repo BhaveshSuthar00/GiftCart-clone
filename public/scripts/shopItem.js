@@ -13,34 +13,34 @@ document.getElementById("Sam_home_link").addEventListener("click",function ()
 })
 
 //>>>>>>>>> click on product cateogy <<<<<<// lines 15 to 28
-document.getElementById("Sam_category_page").addEventListener("click",function (){
-    let cat =document.getElementById("Sam_category_page").innerHTML;
-    console.log(cat)
-    if( cat =='<i>/ jewellery</i>')
-    {
-        window.location.href="/jewellery"
-    }
-    if(cat =='<i>/ perfumes</i>')
-    {
-        window.location.href="/perfume"
+// document.getElementById("Sam_category_page").addEventListener("click",function (){
+//     let cat =document.getElementById("Sam_category_page").innerHTML;
+//     console.log(cat)
+//     if( cat =='<i>/ jewellery</i>')
+//     {
+//         window.location.href="/jewellery"
+//     }
+//     if(cat =='<i>/ perfumes</i>')
+//     {
+//         window.location.href="/perfume"
 
-    }
-})
+//     }
+// })
 
 //>>>>>>>>> eventlistenre for product name so that one can return to jewellary or perfumes page <<<<<<<<<<<// lines 30 to 43
-document.getElementById("Sam_name_product").addEventListener("click",function (){
-    let cat =document.getElementById("Sam_category_page").innerHTML;
-    console.log(cat)
-    if( cat =='<i>/ jewellery</i>')
-    {
-        window.location.href="/jewellery"
-    }
-    if(cat =='<i>/ perfumes</i>')
-    {
-        window.location.href="/perfume"
+// document.getElementById("Sam_name_product").addEventListener("click",function (){
+//     let cat =document.getElementById("Sam_category_page").innerHTML;
+//     console.log(cat)
+//     if( cat =='<i>/ jewellery</i>')
+//     {
+//         window.location.href="/jewellery"
+//     }
+//     if(cat =='<i>/ perfumes</i>')
+//     {
+//         window.location.href="/perfume"
 
-    }
-})
+//     }
+// })
 
 
 //>>>>>>>>> PINCODE CHECK HIDDEN DIVES FUNCTIONALITY START HERE <<<<<<<<<<<<// lines 46 to 69
@@ -384,47 +384,47 @@ document.getElementById("Sam_check_button").addEventListener("click",function ()
 
 //>>>>>>>>>>>>>> data recieve from sumit when we click on the perfume or jewellary page to buy <<<<<<<<<<<<<<<//lines 385 to 389
 
-let obj_data_get_from_sumit= JSON.parse(localStorage.getItem("clickedJewelleryData")) //data transfer by sumit kartik page;
+// let obj_data_get_from_sumit= JSON.parse(localStorage.getItem("clickedJewelleryData")) //data transfer by sumit kartik page;
     
 
 // add to cart button functionality
 //>>>>>>>>>>>>>>>>>here is the most important work going that all data from pages made by sumit is fetch here and form the same data i am using in this page as well as transfering to  the bhavesh page <<<<<<<<<<<<<<<<<<<<<<<<<<//
 // lines 392 to 419
-{
+// {
 
-var arr = JSON.parse(localStorage.getItem('productlist')) || []; //by bhavesh  transfer data 
-    document.getElementById("sam_add_to_cart").addEventListener("click",()=>{
+// var arr = JSON.parse(localStorage.getItem('productlist')) || []; //by bhavesh  transfer data 
+//     document.getElementById("sam_add_to_cart").addEventListener("click",()=>{
 
-    let obj_data_get_from_sumit= JSON.parse(localStorage.getItem("clickedJewelleryData")) //data transfer by sumit kartik page;
-    // console.log("data recieve on click",obj_data_get_from_sumit)
-    //>>>>>>> localStorage.setItem("clickedJewelleryData", JSON.stringify(data))// storage define in sumit page just for cross check record <<<<<<<<<<<<<<//
-
-
-    let count =document.getElementById("sam_display_value_count").innerHTML
-
-    let obj_transfer_to_bhavesh= {
-        image:obj_data_get_from_sumit.image,
-        product:obj_data_get_from_sumit.product,
-        price:Number(obj_data_get_from_sumit.price),
-        product_count:Number(count)
-    }
+//     let obj_data_get_from_sumit= JSON.parse(localStorage.getItem("clickedJewelleryData")) //data transfer by sumit kartik page;
+//     // console.log("data recieve on click",obj_data_get_from_sumit)
+//     //>>>>>>> localStorage.setItem("clickedJewelleryData", JSON.stringify(data))// storage define in sumit page just for cross check record <<<<<<<<<<<<<<//
 
 
-    arr.push(obj_transfer_to_bhavesh)
+//     let count =document.getElementById("sam_display_value_count").innerHTML
 
-    localStorage.setItem("productlist",JSON.stringify(arr))
-    //>>>>>>> var arr = JSON.parse(localStorage.getItem('productlist')) || []; // storage define in bhavesh page <<<<<<<<<<<//
-    })
-}
+//     let obj_transfer_to_bhavesh= {
+//         image:obj_data_get_from_sumit.image,
+//         product:obj_data_get_from_sumit.product,
+//         price:Number(obj_data_get_from_sumit.price),
+//         product_count:Number(count)
+//     }
 
 
-{  
-//>>>>>>>>>>>>>>>>> data getting from sumit page is using in the page with the help of code written in lines 423 to 447 <<<<<<<<<<<<<<<//
+//     arr.push(obj_transfer_to_bhavesh)
+
+//     localStorage.setItem("productlist",JSON.stringify(arr))
+//     //>>>>>>> var arr = JSON.parse(localStorage.getItem('productlist')) || []; // storage define in bhavesh page <<<<<<<<<<<//
+//     })
+// }
+
+
+// {  
+// //>>>>>>>>>>>>>>>>> data getting from sumit page is using in the page with the help of code written in lines 423 to 447 <<<<<<<<<<<<<<<//
     function displayInpage(){     
         // if(obj_data_get_from_sumit.sub_category=='perfumes')
         // {
             let ram = (Math.random()*(1.50-1.25)+1.25).toFixed(2);
-
+            console.log(ram)
             document.querySelector("title").innerHTML="";
             document.querySelector("title").innerHTML=`buy ${obj_data_get_from_sumit.product}`;
             document.getElementById("Sam_category_page").innerHTML="";
@@ -437,13 +437,13 @@ var arr = JSON.parse(localStorage.getItem('productlist')) || []; //by bhavesh  t
             document.getElementById("Sam_add_price_here").innerHTML=`<p>&#8377</p><p>${(Number(obj_data_get_from_sumit.price)).toFixed(2)}</p><p>&#8377</p><p>${(Number(obj_data_get_from_sumit.price)*ram).toFixed(2)}</p>`;
             document.getElementById("sam_save_amount").innerHTML="";
             document.getElementById("sam_save_amount").innerHTML=`${Math.floor((ram-1)*100)}%`
-            let img =document.createElement("img")
-                img.src=obj_data_get_from_sumit.image;
-            document.getElementById("Sam_image_display").append(img)
+            // let img =document.createElement("img")
+                // img.src=obj_data_get_from_sumit.image;
+            // document.getElementById("Sam_image_display").append(img)
         // }
     }
-    displayInpage()
-}
+    // displayInpage()
+// }
 
 
 //>>>>>>>>>>>> Wrap gift functionality <<<<<<<<<<<<<<<<<// lines 450 to 457

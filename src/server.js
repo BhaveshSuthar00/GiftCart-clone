@@ -47,7 +47,7 @@ app.use("/cart", cartController);
 
 app.use("/product", productController) 
 
-app.use("/shopitem", productController)
+// app.use("/shopitem", productController)
 
 app.use("/wishlist_layout", wishlistController);
 

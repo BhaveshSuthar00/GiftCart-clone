@@ -4,7 +4,14 @@ const router = express.Router();
 
 const Product = require("../models/product.model");
 
-
+router.get('/single/:id', async (req, res) => {
+    try {
+        const item = await Product.findOne({ _id: req.params.id}).lean().exec();
+        res.render('shopitem', { item })
+    } catch (err) {
+        res.send(err.message)
+    }
+})
 
 router.get('/jewellery', async (req, res) =>{
     try {
@@ -18,8 +25,9 @@ router.get('/jewellery', async (req, res) =>{
 
 router.get('/perfume', async (req, res) =>{
     try {
+        const products = await Product.find({category :"jewellery"}).lean().exec();
         // const items = await Product.find().lean().exec();
-        res.render('perfume');
+        res.render('perfume', { products });
     }
     catch (err) {
         res.send(err.message);

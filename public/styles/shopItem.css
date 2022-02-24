@@ -1,3 +1,40 @@
+#bs_h3_price {
+    display : flex;
+}
+#bs_h3_price>.sam_priceValue {
+    border : 1px solid black;
+    margin-top: 3%;
+    align-items : center;
+}
+.bs_yourSave>p {
+    font-size: 16px;
+    margin: 0%;
+}
+#bs_h3_price>span {
+    border : 1px solid green;
+}
+div {
+    border : 1px solid black;
+}
+#Sam_add_price_here>.bs_priceValue
+{
+    margin-left: 2px;
+    margin-top: 26px;
+    margin-right: 10px;
+    color: red;
+}
+#Sam_add_price_here>:last-child
+{
+    /* margin: 2px; */
+    margin-top: 26px;
+    color: silver;
+    text-decoration: line-through;
+
+}
+.bs_price_and_discount {
+    display: flex;
+
+}
 .common
 {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -103,7 +140,7 @@ hr{
     color: rgb(196, 195, 195);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-#Sam_details_display>:nth-child(3)
+/* #Sam_details_display>:nth-child(3)
 {
     margin-top: 30px;
     display: flex;
@@ -125,7 +162,7 @@ hr{
     font-weight: 400;
     color: rgb(196, 195, 195);
     font-family: -apple-syste
-}
+} */
 #sam_save_amount
 {
     margin-left: 5px;
@@ -139,21 +176,6 @@ hr{
 }
 #Sam_add_price_here>p{
     font-size: 26px;
-
-}
-#Sam_add_price_here>:nth-child(3)
-{
-    margin-left: 20px;
-    margin-top: 26px;
-    color: silver;
-    text-decoration: line-through;
-}
-#Sam_add_price_here>:nth-child(4)
-{
-    /* margin: 2px; */
-    margin-top: 26px;
-    color: silver;
-    text-decoration: line-through;
 
 }
 #sam_product_spec

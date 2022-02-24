@@ -219,149 +219,149 @@
     discount: 20,
   },
   ]
-  var arr = JSON.parse(localStorage.getItem("wishListData")) || []
+  // var arr = JSON.parse(localStorage.getItem("wishListData")) || []
   
   let jewellery_div = document.getElementById("jewellery_container")
   
 
-  let div = document.querySelector('.options');
-    div.addEventListener('click',()=>{
-        if(div.value === 'low'){
-         data = data.sort(function(a,b){
-           return a.price-b.price
-         })
-         appendJewellery(data);
-        }
-        else if(div.value === 'high'){
-          data = data.sort(function(a,b){
-            return b.price-a.price
-          })
-           appendJewellery(data);
-        }
-    })
+  // let div = document.querySelector('.options');
+  //   div.addEventListener('click',()=>{
+  //       if(div.value === 'low'){
+  //        data = data.sort(function(a,b){
+  //          return a.price-b.price
+  //        })
+  //        appendJewellery(data);
+  //       }
+  //       else if(div.value === 'high'){
+  //         data = data.sort(function(a,b){
+  //           return b.price-a.price
+  //         })
+  //          appendJewellery(data);
+  //       }
+  //   })
 
 
-  function appendJewellery(data){
-  jewellery_div.innerHTML = null;
+  // function appendJewellery(data){
+  // jewellery_div.innerHTML = null;
 
-       ///////////////////for loop start/////////////////////////
-       data.forEach((element,index) => {
-           let div = document.createElement("div")
-           div.setAttribute("class","divmain")
+  //      ///////////////////for loop start/////////////////////////
+  //      data.forEach((element,index) => {
+  //          let div = document.createElement("div")
+  //          div.setAttribute("class","divmain")
   
-          //  ///////////////////image div////////////////////////////////
-           let jewellery_img = document.createElement("img")
-           jewellery_img.src = element.image;
+  //         //  ///////////////////image div////////////////////////////////
+  //          let jewellery_img = document.createElement("img")
+  //          jewellery_img.src = element.image;
   
-           //////////////heart icon//////////////////////////////
-           let heart_div = document.createElement("div")
-           let heart_tag = document.createElement("i")
-           heart_tag.setAttribute("class","far fa-heart")
-           heart_div.setAttribute("class","heart_div")
-           ///////////////////////title////////////////////////////////////
-           let main_titleDiv = document.createElement("div")
-           let title_div = document.createElement("div")
-           let title = document.createElement("p")
-           title.innerText = element.product
-           main_titleDiv.setAttribute("class","main_titleDiv")
+  //          //////////////heart icon//////////////////////////////
+  //          let heart_div = document.createElement("div")
+  //          let heart_tag = document.createElement("i")
+  //          heart_tag.setAttribute("class","far fa-heart")
+  //          heart_div.setAttribute("class","heart_div")
+  //          ///////////////////////title////////////////////////////////////
+  //          let main_titleDiv = document.createElement("div")
+  //          let title_div = document.createElement("div")
+  //          let title = document.createElement("p")
+  //          title.innerText = element.product
+  //          main_titleDiv.setAttribute("class","main_titleDiv")
   
-           //////////////////////mrp//////////////////////////////////
-           let mrp_div = document.createElement("div")
-           let mrp_tag = document.createElement("p")
-           let tag_div = document.createElement("div")
-           mrp_tag.innerHTML = "MRP (incl gst)"
-           let MRPdiv =  document.createElement("div")
-           let MRP = document.createElement("p")
-           MRP.innerText = "₹"+(element.price)
-           mrp_div.setAttribute("class","mrp_div")
-           let discount = element.discount
-           let originalprice = (((element.price)/discount)+element.price)
-           let originalPrice = document.createElement("p")
-           originalPrice.innerText= "₹"+originalprice.toFixed(2)
+  //          //////////////////////mrp//////////////////////////////////
+  //          let mrp_div = document.createElement("div")
+  //          let mrp_tag = document.createElement("p")
+  //          let tag_div = document.createElement("div")
+  //          mrp_tag.innerHTML = "MRP (incl gst)"
+  //          let MRPdiv =  document.createElement("div")
+  //          let MRP = document.createElement("p")
+  //          MRP.innerText = "₹"+(element.price)
+  //          mrp_div.setAttribute("class","mrp_div")
+  //          let discount = element.discount
+  //          let originalprice = (((element.price)/discount)+element.price)
+  //          let originalPrice = document.createElement("p")
+  //          originalPrice.innerText= "₹"+originalprice.toFixed(2)
             
-           let opdiv =  document.createElement("div")
-           ///////////////////star icon//////////////////////////////////
-           let star_Div = document.createElement("div")
-           star_Div.setAttribute("class","star_div")
-            let star_icon1 = document.createElement("i")
-            star_icon1.setAttribute("class","fas fa-star")
-            let star_icon2 = document.createElement("i")
-            star_icon2.setAttribute("class","fas fa-star")
-            let star_icon3 = document.createElement("i")
-            star_icon3.setAttribute("class","fas fa-star")
-            let star_icon4 = document.createElement("i")
-            star_icon4.setAttribute("class","fas fa-star")
-            let star_icon5 = document.createElement("i")
-            star_icon5.setAttribute("class","far fa-star")
+  //          let opdiv =  document.createElement("div")
+  //          ///////////////////star icon//////////////////////////////////
+  //          let star_Div = document.createElement("div")
+  //          star_Div.setAttribute("class","star_div")
+  //           let star_icon1 = document.createElement("i")
+  //           star_icon1.setAttribute("class","fas fa-star")
+  //           let star_icon2 = document.createElement("i")
+  //           star_icon2.setAttribute("class","fas fa-star")
+  //           let star_icon3 = document.createElement("i")
+  //           star_icon3.setAttribute("class","fas fa-star")
+  //           let star_icon4 = document.createElement("i")
+  //           star_icon4.setAttribute("class","fas fa-star")
+  //           let star_icon5 = document.createElement("i")
+  //           star_icon5.setAttribute("class","far fa-star")
   
-            /////////////////appending//////////////////////////////////
-            star_Div.append(star_icon1, star_icon2, star_icon3, star_icon4, star_icon5)
-            tag_div.append(mrp_tag)
-            opdiv.append(originalPrice)
-            MRPdiv.append(MRP)
-           mrp_div.append(tag_div,MRPdiv,opdiv)
-           title_div.append(title)
-           heart_div.append(heart_tag)
-           main_titleDiv.append(title_div,heart_div)
-           div.append(jewellery_img,main_titleDiv, mrp_div, star_Div)
-           jewellery_div.append(div)
+  //           /////////////////appending//////////////////////////////////
+  //           star_Div.append(star_icon1, star_icon2, star_icon3, star_icon4, star_icon5)
+  //           tag_div.append(mrp_tag)
+  //           opdiv.append(originalPrice)
+  //           MRPdiv.append(MRP)
+  //          mrp_div.append(tag_div,MRPdiv,opdiv)
+  //          title_div.append(title)
+  //          heart_div.append(heart_tag)
+  //          main_titleDiv.append(title_div,heart_div)
+  //          div.append(jewellery_img,main_titleDiv, mrp_div, star_Div)
+  //          jewellery_div.append(div)
   
-           //////////////////////styles/////////////////////////
-           star_icon1.style.color ="red"
-           star_icon2.style.color ="red"
-           star_icon3.style.color ="red"
-           star_icon4.style.color ="red"
-           star_icon5.style.color ="red"
+  //          //////////////////////styles/////////////////////////
+  //          star_icon1.style.color ="red"
+  //          star_icon2.style.color ="red"
+  //          star_icon3.style.color ="red"
+  //          star_icon4.style.color ="red"
+  //          star_icon5.style.color ="red"
            
-           heart_div.onclick=()=>{
-              if(heart_div.style.color!=="red") {
-                  heart_div.style.color = "red"
-              }
-              else{
-                  heart_div.style.color = "black"
-              }
+  //          heart_div.onclick=()=>{
+  //             if(heart_div.style.color!=="red") {
+  //                 heart_div.style.color = "red"
+  //             }
+  //             else{
+  //                 heart_div.style.color = "black"
+  //             }
               
               
-           }
+  //          }
          
-     ///////////////////data to send to shoiab(show data) and wishList////////////////////////
-     let data_to_send ={
-      image:element.image,
-      product: element.product,
-      price:  element.price,
-      sub_category:element.sub_category,
+  //    ///////////////////data to send to shoiab(show data) and wishList////////////////////////
+  //    let data_to_send ={
+  //     image:element.image,
+  //     product: element.product,
+  //     price:  element.price,
+  //     sub_category:element.sub_category,
       
-  };
-  ///////////////////function showData//////////////////////
-  jewellery_img.onclick=()=>{
-     showItem(data_to_send)
-  }
-  //////////////////////////WishList///////////////////////
-  heart_div.onclick=()=>{
-    arr.push(data[index])
-    localStorage.setItem("wishListData",JSON.stringify(arr))
-    window.location.href = "/wishlist_layout"
-  }
+  // };
+  // ///////////////////function showData//////////////////////
+  // jewellery_img.onclick=()=>{
+  //    showItem(data_to_send)
+  // }
+  // //////////////////////////WishList///////////////////////
+  // heart_div.onclick=()=>{
+  //   arr.push(data[index])
+  //   localStorage.setItem("wishListData",JSON.stringify(arr))
+  //   window.location.href = "/wishlist_layout"
+  // }
   
   
   ////////////////shoiab data (show data) end/////////////////////////
-  });
+  // });
   ///////////////for loop end here////////////////
   
   
-  function showItem(data){
+  // function showItem(data){
   
-  localStorage.setItem("clickedJewelleryData", JSON.stringify(data))
+  // localStorage.setItem("clickedJewelleryData", JSON.stringify(data))
   
-  window.location.href = '/shopItem'
+  // window.location.href = '/shopItem'
   
   
-  }
+  // }
   
   
   /////////////oop end here////////////////
-  }
-  appendJewellery(data)
+  // }
+  // appendJewellery(data)
    ///////////////////appending function ends here///////////////////
   ///////////////////////script for jewelry data ends here///////////////////////////
   
