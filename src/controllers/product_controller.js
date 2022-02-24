@@ -63,6 +63,26 @@ router.patch("/single/:id", async (req, res) => {
   }
 });
 
+router.put("/single/:id", async (req, res) => {
+  try {
+    let product;
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      product = await Product.findOneAndUpdate(
+        { id: req.params.id },
+        req.body,
+        { new: true }
+      );
+      return res.status(200).send(product);
+    }
+    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    return res.status(200).send(product);
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+
 router.post("", async (req, res) => {
   try {
     let product = await Product.create(req.body);

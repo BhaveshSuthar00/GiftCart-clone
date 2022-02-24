@@ -57,6 +57,14 @@ app.use("/index", (req, res) => {
   }
 });
 
+app.use("/admin", (req, res) => {
+  try {
+    res.render("admin");
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+
 app.use("/checkout", (req, res) => {
   try {
     res.render("checkout");
