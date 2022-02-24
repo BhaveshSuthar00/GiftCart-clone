@@ -46,16 +46,20 @@
 
         <!-- display and details div start form here -->
         <div id="Sam_Display_nd_details">
-          <div id="Sam_image_display"></div>
+          <div id="Sam_image_display">
+            <img src="<%= item.image %>" alt="<%= item.product %>">
+          </div>
           <div id="Sam_details_display">
-                <h1 class="common">Personalised Love Wall Tiles MDF Set of 4</h1>
-                <div id="sam_product_spec">
-                    <div id="sam_id">#CM09FSSD178<span>|</span></div>
-                    <div id="sam_rating">26 REVIEWS<span>|</span></div>
-                    <div id="sam_rating_star">
-                        <!-- <span class="fa fa-star sam_checked"></span>
-                        <span class="fa fa-star sam_checked"></span>
-                        <span class="fa fa-star sam_checked"></span>
+                
+                <!-- ejs loop ends here -->
+                <h1 class="common"><div%= item.product %></hh1>
+                    <div id="sam_product_spec">
+                        <div id="sam_id">#CM09FSSD178<span>|</span></div>
+                        <div id="sam_rating">26 REVIEWS<span>|</span></div>
+                        <div id="sam_rating_star">
+                            <!-- <span class="fa fa-star sam_checked"></span>
+                                <span class="fa fa-star sam_checked"></span>
+                                <span class="fa fa-star sam_checked"></span>
                         <span class="fa fa-star sam_checked"></span>
                         <span class="fa fa-star"></span> -->
                         <span class="Bs_star_image_div">
@@ -66,13 +70,40 @@
                             <i class="far fa-star"></i>
                         </span>
                         <span>|</span></div>
-                    <div id="sam_rating_add"><img src="./images/pen.png">ADD REVIEW</div>
-                </div>
-                <h3  class="common"><span class="sam_priceValue">MRP(incl gst)</span><span id="Sam_add_price_here"></span></h3>
-                <h3 class="common sam_priceValue">Your Save <span id="sam_save_amount"></span></h3>
-                <div id="sam_delivery_report"><img src="./images/green-tick-checkmark-icon-vector-22691505.jpg"><div>Free Shipping</div></div>
-                <div id="sam_related_to_del" class="common"><div>Delivery 4 - 6 Working Days</div><div id="sam_delevery_check"><img src="./images/icoredlog.png"><div id="sam_picode_check" onclick=toggle_div_visibility()>Delivery Coverage & Charges</div></div></div>
-                <div id="sam_delievry_pincode_check" >
+                        <div id="sam_rating_add"><img src="./images/pen.png">ADD REVIEW</div>
+                    </div>
+                    <div>
+
+                        <div id="bs_h3_price">
+                            <span class="sam_priceValue">
+                                MRP(incl gst)
+                            </span>
+                            <span id="Sam_add_price_here">
+                                <p style="color: red">&#8377</p>
+                                <p class="bs_priceValue"><%= item.price %></p>
+                                <p>&#8377</p>
+                                <p><%= item.price+900 %></p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="bs_yourSave">
+                        <p>
+                            Your Save 
+                            <span style="color:red">
+                                10%
+                            </span>
+                        </p>
+                    </div>
+
+                   
+                    <div id="sam_delivery_report">
+                        <img src="./images/green-tick-checkmark-icon-vector-22691505.jpg">
+                        <div>
+                            Free Shipping
+                        </div>
+                    </div>
+                    <div id="sam_related_to_del" class="common"><div>Delivery 4 - 6 Working Days</div><div id="sam_delevery_check"><img src="./images/icoredlog.png"><div id="sam_picode_check" onclick=toggle_div_visibility()>Delivery Coverage & Charges</div></div></div>
+                    <div id="sam_delievry_pincode_check" >
                     <!-- hidden div for delievry check picode ---->
                     <input id="sam_input_pincode" type="number" class="common" placeholder="Please Enter Your City Pincode">
                     <div id="sam_please_wait_message"></div>
@@ -81,7 +112,29 @@
 
                     <!-- hidden div which will appper and disapper on click -->
                 </div>
-                <div id="sam_cartItem_retated" class="common"><div id="sam_item_count"><div id="sam_subtracting_count" class="curser">-</div><div id="sam_display_value_count"></div><div id="sam_adding_count" class="curser">+</div></div><div id="sam_add_to_cart" class="common curser">ADD TO CART</div><div class="curser color" id="sam_add_to_cart">BUY NOW</div></div>
+                <div id="sam_cartItem_retated" class="common">
+                    <div id="sam_item_count">
+                        <div id="sam_subtracting_count" class="curser">
+                            -
+                        </div>
+                        <div id="sam_display_value_count">
+
+                        </div>
+                        <div id="sam_adding_count" class="curser">
+                            +
+                        </div>
+                    </div>
+                    <div id="sam_add_to_cart" class="common curser">
+                        <form action="/cart/<%- item._id %>">
+                            <button type="submit">
+                                ADD TO CART
+                            </button>
+                        </form>
+                    </div>
+                <div class="curser color" onclick="buyNow(' <% item._id  %>')" id="sam_add_to_cart">
+                    BUY NOW
+                </div>
+            </div>
                 <div id="sam_wishlist">
                     <!-- <div id="sam_heart">
                         <div class="sam_heart_rigth sam_heart" id="sam_heart_common">.</div>
@@ -133,7 +186,7 @@
     
 </body>
 </html>
-<script src="./scripts/shopItem.js"></script>
+<script src="/scripts/shopItem.js"></script>
 <script type="module">
 // navbar html are imported here
 import navbar_part from "./components/navbar.js";

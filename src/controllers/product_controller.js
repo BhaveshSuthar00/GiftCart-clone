@@ -14,8 +14,10 @@ router.get("/jewellery", async (req, res) => {
 
 router.get("/perfume", async (req, res) => {
   try {
-    // const items = await Product.find().lean().exec();
-    res.render("perfume");
+    const items = await Product.find({ sub_category: "perfumes" })
+      .lean()
+      .exec();
+    res.render("perfume", { products: items });
   } catch (err) {
     res.send(err.message);
   }
@@ -28,4 +30,5 @@ router.get("/random", async (req, res) => {
     res.send(err.message);
   }
 });
+
 module.exports = router;

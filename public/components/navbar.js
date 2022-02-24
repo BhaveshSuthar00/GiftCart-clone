@@ -176,7 +176,7 @@ async function navbar_part(){
         <div>
           <ul>
             <a href="#"><li>Naughty</li></a>
-            <a href="./product/perfume"><li>Perfumes</li></a>
+            <a href="/product/perfume"><li>Perfumes</li></a>
           </ul>
           <a href="#"><h3>Personalised Gifts</h3></a>
           <ul>

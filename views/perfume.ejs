@@ -64,7 +64,53 @@
  
 
     <div id="jewellery_container">
-        
+        <% products.forEach(function(element) { %>  %>
+            <a href="/shopitem/<%- element._id %>">
+                <div class="divmain">
+                    <img src="<%= element.image %>" alt="">
+                    <div class="main_titleDiv">
+                        <div><!-- title_div  -->
+                            <p>
+    
+    
+                                <%= element.product %>
+                            </p>
+                        </div>
+                        <div class="heart_div">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+    
+                    <div class="mrp_div">
+                        <div>
+                            <p>
+                                MRP (incl gst)
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                ₹<%= element.price %>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <%= element.price %>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="start_div">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    
+                </div>
+            </a>
+            <!-- ejs loop ends here -->
+            <% }) %>
 
     </div>
     <div id="jewellery_info">
