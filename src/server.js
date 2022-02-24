@@ -9,24 +9,22 @@ const connect = require("./conflig/db");
 
 // product will have all the data
 const Product = require("./models/product.model");
-const productController = require('./controllers/product_controller')
+const productController = require("./controllers/product_controller");
 // user will be the current user who is visiting the site
 const User = require("./models/user.model");
-const userController = require('./controllers/user_controller')
+const userController = require("./controllers/user_controller");
 
 // wishlist will be depending on user parent child relationship
 const Wishlist = require("./models/wishlist.model");
-const wishlistController = require('./controllers/wishlist_controller')
+const wishlistController = require("./controllers/wishlist_controller");
 
 // cart will be depending on user parent child relationship
 const Cart = require("./models/cart.model");
-const cartController = require('./controllers/cart_controller')
+const cartController = require("./controllers/cart_controller");
 
 // address will be depending on user parent child relationship
 const Address = require("./models/address.model");
-const addressController = require('./controllers/address_controller')
-
-
+const addressController = require("./controllers/address_controller");
 
 const static_path = path.join(__dirname, "../public");
 
@@ -67,10 +65,17 @@ app.get("/shopitem/:id",async(req,res)=>{
 
 app.use("/wishlist_layout", wishlistController);
 
-
 app.use("/index", (req, res) => {
   try {
     res.render("index");
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+
+app.use("/admin", (req, res) => {
+  try {
+    res.render("admin");
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
