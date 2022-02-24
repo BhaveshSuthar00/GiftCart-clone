@@ -112,7 +112,29 @@
 
                     <!-- hidden div which will appper and disapper on click -->
                 </div>
-                <div id="sam_cartItem_retated" class="common"><div id="sam_item_count"><div id="sam_subtracting_count" class="curser">-</div><div id="sam_display_value_count"></div><div id="sam_adding_count" class="curser">+</div></div><div id="sam_add_to_cart" class="common curser">ADD TO CART</div><div class="curser color" id="sam_add_to_cart">BUY NOW</div></div>
+                <div id="sam_cartItem_retated" class="common">
+                    <div id="sam_item_count">
+                        <div id="sam_subtracting_count" class="curser">
+                            -
+                        </div>
+                        <div id="sam_display_value_count">
+
+                        </div>
+                        <div id="sam_adding_count" class="curser">
+                            +
+                        </div>
+                    </div>
+                    <div id="sam_add_to_cart" class="common curser">
+                        <form action="/cart/<%- item._id %>">
+                            <button type="submit">
+                                ADD TO CART
+                            </button>
+                        </form>
+                    </div>
+                <div class="curser color" onclick="buyNow(' <% item._id  %>')" id="sam_add_to_cart">
+                    BUY NOW
+                </div>
+            </div>
                 <div id="sam_wishlist">
                     <!-- <div id="sam_heart">
                         <div class="sam_heart_rigth sam_heart" id="sam_heart_common">.</div>

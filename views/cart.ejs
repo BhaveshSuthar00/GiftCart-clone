@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart Page</title>
-    <link rel="stylesheet" href="./styles/landing_page.css" />
-    <link rel="stylesheet" href="./styles/footer.css">
-    <link rel="stylesheet" href="./styles/cart.css">
+    <link rel="stylesheet" href="/styles/landing_page.css" />
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/cart.css">
     <script
     src="https://kit.fontawesome.com/2281802e38.js"
     crossorigin="anonymous"
@@ -26,9 +26,9 @@
     <div class="nav_bar_container"></div>
 
     <div id="Bs-link-to-home">
-        <a href="./index">Home</a>
+        <a href="/index">Home</a>
         <span>/</span>
-        <a href="./perfume">shopping</a>
+        <a href="/perfume">shopping</a>
     </div>
     <div id="Bs_main_div">
         <div id="Bs_product_list">
@@ -45,11 +45,52 @@
                         </tr>
                     </thead>
                     <tbody id="Bs_table_data">
-                        
+                        <% items.forEach(function(items){ %>
+                        <tr>
+                            <td>
+                                <div class="Bs_remove_div">
+                                    <button>
+                                        <span>
+                                            MOVE TO WHISHLIST
+                                        </span> 
+                                        <img  src="https://www.publicdomainpictures.net/pictures/50000/velka/pencil-silhouette.jpg" height="15" alt="">
+                                    </button>
+                                    <form action="/cart/remove/<%- items._id  %>">
+                                    <button type="submit" class="Bs_delete_icon">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                    </form>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="Bs_item_div_intable">
+                                    <img src="<%= items.image %>" alt="">
+                                    <h4>
+                                        <%= items.product %>
+                                    </h4>
+                                </div>
+                            </td>
+                            <td class="Bs_product_price">
+                                ₹<%= items.price %>
+                            </td>
+                            <td>
+                                <div class="Bs_qty_div">
+                                    <input class="product_count" type="number" value="1">
+                                    <button class="Bs_update_btn">
+                                        UPDATE
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="Bs_product_price2">
+                                ₹<%= items.price %>
+                            </td>
+                        </tr>
+                        <% }) %>
+
                     </tbody>
                 </table>
                 <div class="Bs_continue_btn_div">
-                    <a href="./index"><button>CONTINUE SHOPPING</button></a>
+                    <a href="/index"><button>CONTINUE SHOPPING</button></a>
                 </div>
             </div>
         </div>
@@ -67,7 +108,7 @@
                    </p>
                </div>
                <div id="Bs_checkout_list_div2">
-                    <a href="./checkout"><button>PROCEED TO CHECKOUT</button></a>
+                    <a href="/checkout"><button>PROCEED TO CHECKOUT</button></a>
                </div>
                <div id="Bs_checkout_list_div3">
                     <p>APPLY DISCOUNT CODE</p>
@@ -82,8 +123,11 @@
     </div>
 </body>
 </html>
+<script>
+
+</script>
 <script type="module">
-    import footer from "./components/footer.js";
+    import footer from "/components/footer.js";
     let footerDiv=document.getElementById("footer");
     footerDiv.innerHTML=footer();
 </script>
@@ -91,11 +135,11 @@
 
 <script type="module">
     // navbar html are imported here
-    import navbar_part from "./components/navbar.js";
+    import navbar_part from "/components/navbar.js";
     let navbar_com = await navbar_part();
     document.querySelector(".nav_bar_container").innerHTML = navbar_com;
     // navbar logic are imported here
-    import navbar_responsive from "./scripts/header.js";
+    import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
     let getcart = JSON.parse(localStorage.getItem('productlist'));
 
@@ -107,61 +151,4 @@
     clickdiv.addEventListener('click',()=>{
         window.location.href = './product/random'
     })
-</script>
-<script type="module">
-
-    var arr = JSON.parse(localStorage.getItem('productlist')) || [];
-    
-    let main_div = document.getElementById('Bs_table_data');
-
-    import displayTable from "./components/cart2.js";
-    
-    let total2 = document.querySelector('.Bs_total_price2');
-    async function display() {
-        try {
-            let response = await displayTable(arr,main_div);
-            let total = document.querySelector('.Bs_total_price');
-            total.innerText = null;
-            total.innerText = response;
-            
-            total2.innerText = null;
-            total2.innerText = response;
-        
-        }
-        catch(error) {
-            console.log('error',error);
-        }
-    }
-
-    display();
-
-    
-    let chee = document.getElementById('Bs_checkout_list_div2');
-    chee.addEventListener('click',()=>{
-        let dp2 = document.getElementsByClassName('product_count');
-        for(let i = 0; i<dp2.length; i++){
-            arr[i].product_count = dp2[i].value;
-        }
-        localStorage.setItem('productlist',JSON.stringify(arr));
-    })
-
-    let btnss = document.querySelectorAll('#Bs_update_btn');
-    for(let i = 0; i<btnss.length; i++){
-        btnss[i].addEventListener('click',dd);
-
-    }
-    function dd() {
-        var tt = 0;
-        let total_price = document.getElementsByClassName('Bs_product_price2');
-        for(let i = 0; i<total_price.length; i++){
-        tt += Number(total_price[i].textContent);
-        }
-        total2.innerText = null;
-        total2.innerText = tt;
-        // if(tt === undefined){
-        //     console.log(tt)
-        // }
-        localStorage.setItem('total_price',JSON.stringify(tt));
-    }
-    
 </script>
