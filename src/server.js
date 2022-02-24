@@ -81,6 +81,9 @@ app.use("/payment", (req, res) => {
   }
 });
 
+app.use("/register", userController);
+
+
 app.listen(port, async () => {
   try {
     await connect();

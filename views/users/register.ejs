@@ -1,0 +1,56 @@
+<!-- <%- include("../_html", {title: "Users New page", cssLink: "/styles/landing_page.css"}) %> -->
+
+  <body>
+    <div id="karthik_create_container">
+      <div id="create_header">
+        <h2 style="color: white">
+          <img
+            src="https://style.giftcart.com/pub/static/frontend/Mgs/molly/en_US/Mageplaza_SocialLogin/css/images/create-account-title.png"
+            alt=""
+          />
+          Create New Account
+        </h2>
+        <button id="karthik_cross_btn">x</button>
+      </div>
+
+      <div id="details">
+        <form
+          id="createaccount"
+          action="http://localhost:2000/users"
+          method="post"
+          onsubmit="onSubmitHandler"
+        >
+          <div id="div1">
+            <input type="text" id="name" placeholder="First Name" required />
+            <input
+              type="text"
+              id="last_name"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+
+          <div id="div2">
+            <label for="email">Email</label><br />
+            <input type="text" id="email" required /><br />
+          </div>
+          <input type="text" id="username" value="1" style="display: none" />
+
+          <div id="div3">
+            <label>Password</label><br />
+            <input type="password" id="password" required /><br />
+          </div>
+
+          <div id="div4">
+            <label>Confirm Password</label><br />
+            <input type="password" id="confirm_password" required /><br />
+          </div>
+
+          <!-- <input type="submit"><br> -->
+          <button id="create_btn" type="submit">CREATE AN ACCOUNT</button><br />
+          <a href="#" id="back_click">Back</a>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
