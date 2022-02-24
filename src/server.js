@@ -45,29 +45,31 @@ app.set("view engine", "ejs");
 app.use("/cart", cartController);
 app.use("/admin", adminController);
 
+app.use("/product", productController);
 
-app.use("/product", productController) 
-
-app.use('/cart/currentuser/:id', async (req, res) =>{
+app.use("/cart/currentuser/:id", async (req, res) => {
   try {
-      const items = await Cart.findOne({user_id : req.params.id}).populate({path : "product_ids"}).lean().exec();
-      res.render('cart', { items : items.product_ids });
+    const items = await Cart.findOne({ user_id: req.params.id })
+      .populate({ path: "product_ids" })
+      .lean()
+      .exec();
+    res.render("cart", { items: items.product_ids });
   } catch (err) {
-      res.send(err.message);
-  }
-})
-app.get("/shopitem/:id",async(req,res)=>{
-  try {
-    const item = await Product.findById(req.params.id).lean().exec();
-    res.render('shopitem', {item})
-  }catch(err){
     res.send(err.message);
   }
-})
+});
+app.get("/shopitem/:id", async (req, res) => {
+  try {
+    const item = await Product.findById(req.params.id).lean().exec();
+    res.render("shopitem", { item });
+  } catch (err) {
+    res.send(err.message);
+  }
+});
 
 app.use("/wishlist_layout", wishlistController);
 
-app.use("/index", (req, res) => {
+app.use("/", (req, res) => {
   try {
     res.render("index");
   } catch (err) {
