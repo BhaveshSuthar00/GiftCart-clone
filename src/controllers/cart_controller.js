@@ -5,6 +5,7 @@ const router = express.Router();
 const Cart = require("../models/cart.model");
 
 let user_id = "621741278586c460df80110e";
+
 router.get('/remove/:id', async (req,res)=> {
     try {
         const items = await Cart.updateOne({user_id : user_id}, {$pull : {product_ids : req.params.id}}).lean().exec();
@@ -14,7 +15,6 @@ router.get('/remove/:id', async (req,res)=> {
         res.send(err.message);
     }
 })
-
 router.get('/:id', async (req, res) =>{
     try {
         let item_push = req.params.id;

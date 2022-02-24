@@ -43,9 +43,19 @@ app.set("view engine", "ejs");
 
 app.use("/cart", cartController);
 
-
+let user_id;
+module.exports = user_id;
 app.use("/product", productController) 
-
+app.post('/regist/accoutn' , async(req,res)=>{
+  try { 
+    const items = await User.create({});
+    req.user = user_id;
+    
+  }
+  catch(err){ 
+    res.send(err);
+  }
+})
 app.use('/cart/currentuser/:id', async (req, res) =>{
   try {
       const items = await Cart.findOne({user_id : req.params.id}).populate({path : "product_ids"}).lean().exec();
