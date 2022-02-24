@@ -17,26 +17,44 @@ router.get("", async (req, res) => {
     res.send(err.message);
   }
 });
-
+let user_id;
 router.post("/users", async (req, res) => {
-    try {
-    const new_user = await User.create({
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      email: req.body.email,
-      password: req.body.password,
-      confirm_password: req.body.confirm_password,
-    });
-    console.log(new_user);
-    // const users = await User.find().lean().exec();
+  try {
+    if (req.body.password === req.body.confirm_password) {
+      const new_user = await User.create({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        password: req.body.password,
+        confirm_password: req.body.confirm_password,
+      });
+      // console.log(new_user);
+      user_id = new_user;
+      // module.exports = user_id;
+      // const users = await User.find().lean().exec();
       res.redirect("/index");
-      // document.location.href = "/index"
-    } catch (err) {
-      res.send(err.message);
     }
-  });
 
+    // document.location.href = "/index"
+  } catch (err) {
+    res.send(err.message);
+  }
+});
 
+router.get("/login", async (req, res) => {
+  try {
+    const user = await User.findOne({
+      email: { $eq: req.body.email },
+      password: { $eq: req.body.password },
+    })
+      .lean()
+      .exec();
+    if (!user) return res.send("Wrong Email or Password");
+    res.redirect("/index");
+  } catch (error) {
+    res.send(error.message);
+  }
+});
 
 const newToken = (user) => {
   return jwt.sign({ user }, process.env.JWT_SECRET_KEY);
@@ -71,18 +89,19 @@ const login = async (req, res) => {
     const match = user.checkPassword(req.body.password);
     if (!match) {
       return res.status(404).send({ message: "Incorrect Email or Password" });
-    }    
+    }
     const token = newToken(user);
 
     res.send({ user, token });
- 
   } catch (error) {
     res.send(error.message);
   }
 };
 
-module.exports = { register, login, newToken };
 // Try `npm i --save-dev @types/jsonwebtoken` if it exists or add a new declaration
 // (.d.ts) file containing `declare module 'jsonwebtoken';`
+module.exports = { user_id };
 
 module.exports = router;
+
+// module.exports = { register, login, newToken};

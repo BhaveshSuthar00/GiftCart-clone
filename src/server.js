@@ -41,6 +41,15 @@ app.set("view engine", "ejs");
 
 // use the following routes to render your page with the data you required for your page
 // app.use("/admin", adminController);
+function updateRequestMethod(req, res, next) {
+  if (req.body.method) {
+    req.method = req.body.method; // req.method = "delete" route = /users/:id
+    return next();
+  }
+  return next();
+}
+
+app.use(updateRequestMethod);
 
 app.use("/cart", cartController);
 
@@ -78,7 +87,11 @@ app.use("/payment", (req, res) => {
   }
 });
 
+const {user_id} = require("./controllers/user_controller")
+
 app.use("/register", userController);
+
+console.log(user_id);
 
 app.listen(port, async () => {
   try {
