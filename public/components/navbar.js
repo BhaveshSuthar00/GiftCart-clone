@@ -52,7 +52,7 @@ async function navbar_part(){
             </span>
           </div>
           <div class="cart">
-          <a href="./cart">
+          <a href="./cart.html">
             <span><i class="fas fa-shopping-cart"></i></span>
             <span id="cart_cc" class="cart-count">0</span>
             </a>
@@ -66,7 +66,7 @@ async function navbar_part(){
     <!-- top nav search -->
     <div class="mid_search">
       <div class="gift_logo">
-        <a href="./index">
+        <a href="./index.html">
         <img
           src="https://style.giftcart.com/pub/media/logo/stores/1/GC-logo-with-punchline.png"
           alt=""
@@ -167,7 +167,7 @@ async function navbar_part(){
           <a href="#"><h3>Hatke Gifts</h3></a>
           <ul>
             <a href="#"><li>Home & Living</li></a>
-            <a href="./jewellery"><li>Jewellery</li></a>
+            <a href="./jewellery.html"><li>Jewellery</li></a>
             <a href="#"><li>Kids</li></a>
             <a href="#"><li>Love & Romance</li></a>
           </ul>
@@ -176,7 +176,7 @@ async function navbar_part(){
         <div>
           <ul>
             <a href="#"><li>Naughty</li></a>
-            <a href="./perfume"><li>Perfumes</li></a>
+            <a href="./perfume.html"><li>Perfumes</li></a>
           </ul>
           <a href="#"><h3>Personalised Gifts</h3></a>
           <ul>
@@ -474,9 +474,9 @@ async function navbar_part(){
       <ul id="karthik_d">
         <li><a href="#">My Account</a></li>
         <li><a href="#">My Orders</a></li>
-        <li><a href="/wishlist_layout">My Wish List</a></li>
-        <li><a href="#" id="karthik_createAct_click">Create Account</a></li>
-        <li><a href="#" id="karthik_sigin_click">Sign In</a></li>
+        <li><a href="./wishlist_layout.html">My Wish List</a></li>
+        <li><a href="/register" id="karthik_createAct_click">Create Account</a></li>
+        <li><a href="/register/login" id="karthik_sigin_click">Sign In</a></li>
       </ul>
     </div>
     <!-------------------------------------------- login box ---------------------------------------->
@@ -496,20 +496,17 @@ async function navbar_part(){
         <p>Registered Coustomers</p>
 
         <!-- <hr color="#c7c4c4" width="550px" /> -->
-        <form id="login_acc" action="/register/login" method="POST">
-        <input name="method" value="GET" type="hidden" id="username-login" />
+        <form id="login_acc">
           <div id="sdiv1">
             <label for="">Email</label><br />
-            <input name="email" type="email" id="username-login" /><br />
+            <input type="email" id="username-login" /><br />
           </div>
 
           <div id="sdiv2">
             <label for="">Password</label><br />
-            <input name="password" type="password" name="" id="password-login" />
+            <input type="password" name="" id="password-login" />
             <p>Forget Your Password?</p>
           </div>
-
-          
 
           <button type="submit" id="karthik_login_btn">LOGIN</button>
 
@@ -542,52 +539,6 @@ async function navbar_part(){
 
     <!---------------------------------- create account box --------------------------------------->
 
-    <div id="karthik_create_container">
-      <div id="create_header">
-        <h2 style="color: white">
-          <img
-            src="https://style.giftcart.com/pub/static/frontend/Mgs/molly/en_US/Mageplaza_SocialLogin/css/images/create-account-title.png"
-            alt=""
-          />
-          Create New Account
-        </h2>
-        <button id="karthik_cross_btn">x</button>
-      </div>
-
-      <div id="details">
-        <form id="createaccount">
-          <div id="div1">
-            <input type="text" id="name" placeholder="First Name" required />
-            <input
-              type="text"
-              id="last_name"
-              placeholder="Last Name"
-              required
-            />
-          </div>
-
-          <div id="div2">
-            <label for="email">Email</label><br />
-            <input type="text" id="email" required /><br />
-          </div>
-          <input type="text" id="username" value="1" style="display: none" />
-
-          <div id="div3">
-            <label>Password</label><br />
-            <input type="password" id="password" required /><br />
-          </div>
-
-          <div id="div4">
-            <label>Confirm Password</label><br />
-            <input type="password" id="confirm_password" required /><br />
-          </div>
-
-          <!-- <input type="submit"><br> -->
-          <button id="create_btn" type="submit">CREATE AN ACCOUNT</button><br />
-          <a href="#" id="back_click">Back</a>
-        </form>
-      </div>
-    </div>
   </header>`
 }
 export default navbar_part;

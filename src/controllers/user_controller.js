@@ -18,7 +18,7 @@ router.get("", async (req, res) => {
   }
 });
 let user_id;
-router.post("/users", async (req, res) => {
+router.post("/account", async (req, res) => {
   try {
     if (req.body.password === req.body.confirm_password) {
       const new_user = await User.create({
@@ -41,67 +41,83 @@ router.post("/users", async (req, res) => {
   }
 });
 
+
+
 router.get("/login", async (req, res) => {
   try {
-    const user = await User.findOne({
-      email: { $eq: req.body.email },
-      password: { $eq: req.body.password },
-    })
-      .lean()
-      .exec();
-    if (!user) return res.send("Wrong Email or Password");
-    res.redirect("/index");
-  } catch (error) {
-    res.send(error.message);
+    //   await User.create(req.body)
+    const user = await User.find().lean().exec();
+    res.render("login");
+  } catch (err) {
+    res.send(err.message);
   }
 });
 
+let user;
+
+router.get("/login/account", async (req, res) => {
+  try {
+    // console.log(req.body.email, "email");
+    user = await User.findOne({$and :[{email: { $eq: req.body.email },password: { $eq: req.body.password }}]})
+      .lean()
+      .exec();
+      
+      if (!user) return res.send("Wrong Email or Password");
+      res.redirect("/index");
+    } catch (error) {
+      res.send(error.message);
+    }
+  });
+  user.then(function(user){
+    console.log(user);
+  })
+  
+// localStorage.setItem()
 const newToken = (user) => {
   return jwt.sign({ user }, process.env.JWT_SECRET_KEY);
 };
 
-const register = async (req, res) => {
-  try {
-    let user = await userSchema
-      .findOne({ email: req.body.email })
-      .lean()
-      .exec();
+// const register = async (req, res) => {
+//   try {
+//     let user = await userSchema
+//       .findOne({ email: req.body.email })
+//       .lean()
+//       .exec();
 
-    if (user) return res.status(400).send({ message: "Existing User" });
+//     if (user) return res.status(400).send({ message: "Existing User" });
 
-    user = await userSchema.create(req.body);
+//     user = await userSchema.create(req.body);
 
-    const token = newToken(user);
+//     const token = newToken(user);
 
-    res.send({ user, token });
-  } catch (error) {
-    res.send(error.message);
-  }
-};
+//     res.send({ user, token });
+//   } catch (error) {
+//     res.send(error.message);
+//   }
+// };
 
-const login = async (req, res) => {
-  try {
-    const user = await userSchema.findOne({ email: req.body.email });
-    if (!user) {
-      return res.status(404).send({ message: "Incorrect Email or Password" });
-    }
+// const login = async (req, res) => {
+//   try {
+//     const user = await userSchema.findOne({ email: req.body.email });
+//     if (!user) {
+//       return res.status(404).send({ message: "Incorrect Email or Password" });
+//     }
 
-    const match = user.checkPassword(req.body.password);
-    if (!match) {
-      return res.status(404).send({ message: "Incorrect Email or Password" });
-    }
-    const token = newToken(user);
+//     const match = user.checkPassword(req.body.password);
+//     if (!match) {
+//       return res.status(404).send({ message: "Incorrect Email or Password" });
+//     }
+//     const token = newToken(user);
 
-    res.send({ user, token });
-  } catch (error) {
-    res.send(error.message);
-  }
-};
+//     res.send({ user, token });
+//   } catch (error) {
+//     res.send(error.message);
+//   }
+// };
 
 // Try `npm i --save-dev @types/jsonwebtoken` if it exists or add a new declaration
 // (.d.ts) file containing `declare module 'jsonwebtoken';`
-module.exports = { user_id };
+// module.exports = { user_id };
+// module.exports = { register, login, newToken };
 
 module.exports = router;
-
-// module.exports = { register, login, newToken};

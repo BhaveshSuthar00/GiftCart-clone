@@ -27,7 +27,8 @@ const Address = require("./models/address.model");
 const addressController = require("./controllers/address_controller");
 
 const static_path = path.join(__dirname, "../public");
-console.log('static_path:', static_path)
+
+// console.log('static_path:', static_path)
 
 const app = express();
 
@@ -71,6 +72,8 @@ app.use("/index", (req, res) => {
   }
 });
 
+
+
 app.use("/checkout", (req, res) => {
   try {
     res.render("checkout");
@@ -91,7 +94,7 @@ const {user_id} = require("./controllers/user_controller")
 
 app.use("/register", userController);
 
-console.log(user_id);
+// console.log(user_id);
 
 app.listen(port, async () => {
   try {

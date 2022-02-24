@@ -5,10 +5,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/styles/landing_page.css" />
+    <!-- <link rel="stylesheet" href="/styles/landing_page.css" /> -->
     <style>
       #karthik_create_container {
-        border: 1px solid red;
+        border: 1px solid black;
+        background-color: white;
+        width: 39%;
+        height: 570px;
+        margin-left: 30%;
+        /* top: 7%; */
+        font-family: "Lato", arial, tahoma;
+      }
+      #create_header {
+        padding: 0% 0% 2% 5%;
+        height: 55px;
+        display: flex;
+
+        background-color: red;
+      }
+
+      #karthik_create_icon {
+        width: 3%;
+        height: 50%;
+      }
+
+      #karthik_cross_btn {
+        background-color: transparent;
+        border: 0;
+        color: black;
+        font-size: large;
+        font-size: 25px;
+        margin-top: 7px;
+        margin-left: 25px;
+      }
+      #create_header > h2 {
+        padding-right: 38%;
+      }
+      #details {
+        padding: 4%;
+      }
+      #div1 {
+        padding-bottom: 4%;
+        display: flex;
+        gap: 25px;
+      }
+
+      #name {
+        width: 50%;
+      }
+
+      #last_name {
+        width: 50%;
+      }
+
+      #back_click {
+        color: black;
+        text-decoration: none;
+      }
+
+      #div1 > input {
+        padding: 10px 0px;
+        padding-left: 2%;
+        /* margin-right: 25px; */
+        border: 1px solid #c7c4c4;
+      }
+      
+      #div2 {
+        padding-bottom: 4%;
+        width: 100%;
+      }
+
+      #div2 > input {
+        padding-left: 2%;
+        height: 40px;
+        border: 1px solid #c7c4c4;
+        width: 97.5%;
+      }
+
+
+      #div3 {
+        padding-bottom: 4%;
+        width: 100%;
+      }
+
+      #div3 > input {
+        padding-left: 2%;
+        height: 40px;
+        border: 1px solid #c7c4c4;
+        width: 97.5%;
+      }
+
+      #div4 {
+        padding-bottom: 4%;
+        padding-bottom: 10%;
+        width: 100%;
+      }
+
+      #div4 > input {
+        padding-left: 2%;
+        height: 40px;
+        border: 1px solid #c7c4c4;
+        width: 97.5%;
+      }
+
+      #create_btn {
+        border: 0;
+        background-color: red;
+        color: white;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 20px;
       }
     </style>
   </head>
@@ -27,7 +133,7 @@
       </div>
 
       <div id="details">
-        <form id="createaccount">
+        <form id="createaccount" action="/register/account" method="POST">
           <div id="div1">
             <input
               name="first_name"
@@ -79,7 +185,7 @@
 
           <!-- <input type="submit"><br> -->
           <button id="create_btn" type="submit">CREATE AN ACCOUNT</button><br />
-          <a href="#" id="back_click">Back</a>
+          <a href="/index" id="back_click">Back</a>
         </form>
       </div>
     </div>
