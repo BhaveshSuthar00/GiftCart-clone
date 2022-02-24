@@ -113,6 +113,8 @@
 }
 .Bs_delete_icon {
     margin: auto;
+    border: none;
+    background-color: transparent;
     font-size: 20px;
     color: rgb(190, 189, 189);
 }

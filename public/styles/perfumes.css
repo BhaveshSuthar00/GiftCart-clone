@@ -5,7 +5,10 @@
 body {
   background: #ffffff;
 }
-
+#jewellery_container>a {
+  text-decoration: none;
+  color:  black;
+}
 #jewellery_header {
   border: 1px solid white;
   top: 20px;

@@ -25,6 +25,7 @@ const cartController = require("./controllers/cart_controller");
 // address will be depending on user parent child relationship
 const Address = require("./models/address.model");
 const addressController = require("./controllers/address_controller");
+const adminController = require("./controllers/admin_controller");
 
 const static_path = path.join(__dirname, "../public");
 
@@ -53,18 +54,33 @@ function updateRequestMethod(req, res, next) {
 app.use(updateRequestMethod);
 
 app.use("/cart", cartController);
-
-app.use("/checkout.html", (req, res) => {
-  res.render("checkout");
-});
+app.use("/admin", adminController);
 
 app.use("/product", productController);
 
+app.use("/cart/currentuser/:id", async (req, res) => {
+  try {
+    const items = await Cart.findOne({ user_id: req.params.id })
+      .populate({ path: "product_ids" })
+      .lean()
+      .exec();
+    res.render("cart", { items: items.product_ids });
+  } catch (err) {
+    res.send(err.message);
+  }
+});
+app.get("/shopitem/:id", async (req, res) => {
+  try {
+    const item = await Product.findById(req.params.id).lean().exec();
+    res.render("shopitem", { item });
+  } catch (err) {
+    res.send(err.message);
+  }
+});
+
 app.use("/shopitem", productController);
 
-app.use("/wishlist_layout", wishlistController);
-
-app.use("/index", (req, res) => {
+app.use("/", (req, res) => {
   try {
     res.render("index");
   } catch (err) {
@@ -72,7 +88,13 @@ app.use("/index", (req, res) => {
   }
 });
 
-
+app.use("/admin", (req, res) => {
+  try {
+    res.render("admin");
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
 
 app.use("/checkout", (req, res) => {
   try {
