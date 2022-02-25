@@ -75,16 +75,16 @@
   </body>
 </html>
 
-<script src="./scripts/wishlist_layout.js">
+<script src="/scripts/wishlist_layout.js">
 
 </script>
 <script type="module">
   // navbar html are imported here
-  import navbar_part from "./components/navbar.js";
+  import navbar_part from "/components/navbar.js";
   let navbar_com = await navbar_part();
   document.querySelector(".nav_bar_container").innerHTML = navbar_com;
   // navbar logic are imported here
-  import navbar_responsive from "./scripts/header.js";
+  import navbar_responsive from "/scripts/header.js";
   await navbar_responsive();
   let getcart = JSON.parse(localStorage.getItem('productlist'));
 

@@ -1,102 +1,12 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const router = express.Router();
 
 const Product = require("../models/product.model");
 
-
-router.get("", async (req, res) => {
-  try {
-    let products = await Product.find().lean().exec();
-    return res.status(200).send(products);
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
-
-router.get("/single/:id", async (req, res) => {
-  try {
-    let product;
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-      product = await Product.find({ id: req.params.id }).lean().exec();
-      return res.status(200).send(product);
-    }
-    product = await Product.findById(req.params.id).lean().exec();
-    return res.status(200).send(product);
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
-
-router.delete("/single/:id", async (req, res) => {
-  try {
-    let product;
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-      product = await Product.findOneAndDelete({ id: req.params.id })
-        .lean()
-        .exec();
-      return res.status(200).send(product);
-    }
-    product = await Product.findByIdAndDelete(req.params.id).lean().exec();
-    return res.status(200).send(product);
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
-
-router.patch("/single/:id", async (req, res) => {
-  try {
-    let product;
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-      product = await Product.findOneAndUpdate(
-        { id: req.params.id },
-        req.body,
-        { new: true }
-      );
-      return res.status(200).send(product);
-    }
-    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
-    return res.status(200).send(product);
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
-
-router.put("/single/:id", async (req, res) => {
-  try {
-    let product;
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-      product = await Product.findOneAndUpdate(
-        { id: req.params.id },
-        req.body,
-        { new: true }
-      );
-      return res.status(200).send(product);
-    }
-    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
-    return res.status(200).send(product);
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
-
-router.post("", async (req, res) => {
-  try {
-    let product = await Product.create(req.body);
-    return res.status(200).send(product);
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
-
 router.get("/jewellery", async (req, res) => {
   try {
-    // const items = await Product.find().lean().exec();
-    res.render("jewellery");
+    const items = await Product.find({category : "jewellery"}).lean().exec();
+    res.render("jewellery", { products: items });
   } catch (err) {
     res.send(err.message);
   }
@@ -104,9 +14,10 @@ router.get("/jewellery", async (req, res) => {
 
 router.get("/perfume", async (req, res) => {
   try {
-
-    const items = await Product.find({sub_category : "perfumes"}).lean().exec();
-    res.render("perfume", {products : items});
+    const items = await Product.find({ sub_category: "perfumes" })
+      .lean()
+      .exec();
+    res.render("perfume", { products: items });
   } catch (err) {
     res.send(err.message);
   }
@@ -119,6 +30,5 @@ router.get("/random", async (req, res) => {
     res.send(err.message);
   }
 });
-
 
 module.exports = router;

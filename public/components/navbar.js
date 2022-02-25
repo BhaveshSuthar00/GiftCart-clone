@@ -66,7 +66,7 @@ async function navbar_part(){
     <!-- top nav search -->
     <div class="mid_search">
       <div class="gift_logo">
-        <a href="./index">
+        <a href="/index">
         <img
           src="https://style.giftcart.com/pub/media/logo/stores/1/GC-logo-with-punchline.png"
           alt=""
