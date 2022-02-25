@@ -119,18 +119,19 @@
         </div>
     </div>
     <div style="margin-top: 20px;" id="footer">
-      
+        <%- include("../public/components/footer.html") %>
+        
     </div>
 </body>
 </html>
 <script>
 
 </script>
-<script type="module">
+<!-- <script type="module">
     import footer from "/components/footer.js";
     let footerDiv=document.getElementById("footer");
     footerDiv.innerHTML=footer();
-</script>
+</script> -->
 
 
 <script type="module">
@@ -141,11 +142,8 @@
     // navbar logic are imported here
     import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
-    let getcart = JSON.parse(localStorage.getItem('productlist'));
-
     // console.log(getcart.length)
-    let cart_count = document.getElementById('cart_cc');
-    cart_count.textContent = `${getcart.length}`;
+
 
     let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
