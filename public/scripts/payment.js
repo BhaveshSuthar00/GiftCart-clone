@@ -65,7 +65,7 @@ function HardCode(event) {
     }
     else {
         alert('Your payment is successful, Thank you using giftcard.')
-        window.location.href = './index.html';
+        window.location.href = './index';
     }
 }
 

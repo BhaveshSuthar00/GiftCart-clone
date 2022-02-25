@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="./styles/landing_page.css" />
+
+    <link rel="stylesheet" href="./styles/payment.css" />
+    <script
+      src="https://kit.fontawesome.com/2281802e38.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://style.giftcart.com/pub/media/favicon/stores/1/16x16.png"
+    />
+  </head>
+  <body>
+    <div class="nav_bar_container"></div>
+
+    <div class="Bs_orange_line_div">
+      <div class="Bs_orange1">
+        <p class="Bs_number">1</p>
+        <div class="Bs_line"></div>
+
+        <p>Shipping</p>
+      </div>
+      <div class="Bs_orange2">
+        <p class="Bs_number2">
+          <img
+            src="https://www.kindpng.com/picc/m/558-5584414_right-okay-check-icon-png-transparent-png.png"
+            alt=""
+          />
+        </p>
+        <div class="Bs_line2"></div>
+
+        <p>Review & Payments</p>
+      </div>
+    </div>
+    <div id="Bs_hardCode_pp"></div>
+    <div id="Bs_main">
+      <div id="Bs_main_div1">
+        <p id="Bs_your_details">PAYMENT METHOD</p>
+        <div id="Bs_payment_option">
+          <div id="Bs_payment_M1">
+            <label for="price1">
+              <input value="1" type="radio" name="priceunder7700" id="price1" />
+              <span id="radio1"
+                >Razorpay - Credit & Debit Card/Net Banking/UPI</span
+              > </label
+            ><br />
+          </div>
+          <!-- <div><label for="Bs_new_address">
+                    <input id="Bs_new_address" type="checkbox">
+                    My billing is same as my shipping address
+                </label></div> -->
+          <div id="Bs_payment_method1">
+            <p class="Bs_username">name</p>
+            <p class="Bs_address">address</p>
+            <p>india</p>
+            <p class="Bs_phone_number">8639245924</p>
+            <button id="rzp-button1" class="Bs_payment_btn1">
+              PAY WITH RAZORPAY
+            </button>
+          </div>
+
+          <div id="Bs_payment_M2">
+            <label for="price2">
+              <input value="2" type="radio" name="priceunder7700" id="price2" />
+              <span id="radio2"
+                >PayU - Credit & Debit Card/ Net Banking/Tez</span
+              > </label
+            ><br />
+          </div>
+
+          <div id="Bs_payment_method2">
+            <p class="Bs_username">name</p>
+            <p class="Bs_address">address</p>
+            <p>india</p>
+            <p class="Bs_phone_number">8639245924</p>
+            <button onclick="RazonPayment()" id="Bs_payment_btn2">
+              CONTINUE CHECKOUT
+            </button>
+          </div>
+
+          <div id="Bs_payment_M3">
+            <label for="price3">
+              <input value="3" type="radio" name="priceunder7700" id="price3" />
+              <span id="radio3">International Cards</span> </label
+            ><br />
+          </div>
+          <div id="Bs_payment_method3">
+            <p class="Bs_username">name</p>
+            <p class="Bs_address">address</p>
+            <p>india</p>
+            <p class="Bs_phone_number">8639245924</p>
+            <button id="Bs_payment_btn3">PLACE ORDER</button>
+          </div>
+        </div>
+        <div>
+          <p id="Bs_apply_discount">
+            <span>Apply Discount Code</span><img src="" alt="" />
+          </p>
+
+          <div id="Bs_apply_div">
+            <input
+              id="Bs_discount_code"
+              type="text"
+              placeholder="Enter discount code"
+            />
+            <br />
+            <input
+              onclick="discountApply()"
+              type="submit"
+              value="Apply Discount"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div id="Bs_main_div2">
+        <p id="Bs_order_ss">ORDER SUMMARY</p>
+        <div id="Bs_summary_order">
+          <p>
+            <span class="Bs_summary_span">Cart Subtotal</span
+            ><span id="Bs_cart_total"></span>
+          </p>
+          <p>
+            <span class="Bs_summary_span"
+              >Shipping Standard Delivery - Standard Delivery</span
+            ><span id="Bs_charges"></span>
+          </p>
+          <p>
+            <span class="Bs_summary_span">Order Total</span
+            ><span id="Bs_order_total"></span>
+          </p>
+        </div>
+        <div class="Bs_total_Citems_div">
+          <p id="Bs_total_Citems"></p>
+          <p id="Bs_dropdown_img">
+            <img
+              id="Bs_dropdown_img2"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbtqVPaCb-itwvDwpNDn0Tm_ifn7OYoEzvfVt7kollzUMi5wdWTUDnKRvrxIhANj6d420&usqp=CAU"
+              alt=""
+            />
+          </p>
+        </div>
+
+        <div id="Bs_cart_items_div"></div>
+
+        <div id="Bs_address_inright_div">
+          <p>SHIP TO</p>
+          <p class="Bs_username2"></p>
+          <p class="Bs_address2"></p>
+          <p class="Bs_state_country"></p>
+          <p class="Bs_phone_number2"></p>
+        </div>
+
+        <div id="Bs_method_dov">
+          <p>SHIPPING METHOD</p>
+          <p>Standard Delivery - Standard Delivery</p>
+        </div>
+        <div id="Bs_image_div">
+          <img
+            src="https://www.giftcart.com/pub/static/frontend/Mgs/molly/en_US/images/Covid--19-banner.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <div id="Bs_payment_hard_div">
+      <div id="Bs_payment_hard">
+        <div class="Bs_py_div1">
+          <button id="Bs_btn_for_payment">
+            <img
+              src="https://www.pinclipart.com/picdir/big/581-5814701_transparent-background-left-arrow-clipart.png"
+              alt=""
+            />
+            Pay Giftcart
+          </button>
+          <img
+            src="https://pbs.twimg.com/profile_images/890542589253869568/Dwz63L0E_400x400.jpg"
+            alt=""
+          />
+          <div>
+            <p id="total_amount"></p>
+            <p class="Bs_view_D">View Details</p>
+          </div>
+          <p>transaction id :0061653854388</p>
+        </div>
+        <div class="Bs_py_div2">
+          <div class="Bs_py_div2_part1">
+            <p>CARDS (CREDIT/DEBIT)</p>
+            <p></p>
+          </div>
+          <form onsubmit="HardCode(event)" class="Bs_py_div2_part2">
+            <p class="Bs_py_text">New Card</p>
+            <input
+              id="Bs_card_number"
+              class="Bs_inp"
+              type="text"
+              placeholder="Enter Card Number"
+              maxlength="16"
+            />
+            <p class="Bs_py_text2">CVV</p>
+            <input
+              id="BS_card_cvv"
+              class="Bs_py_input2"
+              type="text"
+              placeholder="Enter CVV"
+            />
+            <p class="Bs_py_text">Expiry</p>
+            <input
+              id="BS_card_expiry"
+              class="Bs_inp"
+              type="number"
+              placeholder="MM/YY"
+            />
+            <p class="Bs_py_text">Name on Card</p>
+            <input
+              id="Bs_card_username"
+              class="Bs_inp"
+              type="text"
+              placeholder="Enter Name as Card"
+            />
+            <div class="Bs_py_div2_inpart3">
+              <input id="checkbox_py" type="checkbox" />
+              <p><label for="checkbox_py">Save this option</label></p>
+            </div>
+            <div class="Bs_py_div2_inpart2">
+              <p>securely for faster payment</p>
+            </div>
+            <input class="Bs_button_submit" type="submit" value="PROCEED" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="/scripts/payment.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  document.getElementById("rzp-button1").onclick = function (e) {
+    let cart_Total = JSON.parse(localStorage.getItem("total_price"));
+
+    cart_Total = cart_Total * 100;
+
+    var options = {
+      key: "rzp_test_yZKzyRRfmE9355", // Enter the Key ID generated from the Dashboard
+      amount: `${cart_Total}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      currency: "INR",
+      name: "Giftcart.com",
+      description: "Test Transaction",
+      image:
+        "https://style.giftcart.com/pub/media/logo/stores/1/GC-logo-with-punchline.png",
+      // order_id: "order_Ef80WJDPBmAeNt", //Pass the `id` obtained in the previous step
+      // account_id: "acc_Ef7ArAsdU5t0XL",
+      handler: function (response) {
+        // alert(response.razorpay_payment_id);
+        // alert(response.razorpay_order_id);
+        // alert(response.razorpay_signature);
+        console.log(response);
+        if (response.razorpay_payment_id != undefined) {
+          alert(
+            `Transaction Successful. Transaction Id ${response.razorpay_payment_id}`
+          );
+          window.location.href = "/index";
+        }
+      },
+    };
+    var rzp1 = new Razorpay(options);
+    let y = rzp1.open();
+    e.preventDefault();
+  };
+</script>
+<script type="module">
+    // navbar html are imported here
+    import navbar_part from "/components/navbar.js";
+    let navbar_com = await navbar_part();
+    document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+    // navbar logic are imported here
+    import navbar_responsive from "/scripts/header.js";
+    await navbar_responsive();
+    let getcart = JSON.parse(localStorage.getItem('productlist'));
+
+    console.log(getcart.length)
+    let cart_count = document.getElementById('cart_cc');
+    cart_count.textContent = `${getcart.length}`;
+    let clickdiv = document.querySelector('.material-icons-outlined');
+    clickdiv.addEventListener('click',()=>{
+        window.location.href = '/product/random'
+    })
+  </script>

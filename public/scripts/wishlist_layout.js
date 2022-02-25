@@ -96,7 +96,7 @@ add_allto_cart.addEventListener("click", function () {
   localStorage.setItem("productlist", JSON.stringify(arr2));
   localStorage.setItem("wishListData", JSON.stringify(arr));
   console.log(arr2);
-  window.location.href = "./cart.html";
+  window.location.href = "./cart";
 });
 
 // let single_add_to_cart = document.getElementsByClassName('wishlist_add_to_cart');
