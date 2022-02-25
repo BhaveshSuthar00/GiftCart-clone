@@ -8,7 +8,7 @@ const router = express.Router();
 
 const User = require("../models/user.model");
 
-router.get("", async (req, res) => {
+router.get("/create", async (req, res) => {
   try {
     //   await User.create(req.body)
     const user = await User.find().lean().exec();

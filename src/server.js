@@ -54,6 +54,7 @@ function updateRequestMethod(req, res, next) {
 app.use(updateRequestMethod);
 
 app.use("/cart", cartController);
+
 app.use("/admin", adminController);
 
 app.use("/product", productController);
@@ -79,6 +80,8 @@ app.get("/shopitem/:id", async (req, res) => {
 });
 
 app.use("/shopitem", productController);
+
+app.use("/register", userController);
 
 app.use("/", (req, res) => {
   try {
@@ -112,9 +115,8 @@ app.use("/payment", (req, res) => {
   }
 });
 
-const {user_id} = require("./controllers/user_controller")
+// const {user_id} = require("./controllers/user_controller")
 
-app.use("/register", userController);
 
 // console.log(user_id);
 
