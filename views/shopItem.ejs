@@ -189,11 +189,11 @@
 <script src="/scripts/shopItem.js"></script>
 <script type="module">
 // navbar html are imported here
-import navbar_part from "./components/navbar.js";
+import navbar_part from "/components/navbar.js";
     let navbar_com = await navbar_part();
         document.querySelector(".nav_bar_container").innerHTML = navbar_com;
 // navbar logic are imported here
-import navbar_responsive from "./scripts/header.js";
+import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
         let getcart = JSON.parse(localStorage.getItem('productlist'));
 // console.log(getcart.length)
@@ -207,6 +207,6 @@ import navbar_responsive from "./scripts/header.js";
 
 <!-- below script is use for footer import to page -->
 <script type="module">
-    import footer from "./components/footer.js"
+    import footer from "/components/footer.js"
         document.getElementById("sam_footer").innerHTML=footer();
 </script>

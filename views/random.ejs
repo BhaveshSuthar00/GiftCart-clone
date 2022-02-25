@@ -84,11 +84,11 @@
 <!-- /////////////////////script for jewelry data starts here  -->
 <script type="module">
   // navbar html are imported here
-  import navbar_part from "./components/navbar.js";
+  import navbar_part from "/components/navbar.js";
   let navbar_com = await navbar_part();
   document.querySelector(".nav_bar_container").innerHTML = navbar_com;
   // navbar logic are imported here
-  import navbar_responsive from "./scripts/header.js";
+  import navbar_responsive from "/scripts/header.js";
   await navbar_responsive();
   let getcart = JSON.parse(localStorage.getItem("productlist"));
 
@@ -96,7 +96,7 @@
   cart_count.textContent = `${getcart.length}`;
 
   let jewellery_div = document.getElementById("jewellery_container");
-  import { getJewellery, appendJewellery } from "./scripts/jewellery.js";
+  import { getJewellery, appendJewellery } from "/scripts/jewellery.js";
   const url = "https://giftcartbackendapp.herokuapp.com/api/products";
 
   let clickdiv = document.querySelector('.material-icons-outlined');
@@ -121,6 +121,6 @@
     });
   });
 </script>
-<script src="./scripts/random.js">
+<script src="/scripts/random.js">
 
 </script>

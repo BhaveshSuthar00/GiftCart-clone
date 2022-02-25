@@ -131,13 +131,7 @@ app.use("/admin", (req, res) => {
   }
 });
 
-app.use("/checkout", (req, res) => {
-  try {
-    res.render("checkout");
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
+
 
 app.use("/payment", (req, res) => {
   try {
