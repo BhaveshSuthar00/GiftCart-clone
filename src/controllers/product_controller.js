@@ -22,13 +22,17 @@ router.get("/perfume", async (req, res) => {
     res.send(err.message);
   }
 });
+
 router.get("/random", async (req, res) => {
   try {
-    // const items = await Product.find().lean().exec();
-    res.render("random");
+    let products = await Product.find({
+      $or: [{ category: req.query.item }, { sub_category: req.query.sub }],
+    })
+      .lean()
+      .exec();
+    return res.render("random", { products });
   } catch (err) {
-    res.send(err.message);
+    return res.status(500).send({ message: err.message });
   }
 });
-
 module.exports = router;

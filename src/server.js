@@ -58,9 +58,9 @@ app.use("/cart/currentuser/:id", async (req, res) => {
     res.send(err.message);
   }
 });
-app.get("/shopitem/:id", async (req, res) => {
+app.get("/shopitem", async (req, res) => {
   try {
-    const item = await Product.findById(req.params.id).lean().exec();
+    const item = await Product.findById(req.query.id).lean().exec();
     res.render("shopitem", { item });
   } catch (err) {
     res.send(err.message);
@@ -69,17 +69,9 @@ app.get("/shopitem/:id", async (req, res) => {
 
 app.use("/wishlist_layout", wishlistController);
 
-app.use("/", (req, res) => {
+app.get("", (req, res) => {
   try {
     res.render("index");
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
-
-app.use("/admin", (req, res) => {
-  try {
-    res.render("admin");
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
@@ -96,6 +88,14 @@ app.use("/checkout", (req, res) => {
 app.use("/payment", (req, res) => {
   try {
     res.render("payment");
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+
+app.use("/admins", (req, res) => {
+  try {
+    res.render("admin");
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
