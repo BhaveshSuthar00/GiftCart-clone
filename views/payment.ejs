@@ -15,7 +15,7 @@
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
-    />   
+    />
     <link
       rel="icon"
       type="image/x-icon"
@@ -245,7 +245,7 @@
   </body>
 </html>
 
-<script src="/scripts/payment.js"></script>
+<script src="./scripts/payment.js"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
   document.getElementById("rzp-button1").onclick = function (e) {
@@ -272,7 +272,7 @@
           alert(
             `Transaction Successful. Transaction Id ${response.razorpay_payment_id}`
           );
-          window.location.href = "/index";
+          window.location.href = "./index";
         }
       },
     };
@@ -283,11 +283,11 @@
 </script>
 <script type="module">
     // navbar html are imported here
-    import navbar_part from "/components/navbar.js";
+    import navbar_part from "./components/navbar.js";
     let navbar_com = await navbar_part();
     document.querySelector(".nav_bar_container").innerHTML = navbar_com;
     // navbar logic are imported here
-    import navbar_responsive from "/scripts/header.js";
+    import navbar_responsive from "./scripts/header.js";
     await navbar_responsive();
     let getcart = JSON.parse(localStorage.getItem('productlist'));
 

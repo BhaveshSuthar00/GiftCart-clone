@@ -12,7 +12,7 @@ passport.use(
       callbackURL: "http://localhost:2000/auth/google/callback",
       passReqToCallback: true,
     },
-    async function (request, accessToken, refreshToken, profile, done) {
+    async function (req, res, refreshToken, profile, done) {
       //   User.findOrCreate({ googleId: profile.id }, function (err, user) {
       // });
       let user = await userSchema
@@ -22,9 +22,10 @@ passport.use(
 
       if (!user) {
         user = await userSchema.create({
+          first_name: profile?.first_name,
+          last_name: profile?.last_name,
           email: profile?.email,
-          password: uuidv4(),
-          role: ["customer"],
+          password: uuidv4()
         });
       }
       console.log(user);

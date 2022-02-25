@@ -43,7 +43,7 @@ app.use(express.static(static_path));
 
 app.set("view engine", "ejs");
 // -----------------------------------------GOOGLE OAUTH-----------------------------------------------------
-const {newToken, userController} = require("./controllers/user_controller")
+const {newToken, router} = require("./controllers/user_controller")
 
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -57,7 +57,7 @@ passport.deserializeUser(function (user, done) {
 
 app.get(
   "/auth/google",
-  passport.authenticate("google", { scope: ["email"] })
+  passport.authenticate("google", { scope: ["email", "profile"] })
 );
 
 app.get(
@@ -66,10 +66,8 @@ app.get(
     failureRedirect: "/auth/google/failure",
   }),
   (req, res) => {
-    let {user}= req
-    const token = newToken(user);
 
-    res.send({ user:user, token });
+    res.redirect("/index")
   }
 );
 
@@ -113,7 +111,7 @@ app.get("/shopitem/:id", async (req, res) => {
 
 app.use("/shopitem", productController);
 
-app.use("/register", userController);
+app.use("/register", router);
 
 app.use("/", (req, res) => {
   try {
