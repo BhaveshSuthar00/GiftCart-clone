@@ -85,14 +85,6 @@ app.use("/checkout", (req, res) => {
   }
 });
 
-app.use("/payment", (req, res) => {
-  try {
-    res.render("payment");
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
-
 app.use("/admins", (req, res) => {
   try {
     res.render("admin");
