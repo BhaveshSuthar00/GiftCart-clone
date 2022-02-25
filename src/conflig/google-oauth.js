@@ -12,9 +12,10 @@ passport.use(
       callbackURL: "http://localhost:2000/auth/google/callback",
       passReqToCallback: true,
     },
-    async function (req, res, refreshToken, profile, done) {
+    async function (request, accessToken, refreshToken, profile, done) {
       //   User.findOrCreate({ googleId: profile.id }, function (err, user) {
       // });
+      console.log(profile);
       let user = await userSchema
         .findOne({ email: profile?.email })
         .lean()
@@ -22,10 +23,10 @@ passport.use(
 
       if (!user) {
         user = await userSchema.create({
-          first_name: profile?.first_name,
-          last_name: profile?.last_name,
+          first_name: profile?.given_name,
+          last_name: profile?.family_name,
           email: profile?.email,
-          password: uuidv4()
+          password: uuidv4(),
         });
       }
       console.log(user);

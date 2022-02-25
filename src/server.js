@@ -34,7 +34,9 @@ const static_path = path.join(__dirname, "../public");
 // console.log('static_path:', static_path)
 
 const app = express();
+const bodyParser = require("body-parser");
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
@@ -43,7 +45,7 @@ app.use(express.static(static_path));
 
 app.set("view engine", "ejs");
 // -----------------------------------------GOOGLE OAUTH-----------------------------------------------------
-const {newToken, router} = require("./controllers/user_controller")
+const { newToken, router } = require("./controllers/user_controller");
 
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -67,7 +69,7 @@ app.get(
   }),
   (req, res) => {
 
-    res.redirect("/index")
+    return res.redirect("/index")
   }
 );
 
@@ -113,8 +115,12 @@ app.use("/shopitem", productController);
 
 app.use("/register", router);
 
-app.use("/", (req, res) => {
+const authenticate = require("./middlewares/authenticate")
+
+app.use("/",authenticate, async (req, res) => {
   try {
+    const user_id = req.user._id;
+    console.log('user_id:', user_id)
     res.render("index");
   } catch (err) {
     return res.status(500).send({ message: err.message });
@@ -129,8 +135,6 @@ app.use("/admin", (req, res) => {
   }
 });
 
-
-
 app.use("/payment", (req, res) => {
   try {
     res.render("payment");
@@ -138,8 +142,6 @@ app.use("/payment", (req, res) => {
     return res.status(500).send({ message: err.message });
   }
 });
-
-
 
 app.listen(port, async () => {
   try {

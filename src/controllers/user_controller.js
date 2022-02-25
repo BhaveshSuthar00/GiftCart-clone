@@ -1,10 +1,13 @@
-
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
 
 const express = require("express");
 
 const router = express.Router();
 
-
+const newToken = (user) => {
+  return jwt.sign({ user }, process.env.JWT_SECRET_KEY);
+};
 
 const User = require("../models/user.model");
 
@@ -26,12 +29,14 @@ router.post("/account", async (req, res) => {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
-        password: req.body.password,
-        confirm_password: req.body.confirm_password,
+        password: req.body.password
       });
+      const token = newToken(new_user);
+      // console.log('token:', token);
+      res.cookie("Bearer ", token, {httpOnly: true});
       res.redirect("/index");
     }
-
+    
     // document.location.href = "/index"
   } catch (err) {
     res.send(err.message);
@@ -61,7 +66,11 @@ router.get("/login/account", async (req, res) => {
       // return res.status(404).send({ message: "Incorrect Email or Password" });
       return res.render("login", {success: false, message: "Incorrect Email or Password"});
     }
-    console.log(req.user);
+    const token = newToken(user)
+    // console.log('token:', token)
+
+
+    res.cookie("Bearer ", token, {httpOnly: true});
     // req.user = user;
     // console.log(req.user)
     res.redirect("/index"); 
