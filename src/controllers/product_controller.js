@@ -5,8 +5,8 @@ const Product = require("../models/product.model");
 
 router.get("/jewellery", async (req, res) => {
   try {
-    // const items = await Product.find().lean().exec();
-    res.render("jewellery");
+    const items = await Product.find({category : "jewellery"}).lean().exec();
+    res.render("jewellery", { products: items });
   } catch (err) {
     res.send(err.message);
   }
