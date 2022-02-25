@@ -4,7 +4,7 @@ const router = express.Router();
 
 const Cart = require("../models/cart.model");
 
-let user_id = "621741278586c460df80110e";
+let user_id = "6217a63b90c3cf0eea423c81";
 
 router.get('/remove/:id', async (req,res)=> {
     try {
@@ -24,9 +24,7 @@ router.get('/:id', async (req, res) =>{
                 user_id : user_id,
                 product_ids : [req.params.id,],
             });
-        // res.redirect(`/shopitem/:${req.params.id}`);
         res.redirect(`/cart/currentuser/${user_id}`);
-
         } else {
             let pushitout;
             let ans = async()=>{
@@ -38,7 +36,6 @@ router.get('/:id', async (req, res) =>{
             }
             await ans();
             res.redirect(`/cart/currentuser/${user_id}`);
-        
         }
     }
     catch (err) {

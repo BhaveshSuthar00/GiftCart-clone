@@ -75,7 +75,7 @@
                             </td>
                             <td>
                                 <div class="Bs_qty_div">
-                                    <input class="product_count" type="number" value="1">
+                                    <input class="product_count" min="1" type="number" value="1">
                                     <button class="Bs_update_btn">
                                         UPDATE
                                     </button>
@@ -108,7 +108,7 @@
                    </p>
                </div>
                <div id="Bs_checkout_list_div2">
-                    <a href="/checkout"><button>PROCEED TO CHECKOUT</button></a>
+                    <a href="/product/checkout"><button>PROCEED TO CHECKOUT</button></a>
                </div>
                <div id="Bs_checkout_list_div3">
                     <p>APPLY DISCOUNT CODE</p>
@@ -125,8 +125,47 @@
 </body>
 </html>
 <script>
+    let totalvaue = document.querySelectorAll('.Bs_product_price');
+    let totalvaue2 = document.querySelectorAll('.Bs_product_price2');
+    let update_btn = document.querySelectorAll('.Bs_update_btn');
+    let value_div = document.querySelectorAll('.product_count');
+    let sub = document.querySelector('.Bs_total_price');
+    let sub_total2 = document.querySelector('.Bs_total_price2');
+    let arr = [];
+    let value_arr = [];
+    let sub_total = 0;
+    function subtotal_Fun(){
+        let totalnow = 0;
+        totalvaue.forEach(function(elem, index){
+            let price = elem.textContent.split('₹')[1];
+            price = +price
+            let value = +value_div[index].value;
+            arr[index] = price*value;
+            totalnow += arr[index];
+        })
+        return totalnow;
+    }
+    let startpirce = subtotal_Fun();
+    sub.innerHTML = startpirce;
+    sub_total2.innerHTML = startpirce;
+    value_div.forEach(function(elem){
+        value_arr.push(+elem.value)
+    })
+    let newprice = 0;
+    update_btn.forEach(function(elem, index){
+        elem.addEventListener('click', ()=>{
+            let newvalue = subtotal_Fun();
+            sub.innerHTML = newvalue;
+            sub_total2.innerHTML = newvalue;
+            sub_total = 0;
+            totalvaue2[index].textContent = arr[index];
+        })
+    })
 
 </script>
+
+
+
 <!-- <script type="module">
     import footer from "/components/footer.js";
     let footerDiv=document.getElementById("footer");
