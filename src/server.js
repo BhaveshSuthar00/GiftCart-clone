@@ -27,6 +27,8 @@ const Address = require("./models/address.model");
 const addressController = require("./controllers/address_controller");
 const adminController = require("./controllers/admin_controller");
 
+const checkoutController = require('./controllers/checkout_controller');
+
 const static_path = path.join(__dirname, "../public");
 
 const app = express();
@@ -43,21 +45,11 @@ app.set("view engine", "ejs");
 // app.use("/admin", adminController);
 
 app.use("/cart", cartController);
+app.use("/product", productController);
+app.use("/checkout", checkoutController)
+app.use("/wishlist_layout", wishlistController);
 app.use("/admin", adminController);
 
-app.use("/product", productController);
-
-app.use("/cart/currentuser/:id", async (req, res) => {
-  try {
-    const items = await Cart.findOne({ user_id: req.params.id })
-      .populate({ path: "product_ids" })
-      .lean()
-      .exec();
-    res.render("cart", { items: items.product_ids });
-  } catch (err) {
-    res.send(err.message);
-  }
-});
 app.get("/shopitem/:id", async (req, res) => {
   try {
     const item = await Product.findById(req.params.id).lean().exec();
@@ -66,8 +58,6 @@ app.get("/shopitem/:id", async (req, res) => {
     res.send(err.message);
   }
 });
-
-app.use("/wishlist_layout", wishlistController);
 
 app.use("/", (req, res) => {
   try {
@@ -86,14 +76,13 @@ app.use("/admin", (req, res) => {
 });
 
 
-
-app.use("/payment", (req, res) => {
-  try {
-    res.render("payment");
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
+// app.get("/payment", (req, res) => {
+//   try {
+//     res.render("payment");
+//   } catch (err) {
+//     return res.status(500).send({ message: err.message });
+//   }
+// });
 
 app.listen(port, async () => {
   try {

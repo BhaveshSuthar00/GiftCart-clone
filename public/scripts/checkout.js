@@ -51,7 +51,6 @@ function FormData(event) {
     let first_name = document.getElementById('Bs_F_name').value;
     let last_name = document.getElementById('Bs_F_last_name').value;
     let address = document.getElementById('Bs_address').value;
-    let landmark = document.getElementById('Bs_landmark').value;
     let state_name = document.getElementById('Bs_state_name').value;
     let post_code = document.getElementById('Bs_post_code').value;
     let country_name = document.getElementById('Bs_country').value;
@@ -65,18 +64,5 @@ function FormData(event) {
         alert('Enter All Credantials');
         return;
     }
-    else{
-        var obj = {
-            first_name,
-            last_name,
-            address,
-            landmark,
-            state_name,
-            post_code,
-            country_name,
-            phone_number
-        }
-        localStorage.setItem('Address_users',JSON.stringify(obj));
-        window.location.href = './payment';
-    };
+    // window.location.href = '/product/payment';
 }

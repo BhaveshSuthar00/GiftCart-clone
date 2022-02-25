@@ -6,6 +6,20 @@ const Cart = require("../models/cart.model");
 
 let user_id = "6217a63b90c3cf0eea423c81";
 
+router.get('/', async (req, res) => {
+    try {
+        const user = await Cart.findOne({user_id: user_id}).lean().exec();
+        console.log(user);
+        if(!user){
+            res.render('cart', {items : null});
+        } else { 
+            res.redirect(`/cart/currentuser/${user_id}`)
+        }
+    } catch (err) {
+        res.render('cart', {items : null});
+    }
+})
+
 router.get('/remove/:id', async (req,res)=> {
     try {
         const items = await Cart.updateOne({user_id : user_id}, {$pull : {product_ids : req.params.id}}).lean().exec();
@@ -43,4 +57,15 @@ router.get('/:id', async (req, res) =>{
     }
 })
 
+router.get("/currentuser/:id", async (req, res) => {
+    try {
+        const items = await Cart.findOne({ user_id: req.params.id })
+        .populate({ path: "product_ids" })
+        .lean()
+        .exec();
+        res.render("cart", { items: items.product_ids });
+    } catch (err) {
+        res.send(err.message);
+    }
+});
 module.exports = router;
