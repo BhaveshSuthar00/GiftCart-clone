@@ -12,7 +12,7 @@ router.get("", async (req, res) => {
   try {
     //   await User.create(req.body)
     const user = await User.find().lean().exec();
-    res.render("register.ejs");
+    res.render("register");
   } catch (err) {
     res.send(err.message);
   }
@@ -20,18 +20,15 @@ router.get("", async (req, res) => {
 let user_id;
 router.post("/account", async (req, res) => {
   try {
+    const hashedPassword = await bcrypt(req.body.password, 8);
     if (req.body.password === req.body.confirm_password) {
       const new_user = await User.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
-        password: req.body.password,
-        confirm_password: req.body.confirm_password,
+        password: hashedPassword,
+        confirm_password: hashedPassword,
       });
-      // console.log(new_user);
-      user_id = new_user;
-      // module.exports = user_id;
-      // const users = await User.find().lean().exec();
       res.redirect("/index");
     }
 
