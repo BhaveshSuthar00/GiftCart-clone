@@ -68,7 +68,9 @@ app.get(
     failureRedirect: "/auth/google/failure",
   }),
   (req, res) => {
-
+    let {user}= req
+    const token = newToken(user);
+    console.log('token:', token)
     return res.redirect("/index")
   }
 );

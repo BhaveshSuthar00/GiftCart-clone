@@ -80,6 +80,6 @@ router.get("/login/account", async (req, res) => {
 });
 
 
-module.exports = {router};
+module.exports = {newToken,router};
 
 // module.exports = router;
