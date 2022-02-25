@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ee2bd34551.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Open+Sans:wght@500;800&family=Poppins:wght@100;200&family=Shippori+Antique+B1&family=Source+Sans+3:wght@200&display=swap" rel="stylesheet">
+    <title>Product: Product page</title>
+    <link rel="stylesheet" href="/styles/shopitem2.css">
+</head>
+<body>
+    <div class="bs_container_for_img">
+        <div class="bs_main_img_div">
+            <img src="https://style.giftcart.com/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/c/a/cab100m23.jpg" alt="">
+        </div>
+        <div class="bs_right_side_div_ofimg">
+            <div class="bs_product_name_div">
+                <p class="ttl">
+                    Calvin Klein Be 100 ml For Men
+                </p>
+            </div>
+            <div class="bs_start_andall_ext">
+                <p>#CM09FSSD178 |</p>
+                <p class="a1">26 REVIEWS |</p>
+                <p> 
+                    <i><span class="stars">
+                        <i class="fas fa-star clr  "></i>
+                        <i class="fas fa-star clr "></i>
+                        <i class="fas fa-star clr "></i>
+                        <i class="fas fa-star clr "></i>
+                        <i class="far fa-star clr "></i>
+                    </span></i>
+                    
+                </p>
+                <p class="a2"> ADD REVIEW</p>
+            </div>
+            <div class="bs_mrp_price">
+                <p class=" a3">
+                    MRP(incl gst)
+                </p>
+                <p class="bs_main_price">
+                    ₹2391.00
+                </p>
+                <p class="bs_discounted_price">
+                    ₹3391.00
+                </p>
+            </div>
+            <div class="bs_yourSave_div">
+                <p>
+                    Your Save <span style="color: red">10%</span>
+                </p>
+            </div>
+            <div class="bs_free_shipping_div">
+                <p>
+                    Free Shipping
+                </p>
+            </div>
+            <div class="bs_delivery_div">
+                <p class="aa1">
+                    
+                    Delivery 4 - 6 Working Days
+                </p>
+                <p class="aa2">
+                    <i class="fa-solid fa-truck"></i>
+
+                    Delivery Coverage & Charges
+                </p>
+            </div>
+            <div class="bs_hidden_div_for_pincode">
+                <!-- this is hidden div check the css u will find display none -->
+                <input class="hidden_input" type="number">
+                <button class="bs_btn_hidden_div">
+                    Check
+                </button>
+            </div>
+            <div class="bs_inp_btn">
+                <form>
+                    <div class="value-button" id="decrease" onclick="decreaseValue()" value="">-</div>
+                    <input type="number" id="number" value="0" />
+                    <div class="value-button" id="increase" onclick="increaseValue()" value="">+</div>
+                  </form>
+                <div class="bs_addtocart_div">
+                    <button class="btnA">
+                        ADD TO CART
+                    </button>
+                </div>
+                <div class="bs_buynow_div">
+                    <button class="btnB">
+                        BUY NOW
+                    </button>
+                </div>
+            </div>
+            <div class="bs_addtoCart_div">
+                <i></i>
+                <span class="fnl">
+                    <i class="fa-solid fa-heart"></i>
+
+                    ADD TO WISHLIST
+                </span>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+function increaseValue() {
+  var value = parseInt(document.getElementById('number').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  document.getElementById('number').value = value;
+}
+
+function decreaseValue() {
+  var value = document.getElementById('number').value;
+  value = isNaN(value) ? 0 : value;
+  value < 1 ? value = 1 : '';
+  value--;
+  document.getElementById('number').value = value;
+}
+    
+</script>

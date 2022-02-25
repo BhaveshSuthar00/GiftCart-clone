@@ -3,10 +3,9 @@ const router = express.Router();
 
 const Product = require("../models/product.model");
 
-router.get("/checkout", (req, res) => {
-
+router.get("/payment", (req, res) => {
   try {
-    res.render("checkout");
+    res.render("payment");
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
@@ -17,7 +16,7 @@ router.get("/jewellery", async (req, res) => {
     const items = await Product.find({ category: "jewellery" }).lean().exec();
     res.render("jewellery", { products: items });
   } catch (err) {
-    res.send(err.message);
+    res.render('error');
   }
 });
 
@@ -28,7 +27,7 @@ router.get("/perfume", async (req, res) => {
       .exec();
     res.render("perfume", { products: items });
   } catch (err) {
-    res.send(err.message);
+    res.render('error');
   }
 });
 router.get("/random", async (req, res) => {

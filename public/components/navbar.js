@@ -52,7 +52,7 @@ async function navbar_part(){
             </span>
           </div>
           <div class="cart">
-          <a href="./cart.html">
+          <a href="/cart">
             <span><i class="fas fa-shopping-cart"></i></span>
             <span id="cart_cc" class="cart-count">0</span>
             </a>

@@ -1,3 +1,8 @@
+.bs_example_address {
+    width : 50%;
+    border : 1px solid black;
+    
+}
 .Bs_orange_line_div {
     display: flex;
     width: 90%;

@@ -29,6 +29,8 @@ const Address = require("./models/address.model");
 const addressController = require("./controllers/address_controller");
 const adminController = require("./controllers/admin_controller");
 
+const checkoutController = require('./controllers/checkout_controller');
+
 const static_path = path.join(__dirname, "../public");
 
 // console.log('static_path:', static_path)
@@ -92,18 +94,10 @@ app.use("/cart", cartController);
 app.use("/admin", adminController);
 
 app.use("/product", productController);
+app.use("/checkout", checkoutController)
+app.use("/wishlist_layout", wishlistController);
+app.use("/admin", adminController);
 
-app.use("/cart/currentuser/:id", async (req, res) => {
-  try {
-    const items = await Cart.findOne({ user_id: req.params.id })
-      .populate({ path: "product_ids" })
-      .lean()
-      .exec();
-    res.render("cart", { items: items.product_ids });
-  } catch (err) {
-    res.send(err.message);
-  }
-});
 app.get("/shopitem/:id", async (req, res) => {
   try {
     const item = await Product.findById(req.params.id).lean().exec();
@@ -119,10 +113,8 @@ app.use("/register", router);
 
 const authenticate = require("./middlewares/authenticate")
 
-app.use("/",authenticate, async (req, res) => {
+app.use("/", async (req, res) => {
   try {
-    const user_id = req.user._id;
-    console.log('user_id:', user_id)
     res.render("index");
   } catch (err) {
     return res.status(500).send({ message: err.message });
@@ -137,13 +129,14 @@ app.use("/admin", (req, res) => {
   }
 });
 
-app.use("/payment", (req, res) => {
-  try {
-    res.render("payment");
-  } catch (err) {
-    return res.status(500).send({ message: err.message });
-  }
-});
+
+// app.get("/payment", (req, res) => {
+//   try {
+//     res.render("payment");
+//   } catch (err) {
+//     return res.status(500).send({ message: err.message });
+//   }
+// });
 
 app.listen(port, async () => {
   try {
