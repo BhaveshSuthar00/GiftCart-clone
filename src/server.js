@@ -4,6 +4,8 @@ const port = process.env.PORT || 2000;
 
 const path = require("path");
 
+const passport = require("./conflig/google-oauth");
+
 const connect = require("./conflig/db");
 // this is the models that we will require for this project
 
@@ -12,7 +14,7 @@ const Product = require("./models/product.model");
 const productController = require("./controllers/product_controller");
 // user will be the current user who is visiting the site
 const User = require("./models/user.model");
-const userController = require("./controllers/user_controller");
+// const userController = require("./controllers/user_controller");
 
 // wishlist will be depending on user parent child relationship
 const Wishlist = require("./models/wishlist.model");
@@ -40,6 +42,36 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(static_path));
 
 app.set("view engine", "ejs");
+// -----------------------------------------GOOGLE OAUTH-----------------------------------------------------
+const {newToken, userController} = require("./controllers/user_controller")
+
+passport.serializeUser(function (user, done) {
+  done(null, user);
+  // if you use Model.id as your idAttribute maybe you'd want
+  // done(null, user.id);
+});
+
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
+
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["email"] })
+);
+
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/auth/google/failure",
+  }),
+  (req, res) => {
+    let {user}= req
+    const token = newToken(user);
+
+    res.send({ user:user, token });
+  }
+);
 
 // use the following routes to render your page with the data you required for your page
 // app.use("/admin", adminController);
@@ -115,10 +147,7 @@ app.use("/payment", (req, res) => {
   }
 });
 
-// const {user_id} = require("./controllers/user_controller")
 
-
-// console.log(user_id);
 
 app.listen(port, async () => {
   try {

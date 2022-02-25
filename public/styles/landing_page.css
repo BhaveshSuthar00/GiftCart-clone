@@ -325,7 +325,9 @@ form label {
 #sdiv2 {
   padding-bottom: 1%;
 }
-
+#sdiv2 > input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+}
 #new_join_gift {
   padding-left: 27%;
   color: red;

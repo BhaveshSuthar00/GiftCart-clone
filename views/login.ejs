@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/styles/landing_page.css">
+    <link rel="stylesheet" href="/styles/landing_page.css" />
   </head>
   <body>
     <div id="karthik_signin_container">
@@ -23,8 +23,12 @@
         <p>Registered Coustomers</p>
 
         <!-- <hr color="#c7c4c4" width="550px" /> -->
-        <form id="login_acc" action="/register/login/account" method="POST"> 
-          <input type="hidden" name="method" value="GET">
+        <form id="login_acc" action="/register/login/account" method="POST">
+          <input type="hidden" name="method" value="GET" />
+
+          <% if (!success) { %>
+          <p style="color: red"><%= message %></p>
+          <% } %>
           <div id="sdiv1">
             <label for="">Email</label><br />
             <input name="email" type="email" id="username-login" /><br />
@@ -32,6 +36,7 @@
 
           <div id="sdiv2">
             <label for="">Password</label><br />
+
             <input type="password" name="password" id="password-login" />
             <p>Forget Your Password?</p>
           </div>
@@ -42,7 +47,7 @@
           <div id="signup_area">
             <button id="signup_btn">
               <a
-                href="#"
+                href="/register/create"
                 style="text-decoration: none; color: black"
                 id="switch_boxes"
                 >SIGN UP</a
@@ -60,12 +65,13 @@
             width="160px"
             height="34x"
           />
-          <img
-            id="google_logo"
-            src="https://onymos.com/wp-content/uploads/2020/10/google-signin-button.png"
-            alt=""
-            width="160px"
-          />
+          <a href="/auth/google"
+            ><img
+              id="google_logo"
+              src="https://onymos.com/wp-content/uploads/2020/10/google-signin-button.png"
+              alt=""
+              width="160px"
+          /></a>
         </div>
       </div>
     </div>
