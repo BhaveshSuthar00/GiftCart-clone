@@ -108,7 +108,6 @@ app.get("/shopitem/:id", async (req, res) => {
 });
 
 app.use("/shopitem", productController);
-
 app.use("/register", router);
 
 const authenticate = require("./middlewares/authenticate")
