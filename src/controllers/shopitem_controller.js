@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const Product = require("../models/product.model");
-const authenticate = require("../middlewares/authenticate")
 
 router.get("/:id",async (req, res) => {
   try {

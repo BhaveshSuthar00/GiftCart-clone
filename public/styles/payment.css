@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+* {
+  font-family: 'Lato', sans-serif;
+}
 .Bs_orange_line_div {
   display: flex;
   width: 90%;
@@ -47,7 +51,6 @@
   width: 100%;
   margin-top: 5%;
   font-size: 21px;
-  font-family: Lato, arial, tahoma;
   text-align: center;
 }
 .Bs_number2 > img {
@@ -68,22 +71,21 @@
   font-size: 17px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgb(180, 180, 180);
-  font-family: Lato, arial, tahoma;
 }
 #Bs_payment_method1 {
   margin-left: 4%;
   display: none;
-  font-family: Lato, arial, tahoma;
+  
 }
 #Bs_payment_method2 {
   margin-left: 4%;
   display: none;
-  font-family: Lato, arial, tahoma;
+  
 }
 #Bs_payment_method3 {
   margin-left: 4%;
   display: none;
-  font-family: Lato, arial, tahoma;
+  
 }
 #Bs_payment_btn3 {
   padding: 8px 5px;
@@ -152,7 +154,7 @@
 #Bs_payment_option > div {
   margin: 1%;
   font-size: 14px;
-  font-family: Lato, arial, tahoma;
+  
   margin-top: 2%;
 }
 #Bs_payment_option {
@@ -169,7 +171,7 @@
 #Bs_total_Citems {
   font-size: 18px;
   color: rgb(77, 75, 75);
-  font-family: Lato, arial, tahoma;
+  
 }
 .Bs_total_Citems_div {
   width: 85%;
@@ -238,7 +240,7 @@
   overflow: hidden;
   margin-bottom: 2px;
   width: 98%;
-  font-family: Lato, arial, tahoma;
+  
   font-size: 17px;
   color: rgb(109, 101, 101);
   margin-top: 1%;
@@ -263,7 +265,7 @@
   text-align: center;
 }
 .Bs_summary_span {
-  font-family: Lato, arial, tahoma;
+  
   margin-right: 5%;
   width: 60%;
   color: rgb(100, 99, 99);
@@ -287,7 +289,7 @@
 }
 #Bs_address_inright_div > P:first-child {
   border-bottom: 1px solid rgb(180, 180, 180);
-  font-family: Lato, arial, tahoma;
+  
   font-size: 21px;
   line-height: 53px;
   color: black;
@@ -297,10 +299,6 @@
   font-size: 19px;
   margin: 0%;
   color: rgb(180, 180, 180);
-  font-family: "Times New Roman", Times, serif;
-}
-body {
-  font-family: Lato, arial, tahoma;
 }
 #Bs_method_dov {
   margin: 0%;

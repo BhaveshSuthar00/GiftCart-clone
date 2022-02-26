@@ -1,11 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 * {
-  font-family: "Lato", arial, tahoma;
+  font-family: 'Lato', sans-serif;
   box-sizing: border-box;
 }
 body {
   background: #ffffff;
 }
-
+/* bhavesh edited start here */
+.main_titleDiv>div>p:first-child {
+  height: 35px;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  overflow: hidden;
+}
+.start_div {
+  color: red;
+}
+/* bhavesh edited end here */
 #jewellery_header {
   border: 1px solid white;
   top: 20px;

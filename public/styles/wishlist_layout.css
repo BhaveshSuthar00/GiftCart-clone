@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 body {
-    font-family: arial, tahoma;
+    font-family: "Lato", sans-serif;
   }
   #karthik_wishlist_layout {
     display: block;

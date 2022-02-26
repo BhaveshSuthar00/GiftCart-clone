@@ -15,7 +15,6 @@ function discountApply() {
     py_total.innerText = `₹${10}`;
     let final_total = 10;
     localStorage.setItem("total_price",JSON.parse(final_total));
-
 }
 
 function HardCode(event) {
@@ -52,52 +51,16 @@ function HardCode(event) {
 
 let btn3 = document.getElementById('Bs_payment_btn3');
 btn3.addEventListener('click',()=> {
-    // this is hard coded data
     let payment_page = document.getElementById("Bs_payment_hard_div");
     payment_page.style.display = 'block';
-
 })
 
 let btn_pay = document.getElementById('Bs_btn_for_payment');
 btn_pay.addEventListener('click',function (){
     let payment_page = document.getElementById("Bs_payment_hard_div");
     payment_page.style.display = 'none';
-
 })
-
-
-
 document.getElementById('Bs_total_Citems').innerText = `Items in Cart`
-// let cart_items = document.getElementById('Bs_cart_items_div');
-
-
-// let {first_name,post_code,last_name,phone_number,state_name,address} = JSON.parse(localStorage.getItem('Address_users'));
-// let totalDD = JSON.parse(localStorage.getItem('total_price'));
-// {
-//     let fullName = document.getElementsByClassName('Bs_username');
-//     fullName.innerText = first_name,last_name;
-//     let address_dd = document.getElementsByClassName('Bs_address');
-//     address_dd.innerText = address;
-//     let Bs_number = document.getElementsByClassName('Bs_phone_number');
-//     for(let i = 0; i<Bs_number.length; i++){
-//         fullName[i].innerText = first_name,last_name;
-//         address_dd[i].innerText = address;
-//         Bs_number[i].innerText = phone_number;
-//     }
-    
-// }
-
-// let fullName = document.querySelector('.Bs_username2');
-// fullName.innerText = `${first_name} ${last_name}`;
-// let address_dd = document.querySelector('.Bs_address2');
-
-// address_dd.innerText = `${address} `;
-// let state_country = document.querySelector('.Bs_state_country');
-// state_country.innerText = `${state_name} ${post_code}, India`
-
-// let Bs_number = document.querySelector('.Bs_phone_number2');
-// Bs_number.innerText = `${phone_number}`;
-
 
 let div1 = document.getElementById('Bs_payment_method1');
 let div2 = document.getElementById('Bs_payment_method2');
@@ -135,7 +98,6 @@ radio2.addEventListener('click',function(){
     else {
         div2.style.display = 'none';
     }
-    
 })
 let radio3= document.getElementById('radio3');
 radio3.addEventListener('click',function(){
@@ -147,46 +109,7 @@ radio3.addEventListener('click',function(){
     else {
         div3.style.display = 'none';
     }
-    
 })
-
-// displayTable(items,cart_items);
-
-
-function displayTable(items,location){
-    var array = [];
-    items.forEach(({image,product,price,product_count})=>{
-        let main_div = document.createElement('div');
-        main_div.setAttribute('class','Bs_pro_main_div')
-        main_div.innerHTML = `
-        <div class="Bs_pro_img_div">
-                <img src=${image} alt="">
-            </div>
-            <div class="Bs_pro_text_div">
-                <p class="Bs_cart_p1">${product}</p>
-                <p class="Bs_cart_p2">Qty ${product_count}</p>
-                <p class="Bs_cart_p3">${Number(price)*Number(product_count)}</p>
-            </div>
-        `
-        array.push(Number(price*product_count));
-        location.append(main_div)
-    })
-    var total = array.reduce((a,b)=>{
-        return a+b;
-    })
-    
-    let cart_Total = document.getElementById('Bs_cart_total');
-    cart_Total.innerText = `${total}`;
-    let charge_amount = 160;
-    let charge = document.getElementById('Bs_charges');
-    charge.innerText = charge_amount;
-    let order_total = document.getElementById('Bs_order_total');
-    order_total.textContent = `${total+160}`;
-    let py_total = document.getElementById('total_amount');
-    py_total.innerText = `₹${total}`;
-    let final_total = (total+160)
-    localStorage.setItem("total_price",JSON.parse(final_total));
-}
 
 let shownoshow = document.querySelector('#Bs_cart_items_div');
 let redio5  = document.getElementById('Bs_total_Citems');
@@ -197,7 +120,6 @@ redio5.addEventListener('click',function(){
         img_img.style.transform = 'rotate(90deg)';
     }
     else {
-
         img_img.style.transform = 'rotate(270deg)';
         shownoshow.style.display = 'block';
     }

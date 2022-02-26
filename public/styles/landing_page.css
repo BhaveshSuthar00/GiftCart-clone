@@ -1,3 +1,6 @@
+#cart_cc {
+  display : none;
+}
 body {
   margin: 0px;
 }
@@ -425,6 +428,7 @@ form label {
   margin: 0px;
   padding: 17px;
   border: 1px solid rgb(209, 207, 207);
+  border-right: none;
   list-style: none;
   font-size: 14px;
   border-top: none;
@@ -444,6 +448,8 @@ form label {
   display: flex;
   align-items: center;
   border: 1px solid rgb(209, 207, 207);
+  border-bottom: none;
+  border-top: none;
   padding-left: 15px;
   padding-right: 15px;
   color: grey;

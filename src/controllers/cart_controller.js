@@ -2,16 +2,32 @@ const express = require("express");
 
 const router = express.Router();
 
-const Cart = require("../models/cart.model");
-const authenticate = require("../middlewares/authenticate");
-const { redirect } = require("express/lib/response");
+const Cart = require("../models/userSingle_model");
+router.get('/single/:id', async (req, res) =>{
+    try {
+        const user_id = req.user._id;
+        let cart = await Cart.findOne({user_id : user_id}).lean().exec();
+        if(cart){
+            cart = await Cart.findOneAndReplace({user_id : user_id}, {user_id : user_id,product_id : [req.params.id]}).lean().exec();
+        }
+        if(!cart){
+            cart = await Cart.create({
+                user_id : user_id,
+                product_id : [req.params.id]
+            });
+        }
+        return res.redirect('/payment/single');
+    }
+    catch(err){
+        console.log(err.message);
+        res.render('error');
+    }
+})
 
-// const user_id = "6217a63b90c3cf0eea423c81"
 router.get('/', async (req, res) => {
     try {
         let user_id = req.user._id;
         const user = await Cart.findOne({user_id: user_id}).lean().exec();
-        // console.log(user);
         if(!user){
             res.render('cart', {items : null});
         } else { 
@@ -55,9 +71,6 @@ router.get('/:id', async (req, res) =>{
                 product_ids : [req.params.id,],
             });
             res.redirect(`/cart/currentuser/${user_id}`);
-// 
-        // res.render(`cart`, {items: items.product_ids});
-
         } else {
             let ans = async()=>{
                 return items =  await Cart.findOneAndUpdate(
@@ -68,10 +81,6 @@ router.get('/:id', async (req, res) =>{
             }
             await ans();
             items = await Cart.findOne({user_id : user_id}).populate({path : 'product_ids'}).lean().exec();
-            
-            // this work properly but at second time
-            // res.render(`cart`, {items : items.product_ids});
-            // this is just a try
             res.redirect(`/cart/currentuser/${user_id}`);
         }
     }
