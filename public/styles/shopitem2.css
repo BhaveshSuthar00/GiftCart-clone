@@ -101,7 +101,6 @@
 
 #sk_div {
   display: flex;
-  border: 1px solid red;
   height: 50px;
   margin-top: -63px;
   gap: 18px;
@@ -172,7 +171,6 @@
 }
 
 .bs_addtocart_div {
-  border-top: 1px solid red;
   flex: 1;
   height: 95%;
   margin: auto;
@@ -264,21 +262,19 @@
 }
 
 #sk_item_details {
-  border: 1px solid red;
+    margin-top:100px;
   margin-bottom: 100px;
-  padding: 20px 170px;
+  padding: 20px 250px;
 }
 
 #sk_item_details_div1 {
   display: flex;
-  border: 1px solid red;
   height: 200px;
   gap: 130px;
 }
 
 #sk_item_details_div11 {
   display: flex;
-  border: 1px solid black;
   flex: 1;
   flex-direction: column;
 }
@@ -288,37 +284,54 @@
     border-bottom: 1px solid gray;
 }
 #sk_item_details_div112 {
-  flex: 1;
-  border-bottom: 1px solid gray;
+    flex: 1;
+    border-bottom: 1px solid gray;
 }
 #sk_item_details_div113 {
-  flex: 1;
-  border-bottom: 1px solid gray;
+    flex: 1;
+    border-bottom: 1px solid gray;
 }
 #sk_item_details_div114 {
-  flex: 1;
-  border-bottom: 1px solid gray;
+    flex: 1;
+    border-bottom: 1px solid gray;
 }
 
 #sk_item_details_div12 {
-  border: 1px solid black;
-  flex: 3;
+    flex: 3;
   padding-top: 15px;
   text-align: left;
 }
 #sk_item_details_div121{
-    border: 1px solid red;
-    display: none;
 }
 #sk_item_details_div122{
-    border: 1px solid red;
     display: none;
 }
 #sk_item_details_div123{
-    border: 1px solid red;
     display: none;
 }
 #sk_item_details_div124{
-    border: 1px solid red;
     display: none;
+}
+input{
+    width: 90%;
+}
+textarea{
+    width: 90%;
+}
+
+#sk_item_details_div111:hover{
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+#sk_item_details_div112:hover{
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+#sk_item_details_div113:hover{
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+#sk_item_details_div114:hover{
+    background-color: #f5f5f5;
+    cursor: pointer;
 }

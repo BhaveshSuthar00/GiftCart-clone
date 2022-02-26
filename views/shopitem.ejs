@@ -24,7 +24,6 @@
 
     <div class="bs_container_for_img">
       <div class="bs_main_img_div">
-        <!-- <img src="https://style.giftcart.com/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/c/a/cab100m23.jpg" alt=""> -->
         <img src="<%= item.image %>" alt="" />
       </div>
       <div class="bs_right_side_div_ofimg">
@@ -94,328 +93,9 @@
             </form>
           </div>
         </div>
-        <!-- <div class="bs_inp_btn">
-            
-          <div class="bs_addtocart_div">
-            <form action="/cart/<%- item._id %>">
-              <button type="submit" class="btnA">ADD TO CART</button>
-            </form>
-          </div>
-          <div class="bs_buynow_div">
-            <form action="/cart/single/<%- item._id %>">
-              <button class="btnB">BUY NOW</button>
-            </form>
-          </div>
-        </div>
-        <div class="bs_addtoCart_div">
-          <i></i>
-          <span class="fnl">
-            <i class="fa-solid fa-heart"></i>
-            ADD TO WISHLIST
-          </span>
-        </div> -->
-        <!-- https://drive.google.com/file/d/1UCbGJPWeEWThT8Wmu5gW7ZeCVkBvtCQE/view?usp=sharing -->
       </div>
     </div>
     <div id="sk_item_details">
-      <!-- <div class="product info detailed">
-
-        <div class="product data items">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="detailed-menu" role="tablist">
-                <div
-                  class="data item title active"
-                  aria-labeledby="tab-label-additional-title"
-                  data-role="collapsible"
-                  id="tab-label-additional"
-                  role="tab"
-                  data-collapsible="true"
-                  aria-controls="additional"
-                  aria-selected="true"
-                  aria-expanded="true"
-                  tabindex="0"
-                >
-                  <a
-                    class="data switch"
-                    tabindex="-1"
-                    data-toggle="switch"
-                    href="#additional"
-                    id="tab-label-additional-title"
-                  >
-                    Key Features
-                  </a>
-                </div>
-                <div
-                  class="data item title"
-                  aria-labeledby="tab-label-product.info.description-title"
-                  data-role="collapsible"
-                  id="tab-label-product.info.description"
-                  role="tab"
-                  data-collapsible="true"
-                  aria-controls="product.info.description"
-                  aria-selected="false"
-                  aria-expanded="false"
-                  tabindex="0"
-                >
-                  <a
-                    class="data switch"
-                    tabindex="-1"
-                    data-toggle="switch"
-                    href="#product.info.description"
-                    id="tab-label-product.info.description-title"
-                  >
-                    Details
-                  </a>
-                </div>
-                <div
-                  class="data item title"
-                  aria-labeledby="tab-label-additional_branddetails-title"
-                  data-role="collapsible"
-                  id="tab-label-additional_branddetails"
-                  role="tab"
-                  data-collapsible="true"
-                  aria-controls="additional_branddetails"
-                  aria-selected="false"
-                  aria-expanded="false"
-                  tabindex="0"
-                >
-                  <a
-                    class="data switch"
-                    tabindex="-1"
-                    data-toggle="switch"
-                    href="#additional_branddetails"
-                    id="tab-label-additional_branddetails-title"
-                  >
-                    Brand Details
-                  </a>
-                </div>
-                <div
-                  class="data item title"
-                  aria-labeledby="tab-label-reviews-title"
-                  data-role="collapsible"
-                  id="tab-label-reviews"
-                  role="tab"
-                  data-collapsible="true"
-                  aria-controls="reviews"
-                  aria-selected="false"
-                  aria-expanded="false"
-                  tabindex="0"
-                >
-                  <a
-                    class="data switch"
-                    tabindex="-1"
-                    data-toggle="switch"
-                    href="#reviews"
-                    id="tab-label-reviews-title"
-                  >
-                    Reviews
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-8">
-              <div class="detailed-content">
-                <div
-                  class="data item content"
-                  id="additional"
-                  data-role="content"
-                  aria-labelledby="tab-label-additional"
-                  role="tabpanel"
-                  aria-hidden="false"
-                  style="display: block"
-                >
-                  <div class="additional-attributes-wrapper table-wrapper">
-                    <table
-                      class="data table additional-attributes"
-                      id="product-attribute-specs-table"
-                    >
-                      <tbody>
-                        <tr>
-                          <th
-                            class="col"
-                            scope="row"
-                            style="border-top: none; font-weight: normal"
-                          >
-                            <span style="color: red">■ &nbsp;</span>Female
-                          </th>
-                        </tr>
-                        <tr>
-                          <th
-                            class="col"
-                            scope="row"
-                            style="border-top: none; font-weight: normal"
-                          >
-                            <span style="color: red">■ &nbsp;</span> Eau de
-                            Perfume
-                          </th>
-                        </tr>
-                        <tr>
-                          <th
-                            class="col"
-                            scope="row"
-                            style="border-top: none; font-weight: normal"
-                          >
-                            <span style="color: red">■ &nbsp;</span> 100 ml
-                          </th>
-                        </tr>
-                        <tr>
-                          <th
-                            class="col"
-                            scope="row"
-                            style="border-top: none; font-weight: normal"
-                          >
-                            <span style="color: red">■ &nbsp;</span>
-                            Casual/Floral sweet
-                          </th>
-                        </tr>
-                        <tr>
-                          <th
-                            class="col"
-                            scope="row"
-                            style="border-top: none; font-weight: normal"
-                          >
-                            <span style="color: red">■ &nbsp;</span> Country of
-                            Origin: India
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div
-                  class="data item content"
-                  id="product.info.description"
-                  data-role="content"
-                  aria-labelledby="tab-label-product.info.description"
-                  role="tabpanel"
-                  aria-hidden="true"
-                  style="display: none"
-                >
-                  <div class="product attibute description">
-                    <div class="value">
-                      <span class="teaser"
-                        >Wear a fragrance that's refreshing and reviving for a
-                        long lasting impression. A sophisticated and charming
-                        aroma, the base note of Provocative by Elizabeth Arden
-                        is a blend of white sand notes, Hinoki wood and red
-                        amber. Its earthy sensuality is hard to miss. The middle
-                        note is a mixture of variety of essences, such as
-                        midnight orchid, papaya blossom and pink freesia and the
-                        top note is composed of quince, water lotus, and ginger
-                        lily. The sweet floral essence of this 100 ml Eau de
-                        Perfume is sure to attract a lot of attention.
-                        <p></p
-                      ></span>
-                      <span class="completeDescription"
-                        >Wear a fragrance that's refreshing and reviving for a
-                        long lasting impression. A sophisticated and charming
-                        aroma, the base note of Provocative by Elizabeth Arden
-                        is a blend of white sand notes, Hinoki wood and red
-                        amber. Its earthy sensuality is hard to miss. The middle
-                        note is a mixture of variety of essences, such as
-                        midnight orchid, papaya blossom and pink freesia and the
-                        top note is composed of quince, water lotus, and ginger
-                        lily. The sweet floral essence of this 100 ml Eau de
-                        Perfume is sure to attract a lot of attention.</span
-                      >
-                    </div>
-                  </div>
-                  <script type="text/javascript">
-                    require(["jquery"], function ($) {
-                      $(window).load(function () {
-                        $(".moreLink").toggle(
-                          function () {
-                            $(this)
-                              .text("Read less...")
-                              .siblings(".completeDescription")
-                              .show();
-                            $(".teaser").hide();
-                          },
-                          function () {
-                            $(this)
-                              .text("Read more...")
-                              .siblings(".completeDescription")
-                              .hide();
-                            $(".teaser").show();
-                          }
-                        );
-                      });
-                    });
-                  </script>
-                  <style>
-                    .completeDescription {
-                      display: none;
-                    }
-
-                    .moreLink {
-                      cursor: pointer;
-                      color: #f10102;
-                    }
-                    .test3 {
-                      display: none;
-                    }
-                  </style>
-                </div>
-                <div
-                  class="data item content"
-                  id="additional_branddetails"
-                  data-role="content"
-                  aria-labelledby="tab-label-additional_branddetails"
-                  role="tabpanel"
-                  aria-hidden="true"
-                  style="display: none"
-                >
-                  <b>Manufacturer / Packer / Importer:</b><br />Shree Traders<br />101,
-                  AL SANA HOUSE,Maharashtra, 400049
-                </div>
-                <div
-                  class="data item content"
-                  id="reviews"
-                  data-role="content"
-                  aria-labelledby="tab-label-reviews"
-                  role="tabpanel"
-                  aria-hidden="true"
-                  style="display: none"
-                >
-                  <div
-                    id="product-review-container"
-                    data-role="product-review"
-                  ></div>
-
-                  <div class="block review-add">
-                    <div class="title-inline">
-                      <h3
-                        class="heading full"
-                        style="text-transform: none; font-weight: 600"
-                      >
-                        <span>Write Your Review</span>
-                      </h3>
-                    </div>
-                    <div class="block-content">
-                      <div class="message info notlogged" id="review-form">
-                        <div>
-                          Only registered users can write reviews. Please,
-                          <a
-                            href="https://www.giftcart.com/customer/account/login/referer/aHR0cHM6Ly93d3cuZ2lmdGNhcnQuY29tL2NhdGFsb2cvcHJvZHVjdC92aWV3L2lkLzIyNTMvI3Jldmlldy1mb3Jt/"
-                            >Sign in</a
-                          >
-                          or
-                          <a
-                            href="https://www.giftcart.com/customer/account/create/"
-                            >create an account</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
       <div id="sk_item_details_div1">
         <div id="sk_item_details_div11">
           <div id="sk_item_details_div111">KEY FEATURES</div>
@@ -431,48 +111,28 @@
             >
               <tbody>
                 <tr>
-                  <th
-                    class="col"
-                    scope="row"
-                    style="border-top: none"
-                  >
+                  <th class="col" scope="row" style="border-top: none">
                     <span style="color: red">■ &nbsp;</span>Female
                   </th>
                 </tr>
                 <tr>
-                  <th
-                    class="col"
-                    scope="row"
-                    style="border-top: none"
-                  >
+                  <th class="col" scope="row" style="border-top: none">
                     <span style="color: red">■ &nbsp;</span> Eau de Perfume
                   </th>
                 </tr>
                 <tr>
-                  <th
-                    class="col"
-                    scope="row"
-                    style="border-top: none"
-                  >
+                  <th class="col" scope="row" style="border-top: none">
                     <span style="color: red">■ &nbsp;</span> 100 ml
                   </th>
                 </tr>
                 <tr>
-                  <th
-                    class="col"
-                    scope="row"
-                    style="border-top: none"
-                  >
+                  <th class="col" scope="row" style="border-top: none">
                     <span style="color: red">■ &nbsp;</span>
                     Casual/Floral sweet
                   </th>
                 </tr>
                 <tr>
-                  <th
-                    class="col"
-                    scope="row"
-                    style="border-top: none"
-                  >
+                  <th class="col" scope="row" style="border-top: none">
                     <span style="color: red">■ &nbsp;</span> Country of Origin:
                     India
                   </th>
@@ -481,23 +141,166 @@
             </table>
           </div>
           <div id="sk_item_details_div122">
-            Wear a fragrance that's refreshing and reviving for a
-            long lasting impression. A sophisticated and charming
-            aroma, the base note of Provocative by Elizabeth Arden
-            is a blend of white sand notes, Hinoki wood and red
-            amber. Its earthy sensuality is hard to miss. The middle
-            note is a mixture of variety of essences, such as
-            midnight orchid, papaya blossom and pink freesia and the
-            top note is composed of quince, water lotus, and ginger
-            lily. The sweet floral essence of this 100 ml Eau de
-            Perfume is sure to attract a lot of attention.
+            Wear a fragrance that's refreshing and reviving for a long lasting
+            impression. A sophisticated and charming aroma, the base note of
+            Provocative by Elizabeth Arden is a blend of white sand notes,
+            Hinoki wood and red amber. Its earthy sensuality is hard to miss.
+            The middle note is a mixture of variety of essences, such as
+            midnight orchid, papaya blossom and pink freesia and the top note is
+            composed of quince, water lotus, and ginger lily. The sweet floral
+            essence of this 100 ml Eau de Perfume is sure to attract a lot of
+            attention.
           </div>
           <div id="sk_item_details_div123">
             <b>Manufacturer / Packer / Importer:</b><br />Shree Traders<br />101,
             AL SANA HOUSE,Maharashtra, 400049
           </div>
           <div id="sk_item_details_div124">
-              
+            <div class="fieldset review-fieldset" data-hasrequired="">
+              <legend class="legend review-legend">
+                <span>You're reviewing:</span
+                ><strong>Elizabeth Arden Provocative 100 ml for women</strong>
+              </legend>
+              <span id="input-message-box"></span>
+              <div class="field required review-field-ratings">
+                <!--<div class="title-inline" style="margin-bottom: 15px;">
+                        <h5 class="heading full"><span>Your Rating *</span></h5>
+                    </div>-->
+                <div class="control">
+                  <div class="nested" id="product-review-table">
+                    <div class="field choice review-field-rating">
+                      <div class="control review-control-vote">
+                        <div class="table-responsive">
+                          <table class="add-review-table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>1 star</th>
+                                <th>2 star</th>
+                                <th>3 star</th>
+                                <th>4 star</th>
+                                <th>5 star</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th>
+                                  <span id="Rating_rating_label"
+                                    ><span>Rating</span></span
+                                  >
+                                </th>
+                                <td>
+                                  <input
+                                    type="radio"
+                                    name="ratings[1]"
+                                    id="Rating_1"
+                                    value="1"
+                                    class="radio"
+                                    data-validate="{required:true, messages:{required:'Please select one of each of the ratings above.'}}"
+                                    aria-labelledby="Rating_rating_label Rating_1_label"
+                                    aria-required="true"
+                                  />
+                                </td>
+                                <td>
+                                  <input
+                                    type="radio"
+                                    name="ratings[1]"
+                                    id="Rating_2"
+                                    value="2"
+                                    class="radio"
+                                    data-validate="{required:true, messages:{required:'Please select one of each of the ratings above.'}}"
+                                    aria-labelledby="Rating_rating_label Rating_2_label"
+                                    aria-required="true"
+                                  />
+                                </td>
+                                <td>
+                                  <input
+                                    type="radio"
+                                    name="ratings[1]"
+                                    id="Rating_3"
+                                    value="3"
+                                    class="radio"
+                                    data-validate="{required:true, messages:{required:'Please select one of each of the ratings above.'}}"
+                                    aria-labelledby="Rating_rating_label Rating_3_label"
+                                    aria-required="true"
+                                  />
+                                </td>
+                                <td>
+                                  <input
+                                    type="radio"
+                                    name="ratings[1]"
+                                    id="Rating_4"
+                                    value="4"
+                                    class="radio"
+                                    data-validate="{required:true, messages:{required:'Please select one of each of the ratings above.'}}"
+                                    aria-labelledby="Rating_rating_label Rating_4_label"
+                                    aria-required="true"
+                                  />
+                                </td>
+                                <td>
+                                  <input
+                                    type="radio"
+                                    name="ratings[1]"
+                                    id="Rating_5"
+                                    value="5"
+                                    class="radio"
+                                    data-validate="{required:true, messages:{required:'Please select one of each of the ratings above.'}}"
+                                    aria-labelledby="Rating_rating_label Rating_5_label"
+                                    aria-required="true"
+                                  />
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="hidden"
+                    name="validate_rating"
+                    class="validate-rating"
+                    value=""
+                    aria-required="true"
+                  />
+                </div>
+              </div>
+              <div class="field review-field-nickname required">
+                <div class="control">
+                  <input
+                    type="text"
+                    name="nickname"
+                    id="nickname_field"
+                    placeholder="Nickname *"
+                    class="input-text"
+                    data-validate="{required:true}"
+                    data-bind="value: nickname()"
+                    aria-required="true"
+                  />
+                </div>
+              </div>
+              <br />
+              <!--<div class="field review-field-summary required">
+                    <div class="control">
+                        <input type="text" name="title" id="summary_field" placeholder="Summary" class="input-text"  data-bind="value: review().title" />
+                    </div>
+                </div>-->
+              <div class="field review-field-text required">
+                <div class="control">
+                  <textarea
+                    name="detail"
+                    class="form-control"
+                    id="review_field"
+                    cols="5"
+                    placeholder="Review"
+                    rows="3"
+                    data-bind="value: review().detail"
+                    aria-required="true"
+                    spellcheck="false"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -507,7 +310,49 @@
     </div>
   </body>
 </html>
-<script></script>
+<script>
+  // let switch_boxes = document.getElementById("switch_boxes");
+  // switch_boxes.addEventListener("click", () => {
+  //   login_box_div.style.display = "none";
+  //   create_act_div.style.display = "block";
+  // });
+  var kf_div = document.getElementById("sk_item_details_div121");
+  var de_div = document.getElementById("sk_item_details_div122");
+  var bd_div = document.getElementById("sk_item_details_div123");
+  var re_div = document.getElementById("sk_item_details_div124");
+
+  let kf = document.querySelector("#sk_item_details_div111");
+  kf.addEventListener("click", () => {
+    kf_div.style.display = "block";
+    de_div.style.display = "none";
+    bd_div.style.display = "none";
+    re_div.style.display = "none";
+  });
+
+  let de = document.querySelector("#sk_item_details_div112");
+  de.addEventListener("click", () => {
+    de_div.style.display = "block";
+    kf_div.style.display = "none";
+    bd_div.style.display = "none";
+    re_div.style.display = "none";
+  });
+
+  let bd = document.querySelector("#sk_item_details_div113");
+  bd.addEventListener("click", () => {
+    bd_div.style.display = "block";
+    de_div.style.display = "none";
+    kf_div.style.display = "none";
+    re_div.style.display = "none";
+  });
+
+  let re = document.querySelector("#sk_item_details_div114");
+  re.addEventListener("click", () => {
+    re_div.style.display = "block";
+    de_div.style.display = "none";
+    kf_div.style.display = "none";
+    bd_div.style.display = "none";
+  });
+</script>
 <script type="module">
   // navbar html are imported here
   // import navbar_part from "/components/navbar.js";
