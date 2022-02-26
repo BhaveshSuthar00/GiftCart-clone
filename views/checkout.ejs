@@ -23,6 +23,7 @@
 </head>
 <body>
     <div class="nav_bar_container">
+        <%- include("../public/components/navbar.html") %>
 
     </div>
 
@@ -116,12 +117,24 @@
             </form>
         </div>
         <% } else {  %>
-            <div id="Bs_main_div1">
+            <div id="Bs_main_div1" class="bs_example_address_parent">
                 <div class="bs_example_address">
                     <p>
-                        name <%=  address[0].first_name %>
+                        <%=  address[0].first_name %> <%= address[0].last_name %>
+                    </p>
+                    <p>
+                        <%=  address[0].street_address %>
+                    </p>
+                    <p>
+                        <%=  address[0].phone_number %>
+                    </p>
+                    <p>
+                        <%=  address[0].city %>, <%=  address[0].state %> <%=  address[0].pincode %>
                     </p>
                 </div>
+                <form action="/product/payment">
+                <input id="Bs_Next_btn" class="bs_ex_next" type="submit" value="NEXT">
+                </form>
             </div>
             <% }  %>
 
@@ -133,7 +146,31 @@
                 </div>
                 
                 <div id="Bs_cart_items_div">
-                    
+            <% if(items == null){  %>
+                <div class="Bs_pro_main_div">
+                    no product selected
+                </div>
+                <% } else { %>
+            <% items.forEach(function(items){ %>
+                <div class="Bs_pro_main_div">
+                <div class="Bs_pro_img_div">
+                    <img src="<%= items.image  %>" alt="">
+                </div>
+                <div>
+                    <p class="Bs_cart_p1">
+                        <%= items.product %>
+                    </p>
+                    <p class="Bs_cart_p2">
+                        QTY 1
+                    </p>
+                    <p class="Bs_cart_p3">
+                        <%=items.price %>
+                    </p>
+                </div>
+            </div>
+            <% }) %>
+            <% } %>
+            
                 </div>
                 <div id="Bs_image_div">
                 <img src="https://www.giftcart.com/pub/static/frontend/Mgs/molly/en_US/images/Covid--19-banner.jpg" alt="">
@@ -146,17 +183,12 @@
 </html>
 <script type="module">
     // navbar html are imported here
-    import navbar_part from "/components/navbar.js";
-    let navbar_com = await navbar_part();
-    document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+    // import navbar_part from "/components/navbar.js";
+    // let navbar_com = await navbar_part();
+    // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
     // navbar logic are imported here
     import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
-    let getcart = JSON.parse(localStorage.getItem('productlist'));
-
-    console.log(getcart.length)
-    let cart_count = document.getElementById('cart_cc');
-    cart_count.textContent = `${getcart.length}`;
     let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
         window.location.href = '/product/random'

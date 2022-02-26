@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payment Page</title>
     <link rel="stylesheet" href="/styles/landing_page.css" />
-
+    <link rel="stylesheet" href="/styles/footer.css" />
     <link rel="stylesheet" href="/styles/payment.css" />
     <script
       src="https://kit.fontawesome.com/2281802e38.js"
@@ -23,7 +23,10 @@
     />
   </head>
   <body>
-    <div class="nav_bar_container"></div>
+    <div class="nav_bar_container">
+      <%- include("../public/components/navbar.html") %>
+
+    </div>
 
     <div class="Bs_orange_line_div">
       <div class="Bs_orange1">
@@ -62,10 +65,10 @@
                     My billing is same as my shipping address
                 </label></div> -->
           <div id="Bs_payment_method1">
-            <p class="Bs_username">name</p>
-            <p class="Bs_address">address</p>
+            <p class="Bs_username"><%= address.first_name  %> <%= address.last_name %> </p>
+            <p class="Bs_address"><%= address.street_address  %></p>
             <p>india</p>
-            <p class="Bs_phone_number">8639245924</p>
+            <p class="Bs_phone_number"><%= address.phone_number %></p>
             <button id="rzp-button1" class="Bs_payment_btn1">
               PAY WITH RAZORPAY
             </button>
@@ -81,10 +84,10 @@
           </div>
 
           <div id="Bs_payment_method2">
-            <p class="Bs_username">name</p>
-            <p class="Bs_address">address</p>
+            <p class="Bs_username"><%= address.first_name  %> <%= address.last_name %></p>
+            <p class="Bs_address"><%= address.street_address  %></p>
             <p>india</p>
-            <p class="Bs_phone_number">8639245924</p>
+            <p class="Bs_phone_number"><%= address.phone_number %></p>
             <button onclick="RazonPayment()" id="Bs_payment_btn2">
               CONTINUE CHECKOUT
             </button>
@@ -97,10 +100,10 @@
             ><br />
           </div>
           <div id="Bs_payment_method3">
-            <p class="Bs_username">name</p>
-            <p class="Bs_address">address</p>
+            <p class="Bs_username"><%= address.first_name  %> <%= address.last_name %></p>
+            <p class="Bs_address"><%= address.street_address  %></p>
             <p>india</p>
-            <p class="Bs_phone_number">8639245924</p>
+            <p class="Bs_phone_number"> <%= address.phone_number %> </p>
             <button id="Bs_payment_btn3">PLACE ORDER</button>
           </div>
         </div>
@@ -130,16 +133,16 @@
         <div id="Bs_summary_order">
           <p>
             <span class="Bs_summary_span">Cart Subtotal</span
-            ><span id="Bs_cart_total"></span>
+            ><span id="Bs_cart_total"> 0 </span>
           </p>
           <p>
             <span class="Bs_summary_span"
               >Shipping Standard Delivery - Standard Delivery</span
-            ><span id="Bs_charges"></span>
+            ><span id="Bs_charges">160</span>
           </p>
           <p>
             <span class="Bs_summary_span">Order Total</span
-            ><span id="Bs_order_total"></span>
+            ><span id="Bs_order_total">0</span>
           </p>
         </div>
         <div class="Bs_total_Citems_div">
@@ -153,7 +156,20 @@
           </p>
         </div>
 
-        <div id="Bs_cart_items_div"></div>
+        <div id="Bs_cart_items_div">
+          <% items.forEach(function(item){ %>
+            <div class="Bs_pro_main_div">
+              <div class="Bs_pro_img_div">
+                <img src="<%= item.image %>" alt="">
+            </div>
+            <div class="Bs_pro_text_div">
+                <p class="Bs_cart_p1"><%= item.product %></p>
+                <p class="Bs_cart_p2">Qty 1</p>
+                <p class="Bs_cart_p3"><%= item.price %></p>
+            </div>
+            </div>
+          <% })  %>
+        </div>
 
         <div id="Bs_address_inright_div">
           <p>SHIP TO</p>
@@ -242,16 +258,31 @@
         </div>
       </div>
     </div>
+    <div id="footer">
+      <%- include("../public/components/footer.html") %>
+    </div>
   </body>
 </html>
-
-<script src="./scripts/payment.js"></script>
+<script>
+  let sub_total_span = document.getElementById('Bs_cart_total');
+  let total_span = document.getElementById('Bs_order_total');
+  let prices = document.querySelectorAll('.Bs_cart_p3');
+  let total_price_will_be = 0;
+  prices.forEach(function(prices){
+    let price= +prices.textContent;
+    total_price_will_be += price;
+  })
+  total_span.textContent = total_price_will_be+160;
+  sub_total_span.textContent = total_price_will_be;
+  console.log(total_price_will_be)
+</script>
+<script src="/scripts/payment.js"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
   document.getElementById("rzp-button1").onclick = function (e) {
-    let cart_Total = JSON.parse(localStorage.getItem("total_price"));
+    // let cart_Total = JSON.parse(localStorage.getItem("total_price"));
 
-    cart_Total = cart_Total * 100;
+    cart_Total = 100;
 
     var options = {
       key: "rzp_test_yZKzyRRfmE9355", // Enter the Key ID generated from the Dashboard
@@ -261,18 +292,14 @@
       description: "Test Transaction",
       image:
         "https://style.giftcart.com/pub/media/logo/stores/1/GC-logo-with-punchline.png",
-      // order_id: "order_Ef80WJDPBmAeNt", //Pass the `id` obtained in the previous step
-      // account_id: "acc_Ef7ArAsdU5t0XL",
       handler: function (response) {
-        // alert(response.razorpay_payment_id);
-        // alert(response.razorpay_order_id);
-        // alert(response.razorpay_signature);
+
         console.log(response);
         if (response.razorpay_payment_id != undefined) {
           alert(
             `Transaction Successful. Transaction Id ${response.razorpay_payment_id}`
           );
-          window.location.href = "./index";
+          window.location.href = "/cart/removeUser";
         }
       },
     };
@@ -282,18 +309,11 @@
   };
 </script>
 <script type="module">
-    // navbar html are imported here
-    import navbar_part from "./components/navbar.js";
-    let navbar_com = await navbar_part();
-    document.querySelector(".nav_bar_container").innerHTML = navbar_com;
-    // navbar logic are imported here
-    import navbar_responsive from "./scripts/header.js";
+    // import navbar_part from "/components/navbar.js";
+    // let navbar_com = await navbar_part();
+    // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+    import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
-    let getcart = JSON.parse(localStorage.getItem('productlist'));
-
-    console.log(getcart.length)
-    let cart_count = document.getElementById('cart_cc');
-    cart_count.textContent = `${getcart.length}`;
     let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
         window.location.href = '/product/random'

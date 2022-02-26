@@ -30,7 +30,10 @@
     />
   </head>
   <body>
-    <div class="nav_bar_container"></div>
+    <div class="nav_bar_container">
+        <%- include("../public/components/navbar.html") %>
+
+    </div>
 
 
    
@@ -1031,26 +1034,21 @@
     <!--footer-->
 
     <div  id="footer">
-      
+            <%- include("../public/components/footer.html") %>
     </div>
   </body>
 </html>
 <script type="module">
   // navbar html are imported here
-  import navbar_part from "/components/navbar.js";
-  let navbar_com = await navbar_part();
-  document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+//   import navbar_part from "/components/navbar.js";
+//   let navbar_com = await navbar_part();
+//   document.querySelector(".nav_bar_container").innerHTML = navbar_com;
   // navbar logic are imported here
   import navbar_responsive from "/scripts/header.js";
   await navbar_responsive();
-  import footer from "/components/footer.js";
-    let footerDiv=document.getElementById("footer");
-    footerDiv.innerHTML=footer();
-    let getcart = JSON.parse(localStorage.getItem('productlist')) || [];
-
-    let cart_count = document.getElementById('cart_cc');
-    cart_count.textContent = `${getcart.length}`;
-
+//   import footer from "/components/footer.js";
+//     let footerDiv=document.getElementById("footer");
+//     footerDiv.innerHTML=footer();
     let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
         window.location.href = '/product/random'

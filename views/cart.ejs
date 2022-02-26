@@ -23,7 +23,10 @@
     />
 </head>
 <body>
-    <div class="nav_bar_container"></div>
+    <div class="nav_bar_container">
+        <%- include("../public/components/navbar.html") %>
+
+    </div>
 
     <div id="Bs-link-to-home">
         <a href="/index">Home</a>
@@ -179,11 +182,6 @@
 
 
 <script type="module">
-    // navbar html are imported here
-    import navbar_part from "/components/navbar.js";
-    let navbar_com = await navbar_part();
-    document.querySelector(".nav_bar_container").innerHTML = navbar_com;
-    // navbar logic are imported here
     import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
     // console.log(getcart.length)
