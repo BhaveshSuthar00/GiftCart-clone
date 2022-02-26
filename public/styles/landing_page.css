@@ -252,7 +252,7 @@ body {
   border: 1px solid red;
   margin-left: 30%;
 
-  width: 38%;
+  width: 40%;
   height: 680px;
   /* display: none; */
   background-color: white;
@@ -272,32 +272,58 @@ body {
 }
 
 #sign_header {
-  
-  padding: 0% 0% 2% 5%;
-  height: 55px;
-  display: flex;
+  height: 65px;
   background-color: red;
   font-size: large;
 }
 
-#sign_header>h2{
-  width: 25%;
+#mera_sigin{
+  display: flex;
+  width:100%;
+  height: 37px;
+  padding: 15px;
+  gap: 8px;
+  /* align-items: center;
+  justify-content: center; */
+
 }
 
-a>#cross_btn {
-  /* background-color: transparent;
-  border: 0;
-  color: black;*/
-  margin-left: 380px;
-
-  background-color: transparent;
-  border: 0;
-  color: black;
-  font-size: large;
-  font-size: 25px;
-  margin-top: 15px;
-  cursor: pointer;
+#mera_sigin #sigin_logo_word{
+  display: flex;
+  width: 90%;
 }
+
+#sigin_logo_word{
+  gap: 2%;
+}
+
+#sigin_logo_word>:nth-child(1){
+  width: 7%;
+}
+#sigin_logo>img{
+  width: 70%;
+  height: 80%;
+  padding:6%;
+}
+
+#sigin_logo_word>:nth-child(2){
+  width: 100%;
+  color: white;
+  font-size: 28px;
+  font-weight: 12px;
+}
+
+#signin_cross_btn{
+  padding: 5px;
+  font-size: 20px;
+}
+
+#signin_cross_btn>a{
+  text-decoration: none;
+
+}
+
+
 form label {
   font-family: "Lato", arial, tahoma;
 }
