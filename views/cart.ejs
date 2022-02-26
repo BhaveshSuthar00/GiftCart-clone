@@ -15,7 +15,7 @@
   <link
   href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
   rel="stylesheet"
-/>
+/> 
   <link
       rel="icon"
       type="image/x-icon"
@@ -23,7 +23,10 @@
     />
 </head>
 <body>
-    <div class="nav_bar_container"></div>
+    <div class="nav_bar_container">
+        <%- include("../public/components/navbar.html") %>
+
+    </div>
 
     <div id="Bs-link-to-home">
         <a href="/index">Home</a>
@@ -45,6 +48,7 @@
                         </tr>
                     </thead>
                     <tbody id="Bs_table_data">
+                        <% if(items !== null) { %>
                         <% items.forEach(function(items){ %>
                         <tr>
                             <td>
@@ -86,7 +90,7 @@
                             </td>
                         </tr>
                         <% }) %>
-
+                    <% } %>
                     </tbody>
                 </table>
                 <div class="Bs_continue_btn_div">
@@ -108,7 +112,11 @@
                    </p>
                </div>
                <div id="Bs_checkout_list_div2">
-                    <a href="/product/checkout"><button>PROCEED TO CHECKOUT</button></a>
+                    <a href="/checkout/address">
+                        <button>
+                            PROCEED TO CHECKOUT
+                        </button>
+                    </a>    
                </div>
                <div id="Bs_checkout_list_div3">
                     <p>APPLY DISCOUNT CODE</p>
@@ -174,11 +182,6 @@
 
 
 <script type="module">
-    // navbar html are imported here
-    import navbar_part from "/components/navbar.js";
-    let navbar_com = await navbar_part();
-    document.querySelector(".nav_bar_container").innerHTML = navbar_com;
-    // navbar logic are imported here
     import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
     // console.log(getcart.length)

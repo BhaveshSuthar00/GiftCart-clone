@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="/styles/landing_page.css" /> -->
+    <style>
+      #karthik_create_container {
+        border: 1px solid red;
+        background-color: white;
+        width: 39%;
+        height: 570px;
+        margin-left: 30%;
+        margin-top: 5%;
+        /* top: 7%; */
+        font-family: "Lato", arial, tahoma;
+      }
+      #create_header {
+        padding: 0% 0% 2% 5%;
+        height: 55px;
+        display: flex;
+
+        background-color: red;
+      }
+
+      #karthik_create_icon {
+        width: 3%;
+        height: 50%;
+      }
+
+      #karthik_cross_btn {
+        border: 1px solid white;
+        background-color: transparent;
+        border: 0;
+        color: black;
+        font-size: large;
+        font-size: 25px;
+        margin-top: 7px;
+        margin-left: 25px;
+      }
+      #create_header > h2 {
+        padding-right: 38%;
+      }
+      #details {
+        padding: 4%;
+      }
+      #div1 {
+        padding-bottom: 4%;
+        display: flex;
+        gap: 25px;
+      }
+
+      #name {
+        width: 50%;
+      }
+
+      #last_name {
+        width: 50%;
+      }
+
+      #back_click {
+        color: black;
+        text-decoration: none;
+      }
+
+      #div1 > input {
+        padding: 10px 0px;
+        padding-left: 2%;
+        /* margin-right: 25px; */
+        border: 1px solid #c7c4c4;
+      }
+
+      #div2 {
+        padding-bottom: 4%;
+        width: 100%;
+      }
+
+      #div2 > input {
+        padding-left: 2%;
+        height: 40px;
+        border: 1px solid #c7c4c4;
+        width: 97.5%;
+      }
+
+      #div3 {
+        padding-bottom: 4%;
+        width: 100%;
+      }
+
+      #div3 > input {
+        padding-left: 2%;
+        height: 40px;
+        border: 1px solid #c7c4c4;
+        width: 97.5%;
+      }
+
+      #div4 {
+        padding-bottom: 4%;
+        padding-bottom: 10%;
+        width: 100%;
+      }
+
+      #div4 > input {
+        padding-left: 2%;
+        height: 40px;
+        border: 1px solid #c7c4c4;
+        width: 97.5%;
+      }
+
+      #create_btn {
+        border: 0;
+        background-color: red;
+        color: white;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="karthik_create_container">
+      <div id="create_header">
+        <h2 style="color: white">
+          <img
+            src="https://style.giftcart.com/pub/static/frontend/Mgs/molly/en_US/Mageplaza_SocialLogin/css/images/create-account-title.png"
+            alt=""
+          />
+          Create New Account
+        </h2>
+        <a href="/index"><button id="karthik_cross_btn">x</button></a>
+      </div>
+
+      <div id="details">
+        <form id="createaccount" action="/register/account" method="POST">
+          <div id="div1">
+            <input
+              name="first_name"
+              type="text"
+              id="name"
+              placeholder="First Name"
+              required
+            />
+            <input
+              name="last_name"
+              type="text"
+              id="last_name"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+
+          <div id="div2">
+            <label for="email">Email</label><br />
+            <input name="email" type="text" id="email" required /><br />
+          </div>
+          <input
+            name="username"
+            type="text"
+            id="username"
+            value="1"
+            style="display: none"
+          />
+
+          <div id="div3">
+            <label>Password</label><br />
+            <input
+              name="password"
+              type="password"
+              id="password"
+              required
+            /><br />
+          </div>
+
+          <div id="div4">
+            <label>Confirm Password</label><br />
+            <input
+              name="confirm_password"
+              type="password"
+              id="confirm_password"
+              required
+            /><br />
+          </div>
+
+          <!-- <input type="submit"><br> -->
+          <button id="create_btn" type="submit">CREATE AN ACCOUNT</button><br />
+          <a href="/register/login" id="back_click">Back</a>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -22,7 +22,10 @@
     />
 </head>
 <body>
-    <div class="nav_bar_container"></div>
+    <div class="nav_bar_container">
+        <%- include("../public/components/navbar.html") %>
+
+    </div>
 
     <div class="Bs_orange_line_div">
         <div class="Bs_orange1">
@@ -40,23 +43,24 @@
     </div>
         <p id="Bs_your_details">YOUR DETAILS</p>
     <div id="Bs_main">
+        <% if(address === null) { %>
         <div id="Bs_main_div1">
             <p id="Bs_your_details2">SHIPPING ADDRESS</p>
-            <form id="Bs_main_form" onsubmit="FormData(event)">
+            <form id="Bs_main_form" action="/checkout/address/register" method="POST">
                 <p>First Name<span>*</span></p>
-                <input id="Bs_F_name" type="text">
+                <input id="Bs_F_name" name="first_name" type="text">
                 <p>Last Name<span>*</span></p>
-                <input id="Bs_F_last_name" type="text">
+                <input id="Bs_F_last_name" name="last_name" type="text">
                 <p>Street Address<span>*</span></p>
-                <input id="Bs_address" type="text"><br>
+                <input id="Bs_address" name="address" type="text"><br>
                 <input type="text"><br>
                 <input type="text"><br>
                 <p>Landmark</p>
                 <input id="Bs_landmark" type="text">
                 <p>City<span>*</span></p>
-                <input type="text">
+                <input type="text" name="city">
                 <p>State/Province<span>*</span></p>
-                <select id="Bs_state_name">
+                <select id="Bs_state_name" name="state">
                     <option value="">Please Select State</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -86,21 +90,25 @@
                     <option value="Uttar Pradesh">Uttar Pradesh</option>
                     <option value="Uttarakhand">Uttarakhand</option>
                     <option value="West Bengal">West Bengal</option>
-                  </select>
+                </select>
                 <p>Zip/Post Code<span>*</span></p>
-                <input id="Bs_post_code" type="text">
+                <input id="Bs_post_code" name="pincode" type="text">
                 <p>Country<span>*</span></p>
-                <select id="Bs_country">
+                <select id="Bs_country" name="country">
                     <option value="india">India</option>
                 </select>
                 <p>Phone Number<span>*</span></p>
-                <input id="Bs_number" type="number">
+                <input id="Bs_number"name="number" type="number">
 
                 <p>SHIPPING METHODS</p>
                 <div id="Bs_main_form_indiv">
                     <div id="Bs_form_div">
-                        
-                        <p><input value="ondd" id="Bs_checkbox_d" type="checkbox"><span> <label class="BS_label_checkbox" for="Bs_checkbox_d">₹160.00</label></span></p>
+                        <p>
+                            <input value="ondd" id="Bs_checkbox_d" type="checkbox">
+                            <span> 
+                                <label class="BS_label_checkbox" for="Bs_checkbox_d">₹160.00</label>
+                            </span>
+                        </p>
                         <p>Standard Delivery</p>
                         <p>Standard Delivery</p>
                     </div>
@@ -108,6 +116,27 @@
                 <input id="Bs_Next_btn" type="submit" value="NEXT">
             </form>
         </div>
+        <% } else {  %>
+            <div id="Bs_main_div1" class="bs_example_address_parent">
+                <div class="bs_example_address">
+                    <p>
+                        <%=  address.first_name %> <%= address.last_name %>
+                    </p>
+                    <p>
+                        <%=  address.street_address %>
+                    </p>
+                    <p>
+                        <%=  address.phone_number %>
+                    </p>
+                    <p>
+                        <%=  address.city %>, <%=  address.state %> <%=  address.pincode %>
+                    </p>
+                </div>
+                <form action="/payment">
+                <input id="Bs_Next_btn" class="bs_ex_next" type="submit" value="NEXT">
+                </form>
+            </div>
+            <% }  %>
 
         <div id="Bs_main_div2">
             <div>
@@ -117,7 +146,31 @@
                 </div>
                 
                 <div id="Bs_cart_items_div">
-                    
+            <% if(items == null){  %>
+                <div class="Bs_pro_main_div">
+                    no product selected
+                </div>
+                <% } else { %>
+            <% items.forEach(function(items){ %>
+                <div class="Bs_pro_main_div">
+                <div class="Bs_pro_img_div">
+                    <img src="<%= items.image  %>" alt="">
+                </div>
+                <div>
+                    <p class="Bs_cart_p1">
+                        <%= items.product %>
+                    </p>
+                    <p class="Bs_cart_p2">
+                        QTY 1
+                    </p>
+                    <p class="Bs_cart_p3">
+                        <%=items.price %>
+                    </p>
+                </div>
+            </div>
+            <% }) %>
+            <% } %>
+            
                 </div>
                 <div id="Bs_image_div">
                 <img src="https://www.giftcart.com/pub/static/frontend/Mgs/molly/en_US/images/Covid--19-banner.jpg" alt="">
@@ -130,17 +183,12 @@
 </html>
 <script type="module">
     // navbar html are imported here
-    import navbar_part from "/components/navbar.js";
-    let navbar_com = await navbar_part();
-    document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+    // import navbar_part from "/components/navbar.js";
+    // let navbar_com = await navbar_part();
+    // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
     // navbar logic are imported here
     import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
-    let getcart = JSON.parse(localStorage.getItem('productlist'));
-
-    console.log(getcart.length)
-    let cart_count = document.getElementById('cart_cc');
-    cart_count.textContent = `${getcart.length}`;
     let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
         window.location.href = '/product/random'

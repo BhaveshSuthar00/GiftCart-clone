@@ -9,4 +9,4 @@ const wishlistSchema = new mongoose.Schema({
 
 const Wishlist = mongoose.model('wishlist', wishlistSchema);
 
-module.exports = Wishlist;
+module.exports = Wishlist;   

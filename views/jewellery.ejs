@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/jewellery.css" />
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="/styles/landing_page.css" />
+    <link rel="stylesheet" href="/styles/footer.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -23,7 +24,10 @@
     />
   </head>
   <body>
-    <div class="nav_bar_container"></div>
+    <div class="nav_bar_container">
+      <%- include("../public/components/navbar.html") %>
+
+    </div>
     <div id="jewellery_header">
       <div id="nav_name">
         <h1>JEWELLERY</h1>
@@ -86,6 +90,7 @@
         </button>
       </div>
     </div>
+    
 
     <div id="jewellery_container">
       <% products.forEach(function(element) { %>  
@@ -178,6 +183,10 @@
         for young girls and women.
       </p>
     </div>
+    <div id="footer">
+      <%- include("../public/components/footer.html") %>
+
+    </div>
   </body>
 </html>
 
@@ -185,15 +194,11 @@
 <script type="module">
   // navbar html are imported here
   import navbar_part from "/components/navbar.js";
-  let navbar_com = await navbar_part();
-  document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+  // let navbar_com = await navbar_part();
+  // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
   // navbar logic are imported here
   import navbar_responsive from "/scripts/header.js";
   await navbar_responsive();
-  let getcart = JSON.parse(localStorage.getItem("productlist"));
-
-  let cart_count = document.getElementById("cart_cc");
-  cart_count.textContent = `${getcart.length}`;
 
   let jewellery_div = document.getElementById("jewellery_container");
   import { getJewellery, appendJewellery } from "./scripts/jewellery.js";

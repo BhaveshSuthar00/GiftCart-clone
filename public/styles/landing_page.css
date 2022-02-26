@@ -130,19 +130,20 @@ body {
   padding: 000.1rem 000.2rem;
 } */
 
-#karthik_create_container {
-  background-color: white;
+/* #karthik_create_container { */
+/* border: 1px solid black; */
+/* background-color: white;
   width: 39%;
   height: 570px;
-  margin-left: 30%;
-  display: none;
-  position: absolute;
-  top: 7%;
-  font-family: "Lato", arial, tahoma;
-  z-index: 10;
-}
+  margin-left: 30%; */
+/* display: none; */
+/* position: absolute; */
+/* top: 7%;
+  font-family: "Lato", arial, tahoma; */
+/* z-index: 10; */
+/* } */
 
-#create_header {
+/* #create_header {
   padding-top: 1.5%;
   padding-bottom: 7.5%;
   padding-left: 5%;
@@ -241,23 +242,23 @@ body {
   width: 90%;
   height: 40px;
   margin-bottom: 20px;
-}
+} */
 
 /*----------------------------------------------- login -----------------------------------*/
 #sdiv1 {
   margin-top: 20px;
 }
 #karthik_signin_container {
+  border: 1px solid red;
   margin-left: 30%;
 
-  width: 40%;
-  height: 659px;
-  display: none;
+  width: 38%;
+  height: 680px;
+  /* display: none; */
   background-color: white;
-  z-index: 10;
-  margin-left: 30%;
+  /* z-index: 10; */
   position: absolute;
-  top: 7%;
+  top: 4%;
 }
 .bg-model {
   width: 100%;
@@ -271,28 +272,26 @@ body {
 }
 
 #sign_header {
+  padding: 0% 0% 2% 5%;
+  height: 55px;
   display: flex;
-  padding-top: 1.5%;
-  padding-bottom: 7.5%;
-  padding-left: 5%;
-
-  height: 20px;
   background-color: red;
   font-size: large;
 }
 
-#cross_btn {
+a>#cross_btn {
   /* background-color: transparent;
   border: 0;
   color: black;*/
-  margin-left: 70%;
+  margin-left: 380px;
+
   background-color: transparent;
   border: 0;
   color: black;
   font-size: large;
   font-size: 25px;
-  margin-top: 7px;
-  margin-right: 20px;
+  margin-top: 15px;
+  cursor: pointer;
 }
 form label {
   font-family: "Lato", arial, tahoma;
@@ -304,7 +303,7 @@ form label {
 }
 
 #sdiv1 > input {
-  width: 95%;
+  width: 92%;
   padding: 8px;
   border-radius: 0px;
   border: 1px solid #e1e1e1;
@@ -313,7 +312,7 @@ form label {
 }
 
 #sdiv2 > input {
-  width: 95%;
+  width: 92%;
   padding: 8px;
   border-radius: 0px;
   border: 1px solid #e1e1e1;
@@ -324,8 +323,12 @@ form label {
 #sdiv2 {
   padding-bottom: 1%;
 }
-
+#sdiv2 > input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+}
 #new_join_gift {
+  margin-top: 30px;
   padding-left: 27%;
   color: red;
   font-size: xx-large;
@@ -343,13 +346,13 @@ form label {
 }
 
 #sigin_options {
-  width: 99%;
+  width: 93%;
   height: 90px;
-  padding-bottom: 10%;
 }
 
 #fb_logo {
-  margin-left: 22%;
+  margin-left: 20.5%;
+  margin-bottom: 3.5px;
 }
 
 #karthik_login_btn {

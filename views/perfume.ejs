@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/styles/perfumes.css">
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="/styles/landing_page.css" />
+    <link rel="stylesheet" href="/styles/footer.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -16,14 +17,17 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
-    <link
+    <link  
       rel="icon"
-      type="image/x-icon"
+      type="image/x-icon" 
       href="https://style.giftcart.com/pub/media/favicon/stores/1/16x16.png"
     />
 </head>
 <body>
-    <div class="nav_bar_container"></div>
+    <div class="nav_bar_container">
+      <%- include("../public/components/navbar.html") %>
+        
+    </div>
     <div id="jewellery_header">
         <div id="nav_name">
             <h1>PERFUMES</h1>
@@ -127,6 +131,10 @@
         <p>Online fragrance stores in India are a growing trend, and buying online is a smart way to do your shopping. It gives you the option to be creative about the kind of perfume you want to purchase and also, gives you an almost unlimited number of options to do that. At giftcart, customer satisfaction is the number one priority and we aim to please. A variety of exciting deals on perfumes is available, since Fragrances are a big part of the Online Beauty and personal care shopping experience. It is one aspect where a fashion conscious individual is always willing to go that extra mile.
             </p>
     </div>
+    <div id="footer">
+      <%- include("../public/components/footer.html") %>
+
+    </div>
 </body>
 </html>
 <script>
@@ -135,18 +143,12 @@
 <script src="/scripts/perfumes.js"></script>
 <script type="module">
      // navbar html are imported here
-  import navbar_part from "/components/navbar.js";
-  let navbar_com = await navbar_part();
-  document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+//   import navbar_part from "/components/navbar.js";
+//   let navbar_com = await navbar_part();
+//   document.querySelector(".nav_bar_container").innerHTML = navbar_com;
   // navbar logic are imported here
   import navbar_responsive from "/scripts/header.js";
   await navbar_responsive();
-  let getcart = JSON.parse(localStorage.getItem('productlist'));
-
-    // console.log(getcart.length)
-    let cart_count = document.getElementById('cart_cc');
-    cart_count.textContent = `${getcart.length}`;
-
     let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
         window.location.href = '/product/random'

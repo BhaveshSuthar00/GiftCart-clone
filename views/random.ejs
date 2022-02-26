@@ -23,7 +23,9 @@
     />
   </head>
   <body>
-    <div class="nav_bar_container"></div>
+    <div class="nav_bar_container">
+      <%- include("../public/components/navbar.html") %>
+    </div>
 
     <div class="nav_header">
       <div class="filters">
@@ -127,6 +129,7 @@
         to go that extra mile.
       </p>
     </div>
+    <div class="footer"><%- include("../public/components/navbar.html") %></div>
   </body>
 </html>
 <script></script>
@@ -134,16 +137,12 @@
 <!-- /////////////////////script for jewelry data starts here  -->
 <script type="module">
   // navbar html are imported here
-  import navbar_part from "/components/navbar.js";
-  let navbar_com = await navbar_part();
-  document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+  // import navbar_part from "/components/navbar.js";
+  // let navbar_com = await navbar_part();
+  // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
   // navbar logic are imported here
   import navbar_responsive from "/scripts/header.js";
   await navbar_responsive();
-  let getcart = JSON.parse(localStorage.getItem("productlist")) || [];
-
-  let cart_count = document.getElementById("cart_cc");
-  cart_count.textContent = `${getcart.length}`;
 
   let jewellery_div = document.getElementById("jewellery_container");
   import { getJewellery, appendJewellery } from "/scripts/jewellery.js";
