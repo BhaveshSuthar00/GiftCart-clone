@@ -13,7 +13,7 @@ const authenticate = async (req, res, next) => {
   const cookieHeader = req.headers?.cookie;
   if(!cookieHeader) return res.status(400).send({ message: "Please login" });
   let token = cookieHeader.split("=")[1];
-  console.log(cookieHeader, "cookieheader")
+  // console.log(cookieHeader, "cookieheader")
   let user;
   try {
     user = await verifyToken(token);

@@ -6,10 +6,10 @@ const Cart = require("../models/cart.model");
 const authenticate = require("../middlewares/authenticate");
 const { redirect } = require("express/lib/response");
 
-const user_id = "6217a63b90c3cf0eea423c81"
+// const user_id = "6217a63b90c3cf0eea423c81"
 router.get('/', async (req, res) => {
     try {
-        // let user_id = req.user._id;
+        let user_id = req.user._id;
         const user = await Cart.findOne({user_id: user_id}).lean().exec();
         // console.log(user);
         if(!user){
@@ -24,6 +24,7 @@ router.get('/', async (req, res) => {
 })
 router.get('/removeUser', async (req, res)=> {
     try {
+        let user_id = req.user._id;
         const user = await Cart.findOne({user_id : user_id}).lean().exec();
         let removeUser = await Cart.findByIdAndDelete({_id : user._id}).lean().exec();
         return res.redirect('/index');
@@ -34,7 +35,7 @@ router.get('/removeUser', async (req, res)=> {
 })
 router.get('/remove/:id', async (req,res)=> {
     try {
-        // let user_id = req.user._id;
+        let user_id = req.user._id;
         const items = await Cart.updateOne({user_id : user_id}, {$pull : {product_ids : req.params.id}}).lean().exec();
         return res.redirect(`/cart/currentuser/${user_id}`);
     }
@@ -45,7 +46,7 @@ router.get('/remove/:id', async (req,res)=> {
 })
 router.get('/:id', async (req, res) =>{
     try {
-        // let user_id = req.user._id;
+        let user_id = req.user._id;
         let item_push = req.params.id;
         var items = await Cart.findOne({user_id : user_id}).lean().exec();
         if(!items){
@@ -82,7 +83,7 @@ router.get('/:id', async (req, res) =>{
 
 router.get("/currentuser/:id", async (req, res) => {
     try {
-        // let user_id = req.user._id;
+        let user_id = req.user._id;
         const items = await Cart.findOne({ user_id: user_id })
         .populate({ path: "product_ids" })
         .lean()

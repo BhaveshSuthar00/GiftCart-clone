@@ -107,17 +107,17 @@ app.get("/karthik", authenticate, async (req, res) => {
   }
 });
 
-app.use("/cart", cartController);
+app.use("/cart",authenticate, cartController);
 app.use("/admin", adminController);
 app.use("/product", productController);
-app.use("/checkout", checkoutController);
+app.use("/checkout",authenticate, checkoutController);
 app.use("/wishlist_layout", wishlistController);
 app.use("/shopitem", shopitemController);
 app.use("/register", router);
 
-const user_id = "6217a63b90c3cf0eea423c81"
-app.get("/payment",async (req, res) => {
+app.get("/payment",authenticate, async (req, res) => {
   try {
+    let user_id = req.user._id;
     const cart = await Cart.findOne({user_id : user_id}).populate({path : "product_ids"}).lean().exec();
     const address = await Address.findOne({user_id : user_id}).lean().exec();
     res.render("payment", {items : cart.product_ids, address : address});

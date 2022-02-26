@@ -120,19 +120,19 @@
             <div id="Bs_main_div1" class="bs_example_address_parent">
                 <div class="bs_example_address">
                     <p>
-                        <%=  address[0].first_name %> <%= address[0].last_name %>
+                        <%=  address.first_name %> <%= address.last_name %>
                     </p>
                     <p>
-                        <%=  address[0].street_address %>
+                        <%=  address.street_address %>
                     </p>
                     <p>
-                        <%=  address[0].phone_number %>
+                        <%=  address.phone_number %>
                     </p>
                     <p>
-                        <%=  address[0].city %>, <%=  address[0].state %> <%=  address[0].pincode %>
+                        <%=  address.city %>, <%=  address.state %> <%=  address.pincode %>
                     </p>
                 </div>
-                <form action="/product/payment">
+                <form action="/payment">
                 <input id="Bs_Next_btn" class="bs_ex_next" type="submit" value="NEXT">
                 </form>
             </div>
