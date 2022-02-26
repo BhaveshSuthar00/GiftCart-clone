@@ -290,12 +290,11 @@
 <script>
   // const get_url = `http://127.0.0.1:5001/api/products`;
   // const get_url = `https://giftcartbackendapp.herokuapp.com/api/products`;
-  const get_url = `http://localhost:2000/product`;
+  const get_url = `https://giftcart-backend.herokuapp.com/admin`;
   getDataFromDataBase(get_url);
   async function addProduct(e) {
     e.preventDefault();
     try {
-      console.log(298);
       let data = {
         id: document.getElementById("id").value,
         product: document.getElementById("title").value,
@@ -309,18 +308,18 @@
       };
 
       data = JSON.stringify(data);
-      console.log(312);
-      let response = await fetch("http://localhost:2000/product", {
-        method: "POST",
-        body: data,
+      let response = await fetch(
+        "https://giftcart-backend.herokuapp.com/admin",
+        {
+          method: "POST",
+          body: data,
 
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log(324);
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       let d = await response.json();
-      console.log(326);
       getDataFromDataBase(get_url);
     } catch (err) {
       console.log(err);
@@ -330,12 +329,15 @@
 
   async function deleteProduct(id) {
     try {
-      let response = await fetch(`http://localhost:2000/product/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      let response = await fetch(
+        `https://giftcart-backend.herokuapp.com/admin/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       let d = await response.json();
       console.log(d);
       getDataFromDataBase(get_url);
@@ -348,14 +350,14 @@
   let search_logo = document.querySelector("#search_logo");
   search_logo.addEventListener("click", () => {
     let id = search.value;
-    let url = `http://localhost:2000/product/${id}`;
+    let url = `https://giftcart-backend.herokuapp.com/admin/${id}`;
     getDataFromDataBase(url);
   });
 
   search.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
       let id = search.value;
-      let url = `http://localhost:2000/product/${id}`;
+      let url = `https://giftcart-backend.herokuapp.com/admin/${id}`;
       getDataFromDataBase(url);
     }
   });
@@ -393,16 +395,18 @@
       if (flag) {
         option = "PATCH";
       }
-      console.log(option);
 
-      let response = await fetch(`http://localhost:2000/product/${id}`, {
-        method: option,
-        body: data,
+      let response = await fetch(
+        `https://giftcart-backend.herokuapp.com/admin/${id}`,
+        {
+          method: option,
+          body: data,
 
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       let d = await response.json();
       console.log(d);

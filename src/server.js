@@ -31,7 +31,7 @@ const adminController = require("./controllers/admin_controller");
 
 const checkoutController = require("./controllers/checkout_controller");
 
-const shopitemController = require('./controllers/shopitem_controller');
+const shopitemController = require("./controllers/shopitem_controller");
 const { newToken, router } = require("./controllers/user_controller");
 
 const static_path = path.join(__dirname, "../public");
@@ -107,20 +107,23 @@ app.get("/karthik", authenticate, async (req, res) => {
   }
 });
 
-app.use("/cart",authenticate, cartController);
+app.use("/cart", authenticate, cartController);
 app.use("/admin", adminController);
 app.use("/product", productController);
-app.use("/checkout",authenticate, checkoutController);
+app.use("/checkout", authenticate, checkoutController);
 app.use("/wishlist_layout", wishlistController);
 app.use("/shopitem", shopitemController);
 app.use("/register", router);
 
-app.get("/payment",authenticate, async (req, res) => {
+app.get("/payment", authenticate, async (req, res) => {
   try {
     let user_id = req.user._id;
-    const cart = await Cart.findOne({user_id : user_id}).populate({path : "product_ids"}).lean().exec();
-    const address = await Address.findOne({user_id : user_id}).lean().exec();
-    res.render("payment", {items : cart.product_ids, address : address});
+    const cart = await Cart.findOne({ user_id: user_id })
+      .populate({ path: "product_ids" })
+      .lean()
+      .exec();
+    const address = await Address.findOne({ user_id: user_id }).lean().exec();
+    res.render("payment", { items: cart.product_ids, address: address });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
@@ -129,14 +132,13 @@ app.get("/payment",authenticate, async (req, res) => {
 app.use("/shopitem", productController);
 app.use("/register", router);
 
-app.use('/index', async (req, res) =>{
+app.use("/index", async (req, res) => {
   try {
-    res.render('index');
+    res.render("index");
+  } catch (err) {
+    res.render("error");
   }
-  catch (err) {
-    res.render('error')
-  }
-})
+});
 app.use("/", async (req, res) => {
   try {
     res.render("index");

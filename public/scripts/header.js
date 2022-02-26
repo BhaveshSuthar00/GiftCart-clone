@@ -237,17 +237,14 @@ async function navbar_responsive() {
       ).textContent = `Hello, ${message.user.first_name}`;
       document.querySelector("#karthik_sigin_click").style.display = "none";
       document.querySelector("#karthik_createAct_click").style.display = "none";
-      const log = `<li><a id="sign_out" href="#">Sign Out</a></li>`
-      let y = document.querySelector(
-        "#karthik_d"
-      );
-      y.innerHTML+=log;
-        document.querySelector("#sign_out").onclick = async () => {
-          
-          let logged_user = await fetch("http://localhost:2000/karthik");
-          let message = await logged_user.json();
-          window.location.href = "/index"
-        }
+      const log = `<li><a id="sign_out" href="#">Sign Out</a></li>`;
+      let y = document.querySelector("#karthik_d");
+      y.innerHTML += log;
+      document.querySelector("#sign_out").onclick = async () => {
+        let logged_user = await fetch("http://localhost:2000/karthik");
+        let message = await logged_user.json();
+        window.location.href = "/index";
+      };
     }
   }
   logged();
@@ -268,13 +265,15 @@ async function navbar_responsive() {
     document.querySelector("#hello_btn").textContent = `Hello, ${str}`;
   }
   // search functionality
-  const get_url = `https://giftcartbackendapp.herokuapp.com/api/products`;
+  // const get_url = `https://giftcartbackendapp.herokuapp.com/api/products`;
+  const get_url = `http://localhost:2000/admin`;
   let search_item = document.querySelector("#prod_search_input");
   let product;
+  let arr;
   search_item.onkeypress = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && arr.length > 0) {
       product = search_item.value;
-      getDataFromDataBase(get_url, product);
+      window.location.href = `/product/random?item=${arr[0].category}&sub=${arr[0].sub_category}`;
     }
   };
 
@@ -310,7 +309,6 @@ async function navbar_responsive() {
       } else {
         let arr = [];
         arr.push(data);
-
         search_itemlogic(data, product);
         // appendDatafromDataBase(arr);
       }
@@ -328,26 +326,34 @@ async function navbar_responsive() {
     });
     location.style.display = "block";
     location.innerHTML = null;
-    let arr = [];
-    data.map(({ category, sub_category, price, image, id, product }) => {
-      let cat = "";
-      let sub = "";
-      for (let i = 0; i < prod.length; i++) {
-        cat += category[i];
-        sub += sub_category[i];
-      }
-      if (prod === cat || prod === sub) {
-        let obj = {
-          image,
-          price,
-          product,
-        };
-        arr.push(obj);
+    arr = [];
+    data.map(({ category, sub_category, price, image, id, product, _id }) => {
+      // let cat = "";
+      // let sub = "";
+      // console.log(id, category, sub_category);
+      // for (let i = 0; i < prod.length; i++) {
+      //   cat += category[i];
+      //   sub += sub_category[i];
+      // }
+      if (category != null && sub_category != null) {
+        if (category.startsWith(prod) || sub_category.startsWith(prod)) {
+          // console.log(category, sub_category);
+          let obj = {
+            image,
+            price,
+            product,
+            _id,
+            id,
+            category,
+            sub_category,
+          };
+          arr.push(obj);
+        }
       }
     });
     arr = arr.reverse();
     localStorage.setItem("search_items_array", JSON.stringify(arr));
-    arr.map(({ image, price, product, sub_category, category }) => {
+    arr.map(({ image, price, product, sub_category, category, _id, id }) => {
       let div = document.createElement("div");
       let img = document.createElement("img");
       img.src = image;
@@ -365,9 +371,12 @@ async function navbar_responsive() {
           product,
           sub_category,
           category,
+          _id,
+          id,
         };
         localStorage.setItem("clickedJewelleryData", JSON.stringify(obj));
-        window.location.href = "shopitem";
+
+        window.location.href = `shopitem?id=${_id}`;
       };
       location.append(div);
     });

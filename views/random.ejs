@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search Product</title>
-    <link rel="stylesheet" href="/styles/random.css">
+    <link rel="stylesheet" href="/styles/random.css" />
     <link rel="stylesheet" href="/styles/landing_page.css" />
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link
@@ -17,74 +17,122 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <link   
+    <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
-</head>
-<body>
+  </head>
+  <body>
     <div class="nav_bar_container">
       <%- include("../public/components/navbar.html") %>
     </div>
-    
+
     <div class="nav_header">
-        
-        <div class="filters">
-            <p  class="filter">FILTER:</p>
-            <a class="anchor" onclick="myfun()" id="clicks">Category <i class="fa fa-caret-down"></i> </a>   
-       <div class="dropdown">
-        
-        <div id="dropcontent" class="dropdowncontent">
+      <div class="filters">
+        <p class="filter">FILTER:</p>
+        <a class="anchor" onclick="myfun()" id="clicks"
+          >Category <i class="fa fa-caret-down"></i>
+        </a>
+        <div class="dropdown">
+          <div id="dropcontent" class="dropdowncontent">
             <a href="#">For Him</a>
             <a href="#"> For Her</a>
+          </div>
         </div>
-    </div>
         <a class="anchor">Price <i class="fa fa-caret-down"></i></a>
         <a class="anchor">Color <i class="fa fa-caret-down"></i></a>
-         
-
-       </div>
-        <div class="sorting">
-            <h3>Sort By</h3>
-            <select name="Relevance" class="options">
-                <option value="price">Price</option>
-                <option value="high">high</option>
-                <option value="low">low</option>
-            </select>
-            <button class="arrow">
-                <i class="fas fa-arrow-up"></i>
-            </button>
-
-        </div>
+      </div>
+      <div class="sorting">
+        <h3>Sort By</h3>
+        <select name="Relevance" class="options">
+          <option value="price">Price</option>
+          <option value="high">high</option>
+          <option value="low">low</option>
+        </select>
+        <button class="arrow">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
     </div>
-
 
     <div id="jewellery_container">
+      <% products.forEach(function(element) { %> %>
+      <a href="/shopitem/<%- element._id %>">
+        <div class="divmain">
+          <img src="<%= element.image %>" alt="" />
+          <div class="main_titleDiv">
+            <div>
+              <!-- title_div  -->
+              <p><%= element.product %></p>
+            </div>
+            <div class="heart_div">
+              <i class="far fa-heart"></i>
+            </div>
+          </div>
 
+          <div class="mrp_div">
+            <div>
+              <p>MRP (incl gst)</p>
+            </div>
+            <div>
+              <p>₹<%= element.price %></p>
+            </div>
+            <div>
+              <p><%= element.price %></p>
+            </div>
+          </div>
 
+          <div class="start_div">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+      </a>
+      <!-- ejs loop ends here -->
+      <% }) %>
     </div>
     <div id="jewellery_info">
-        <h1>
-            ONLINE FRAGRANCE SHOPPING
-        </h1>
-        <p>
-            Be it a birthday or an anniversary, what you give to that special someone in your life always holds great value and importance. It’s a significant occasion which deserves the very best, and to do that, your creative juices need to flow in overdrive. The online shopping trend is fast catching on, thanks to an increasing number of web friendly people today. You can sit in the living room and shop online, which is much better than going to a store and traipsing around for hours. It saves time, and enhances your options.
-
-        </p>
-        <p>
-            A gift you can never go wrong with for the special woman in your life is a good perfume. Nothing would impress the opposite sex more than a good, powerful scent. Giftcart brings you the all the latest international brands, so that you can have the optimum online fragrance shopping experience. A host of varied brands, which cut across all the demographics, are there to get your hands on. Log on to giftcart to get the best deals on your favorite brands like Tommy Hilfiger, Calvin Klein as well as on big international brands like Prada, Azzaro, Davidoff and Armani.
-        </p>
-        <p>Online fragrance stores in India are a growing trend, and buying online is a smart way to do your shopping. It gives you the option to be creative about the kind of perfume you want to purchase and also, gives you an almost unlimited number of options to do that. At giftcart, customer satisfaction is the number one priority and we aim to please. A variety of exciting deals on perfumes is available, since Fragrances are a big part of the Online Beauty and personal care shopping experience. It is one aspect where a fashion conscious individual is always willing to go that extra mile.
-            </p>
+      <h1>ONLINE FRAGRANCE SHOPPING</h1>
+      <p>
+        Be it a birthday or an anniversary, what you give to that special
+        someone in your life always holds great value and importance. It’s a
+        significant occasion which deserves the very best, and to do that, your
+        creative juices need to flow in overdrive. The online shopping trend is
+        fast catching on, thanks to an increasing number of web friendly people
+        today. You can sit in the living room and shop online, which is much
+        better than going to a store and traipsing around for hours. It saves
+        time, and enhances your options.
+      </p>
+      <p>
+        A gift you can never go wrong with for the special woman in your life is
+        a good perfume. Nothing would impress the opposite sex more than a good,
+        powerful scent. Giftcart brings you the all the latest international
+        brands, so that you can have the optimum online fragrance shopping
+        experience. A host of varied brands, which cut across all the
+        demographics, are there to get your hands on. Log on to giftcart to get
+        the best deals on your favorite brands like Tommy Hilfiger, Calvin Klein
+        as well as on big international brands like Prada, Azzaro, Davidoff and
+        Armani.
+      </p>
+      <p>
+        Online fragrance stores in India are a growing trend, and buying online
+        is a smart way to do your shopping. It gives you the option to be
+        creative about the kind of perfume you want to purchase and also, gives
+        you an almost unlimited number of options to do that. At giftcart,
+        customer satisfaction is the number one priority and we aim to please. A
+        variety of exciting deals on perfumes is available, since Fragrances are
+        a big part of the Online Beauty and personal care shopping experience.
+        It is one aspect where a fashion conscious individual is always willing
+        to go that extra mile.
+      </p>
     </div>
-    <div class="footer">
-      <%- include("../public/components/navbar.html") %>
-    </div>
-</body>
+    <div class="footer"><%- include("../public/components/navbar.html") %></div>
+  </body>
 </html>
-<script>
-    
-</script>
+<script></script>
 
 <!-- /////////////////////script for jewelry data starts here  -->
 <script type="module">
@@ -100,10 +148,10 @@
   import { getJewellery, appendJewellery } from "/scripts/jewellery.js";
   const url = "https://giftcartbackendapp.herokuapp.com/api/products";
 
-  let clickdiv = document.querySelector('.material-icons-outlined');
-    clickdiv.addEventListener('click',()=>{
-        window.location.href = '/product/random'
-    })
+  let clickdiv = document.querySelector(".material-icons-outlined");
+  clickdiv.addEventListener("click", () => {
+    window.location.href = "/product/random";
+  });
   ///////////////////////script for jewelry data ends here///////////////////////////
   document.addEventListener("click", (e) => {
     const isDropdownButton = e.target.matches("[data-dropdown-button]");

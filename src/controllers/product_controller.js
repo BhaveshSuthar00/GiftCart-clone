@@ -10,7 +10,7 @@ router.get("/jewellery", async (req, res) => {
   } catch (err) {
     console.log(err);
 
-    res.render('error');
+    res.render("error");
   }
 });
 
@@ -21,17 +21,21 @@ router.get("/perfume", async (req, res) => {
       .exec();
     res.render("perfume", { products: items });
   } catch (err) {
-    res.render('error');
+    res.render("error");
   }
 });
+
 router.get("/random", async (req, res) => {
   try {
-    // const items = await Product.find().lean().exec();
-    res.render("random");
+    let products = await Product.find({
+      $or: [{ category: req.query.item }, { sub_category: req.query.sub }],
+    })
+      .lean()
+      .exec();
+    return res.render("random", { products });
   } catch (err) {
     res.send(err.message);
     res.render("error");
   }
 });
-
 module.exports = router;
