@@ -272,11 +272,16 @@ body {
 }
 
 #sign_header {
+  
   padding: 0% 0% 2% 5%;
   height: 55px;
   display: flex;
   background-color: red;
   font-size: large;
+}
+
+#sign_header>h2{
+  width: 25%;
 }
 
 a>#cross_btn {
