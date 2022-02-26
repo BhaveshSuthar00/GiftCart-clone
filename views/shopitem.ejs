@@ -49,11 +49,11 @@
                 </p>
                 <p class="bs_main_price">
                     <!-- ₹2391.00 -->
-                    <%= item.price  %>
+                    ₹<%= item.price  %>
                 </p>
                 <p class="bs_discounted_price">
                     <!-- ₹3391.00 -->
-                    <%= item.price+2000 %>
+                    ₹<%= item.price+2000 %>
                 </p>
             </div>
             <div class="bs_yourSave_div">
@@ -119,29 +119,8 @@
     </div>
 </body>
 </html>
-<script>
-function increaseValue() {
-  var value = parseInt(document.getElementById('number').value, 10);
-  value = isNaN(value) ? 0 : value;
-  value++;
-  document.getElementById('number').value = value;
-}
-
-function decreaseValue() {
-  var value = document.getElementById('number').value;
-  value = isNaN(value) ? 0 : value;
-  value < 1 ? value = 1 : '';
-  value--;
-  document.getElementById('number').value = value;
-}
-    
-</script>
+<script src="/scripts/shopitem.js"></script>
 <script type="module">
-    // navbar html are imported here
-    // import navbar_part from "/components/navbar.js";
-    // let navbar_com = await navbar_part();
-    // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
-    // navbar logic are imported here
     import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
 </script>  

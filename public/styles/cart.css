@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+* {
+  font-family: 'Lato', sans-serif;
+}
 #Bs-link-to-home {
     border-bottom: 1px solid rgb(110, 110, 110);
     width: 88%;
@@ -65,7 +69,6 @@
 }
 .Bs_item_div_intable>h4 {
     width: 70%;
-    font-family: sans-serif;
     font-weight: lighter;
     margin-top: 1%;
     margin-left: 2%;
@@ -78,7 +81,6 @@
 #Bs_items_list_table th {
     padding: 10px 0px;
     font-weight: lighter;
-    font-family: Lato, arial, tahoma;;
     background-color: rgb(238,238,238);
 }
 .Bs_qty_div>input {
@@ -88,7 +90,7 @@
 }
 .Bs_product_price, .Bs_product_price2 {
     color: red;
-    font-size: 23px;
+    font-size: 21px;
     font-weight: bold;
 }
 .Bs_remove_div {
@@ -168,7 +170,6 @@
     height: 170px;
 }
 #Bs_checkout_list_div3>p {
-    font-family:sans-serif;
     font-weight: bold;
     font-size: 15px;
     color: rgb(46, 46, 46);

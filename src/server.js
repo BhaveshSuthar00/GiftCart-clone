@@ -7,43 +7,37 @@ const path = require("path");
 const passport = require("./conflig/google-oauth");
 
 const connect = require("./conflig/db");
-// this is the models that we will require for this project
 
-// product will have all the data
-const Product = require("./models/product.model");
 const productController = require("./controllers/product_controller");
-// user will be the current user who is visiting the site
-const User = require("./models/user.model");
-// const userController = require("./controllers/user_controller");
 
-// wishlist will be depending on user parent child relationship
-const Wishlist = require("./models/wishlist.model");
 const wishlistController = require("./controllers/wishlist_controller");
 
-// cart will be depending on user parent child relationship
 const Cart = require("./models/cart.model");
+
 const cartController = require("./controllers/cart_controller");
 
-// address will be depending on user parent child relationship
 const Address = require("./models/address.model");
-const addressController = require("./controllers/address_controller");
+
 const adminController = require("./controllers/admin_controller");
 
 const checkoutController = require("./controllers/checkout_controller");
 
 const shopitemController = require("./controllers/shopitem_controller");
+
 const { newToken, router } = require("./controllers/user_controller");
 
 const static_path = path.join(__dirname, "../public");
 
-// console.log('static_path:', static_path)
-
 const app = express();
 
 const bodyParser = require("body-parser");
+
 app.use(express.json());
+
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static(static_path));
 app.set("view engine", "ejs");
 // -----------------------------------------GOOGLE OAUTH-----------------------------------------------------
@@ -78,7 +72,7 @@ app.get(
 
 function updateRequestMethod(req, res, next) {
   if (req.body.method) {
-    req.method = req.body.method; // req.method = "delete" route = /users/:id
+    req.method = req.body.method;
     return next();
   }
   return next();
@@ -107,12 +101,18 @@ app.get("/karthik", authenticate, async (req, res) => {
   }
 });
 
-app.use("/cart", authenticate, cartController);
-app.use("/admin", adminController);
-app.use("/product", productController);
 app.use("/checkout", authenticate, checkoutController);
+
+app.use("/cart", authenticate, cartController);
+
+app.use("/admin", adminController);
+
+app.use("/product", productController);
+
 app.use("/wishlist_layout", wishlistController);
+
 app.use("/shopitem", shopitemController);
+
 app.use("/register", router);
 
 app.get("/payment", authenticate, async (req, res) => {
@@ -129,8 +129,6 @@ app.get("/payment", authenticate, async (req, res) => {
   }
 });
 
-app.use("/shopitem", productController);
-app.use("/register", router);
 
 app.use("/index", async (req, res) => {
   try {
@@ -154,14 +152,6 @@ app.use("/admin", (req, res) => {
     return res.status(500).send({ message: err.message });
   }
 });
-
-// app.get("/payment", (req, res) => {
-//   try {
-//     res.render("payment");
-//   } catch (err) {
-//     return res.status(500).send({ message: err.message });
-//   }
-// });
 
 app.listen(port, async () => {
   try {

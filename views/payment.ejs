@@ -258,7 +258,7 @@
         </div>
       </div>
     </div>
-    <div id="footer">
+    <div id="footer" style="margin-top: 5%;">
       <%- include("../public/components/footer.html") %>
     </div>
   </body>
@@ -280,10 +280,7 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
   document.getElementById("rzp-button1").onclick = function (e) {
-    // let cart_Total = JSON.parse(localStorage.getItem("total_price"));
-
     cart_Total = 100;
-
     var options = {
       key: "rzp_test_yZKzyRRfmE9355", // Enter the Key ID generated from the Dashboard
       amount: `${cart_Total}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -309,9 +306,6 @@
   };
 </script>
 <script type="module">
-    // import navbar_part from "/components/navbar.js";
-    // let navbar_com = await navbar_part();
-    // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
     import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
     let clickdiv = document.querySelector('.material-icons-outlined');

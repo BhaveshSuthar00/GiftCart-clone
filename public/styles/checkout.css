@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+* {
+  font-family: 'Lato', sans-serif;
+}
 .bs_example_address {
     width : 50%;
     margin-top: 4%;
@@ -5,7 +9,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .bs_ex_next {
-    margin-top: 200px;
+    margin-top: 20px;
     display:  flex;
     float: right;
     margin-right: 8%;
@@ -65,7 +69,6 @@
     width: 100%;
     margin-top: 5%;
     font-size: 21px;
-    font-family: Lato, arial, tahoma;
     text-align: center;
 }
 .Bs_number>img {
@@ -88,11 +91,9 @@
     font-size: 21px;
     margin-bottom: 1%;
     width: 55%;
-    font-family:  Lato, arial, tahoma;
 }
 #Bs_your_details2 {
     margin-top: 1%;
-    font-family: Lato, arial, tahoma;;
     font-size: 21px;
     padding-bottom: 16px;
     border-bottom: 1px solid rgb(180, 180, 180);
@@ -103,7 +104,6 @@
 #Bs_main_form>p {
     font-size: 18px;
     margin: 1%;
-    font-family: Lato, arial, tahoma;;
 }
 #Bs_main_form>input,#Bs_main_form>select {
     margin: 1%;
@@ -122,7 +122,6 @@
     display: flex;
     width: 70%;
     justify-content: space-between;
-    font-family: Lato, arial, tahoma;
 }
 #Bs_main_form>p>span {
     font-size: 21px;
@@ -203,7 +202,6 @@
     margin: 0%;
     margin-bottom: 1%;
     width: 98%;
-    font-family: Lato, arial, tahoma;;
     font-size: 21px;
     color: rgb(148, 137, 137);
     margin-top: 2%;

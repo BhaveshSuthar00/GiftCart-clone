@@ -1,10 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 * {
-  font-family: "Lato", arial, tahoma;
-  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 body {
   background: #ffffff;
 }
+/* bhavesh edited start here */
+.main_titleDiv>div>p:first-child {
+  height: 35px;
+  margin-top: 5%;
+  margin-bottom: 3%;
+  overflow: hidden;
+}
+.start_div {
+  color: red;
+}
+/* bhavesh edited end here */
 #jewellery_container>a {
   text-decoration: none;
   color:  black;
@@ -26,7 +37,6 @@ body {
 }
 #nav_name h1 {
   font: 30px;
-  font-family: "Lato", arial, tahoma;
   color: #222222;
 }
 #nav_name a {
@@ -98,7 +108,6 @@ body {
   color: black;
   text-decoration: underline;
   font-weight: bold;
-  font-family: "roboto", sans-serif;
 }
 .dropdowncontent a:hover {
   color: white;

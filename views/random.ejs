@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search Product</title>
     <link rel="stylesheet" href="/styles/random.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
     <link rel="stylesheet" href="/styles/landing_page.css" />
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link
@@ -62,7 +63,6 @@
           <img src="<%= element.image %>" alt="" />
           <div class="main_titleDiv">
             <div>
-              <!-- title_div  -->
               <p><%= element.product %></p>
             </div>
             <div class="heart_div">
@@ -129,18 +129,10 @@
         to go that extra mile.
       </p>
     </div>
-    <div class="footer"><%- include("../public/components/navbar.html") %></div>
+    <div class="footer" style="margin-top:13%"><%- include("../public/components/footer.html") %></div>
   </body>
 </html>
-<script></script>
-
-<!-- /////////////////////script for jewelry data starts here  -->
 <script type="module">
-  // navbar html are imported here
-  // import navbar_part from "/components/navbar.js";
-  // let navbar_com = await navbar_part();
-  // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
-  // navbar logic are imported here
   import navbar_responsive from "/scripts/header.js";
   await navbar_responsive();
 

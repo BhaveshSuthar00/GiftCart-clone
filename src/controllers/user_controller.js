@@ -13,7 +13,6 @@ const User = require("../models/user.model");
 
 router.get("/create", async (req, res) => {
   try {
-    //   await User.create(req.body)
     const user = await User.find().lean().exec();
     res.render("register");
   } catch (err) {
@@ -32,24 +31,20 @@ router.post("/account", async (req, res) => {
         password: req.body.password
       });
       const token = newToken(new_user);
-      // console.log('token:', token);
       res.cookie("Bearer ", token, {httpOnly: true});
-      res.redirect("/index");
+      return res.redirect("/index");
     }
-    
-    // document.location.href = "/index"
-  } catch (err) {
-    res.send(err.message);
+      } catch (err) {
+    return res.render('error');
   }
 });
 
 router.get("/login", async (req, res) => {
   try {
-    //   await User.create(req.body)
     const user = await User.find().lean().exec();
     res.render("login", {success: true});
   } catch (err) {
-    res.send(err.message);
+    return res.render('error');
   }
 });
 

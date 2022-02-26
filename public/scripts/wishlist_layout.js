@@ -81,9 +81,6 @@ function appendWishlist(items) {
   });
 }
 
-// function add_to_cart(el){
-//   console.log(el)
-// }
 
 let add_allto_cart = document.getElementById("add_to_cartall");
 add_allto_cart.addEventListener("click", function () {
@@ -98,8 +95,3 @@ add_allto_cart.addEventListener("click", function () {
   console.log(arr2);
   window.location.href = "./cart";
 });
-
-// let single_add_to_cart = document.getElementsByClassName('wishlist_add_to_cart');
-// single_add_to_cart.forEach.addEventListener('click',function(){
-//   console.log('here')
-// })

@@ -7,14 +7,14 @@ const addressSchema = new mongoose.Schema({
     street_address : {type : String, required : true},
     city : {type : String, required : true},
     state : {type : String, required : true},
-    pincode : {type : Number, required : true , default : 10},
+    pincode : {type : Number, required : true},
     country : {type : String , required : true},
     phone_number : {type : Number, required : true},
     user_id : {type : mongoose.Schema.Types.ObjectId, ref : 'user', required : true},
 },{
-    versionKey : false,
+    timestamps : true,
 })
 
-const Address = mongoose.model('address', addressSchema);
+const Address = new mongoose.model('address', addressSchema);
 
 module.exports = Address;

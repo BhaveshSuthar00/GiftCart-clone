@@ -24,7 +24,6 @@
 <body>
     <div class="nav_bar_container">
         <%- include("../public/components/navbar.html") %>
-
     </div>
 
     <div class="Bs_orange_line_div">
@@ -102,11 +101,11 @@
 
                 <p>SHIPPING METHODS</p>
                 <div id="Bs_main_form_indiv">
-                    <div id="Bs_form_div">
-                        <p>
+                    <div id="Bs_form_div" onclick="FormData(event)">
+                        <p >
                             <input value="ondd" id="Bs_checkbox_d" type="checkbox">
                             <span> 
-                                <label class="BS_label_checkbox" for="Bs_checkbox_d">₹160.00</label>
+                                <label  class="BS_label_checkbox" for="Bs_checkbox_d">₹160.00</label>
                             </span>
                         </p>
                         <p>Standard Delivery</p>
@@ -133,7 +132,7 @@
                     </p>
                 </div>
                 <form action="/payment">
-                <input id="Bs_Next_btn" class="bs_ex_next" type="submit" value="NEXT">
+                    <input id="Bs_Next_btn" class="bs_ex_next" type="submit" value="NEXT">
                 </form>
             </div>
             <% }  %>
@@ -148,7 +147,6 @@
                 <div id="Bs_cart_items_div">
             <% if(items == null){  %>
                 <div class="Bs_pro_main_div">
-                    no product selected
                 </div>
                 <% } else { %>
             <% items.forEach(function(items){ %>
@@ -182,17 +180,11 @@
 </body>
 </html>
 <script type="module">
-    // navbar html are imported here
-    // import navbar_part from "/components/navbar.js";
-    // let navbar_com = await navbar_part();
-    // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
-    // navbar logic are imported here
     import navbar_responsive from "/scripts/header.js";
     await navbar_responsive();
     let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
         window.location.href = '/product/random'
     })
-  </script>
-  
+</script>
 <script src="/scripts/checkout.js"></script>

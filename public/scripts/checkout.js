@@ -26,12 +26,8 @@ function FormData(event) {
     let country_name = document.getElementById('Bs_country').value;
     let phone_number = document.getElementById('Bs_number').value;
     let checkbox = document.getElementById('Bs_checkbox_d');
-    if(!checkbox.checked){
-        alert('Enable Standand Delivery')
-        return;
-    }
     if(first_name == ''|| last_name == ''|| address == ''|| state_name == ''|| post_code == ''|| country_name == ''|| phone_number <10){
-        alert('Enter All Credantials');
+        alert('Enter All Remaining Credantials');
         return;
     }
 }

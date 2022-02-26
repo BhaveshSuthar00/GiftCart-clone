@@ -108,126 +108,6 @@ async function navbar_responsive() {
     }
   });
 
-  // ------------------------------------onclick cross of signin/login display----------------------------
-
-  // let login_box_close = document.getElementById("cross_btn");
-  // login_box_close.addEventListener("click", function () {
-  //   login_box_div.style.display = "none";
-  //   let y = document.querySelector(".bg-model");
-  //   y.style.display = "none";
-  // });
-
-  // ------------------------------------onclick cross of create account display----------------------------
-
-  // let createAct_box_close = document.getElementById("karthik_cross_btn");
-  // createAct_box_close.addEventListener("click", function () {
-  //   create_act_div.style.display = "none";
-  //   let y = document.querySelector(".bg-model");
-  //   y.style.display = "none";
-  // });
-
-  // ------------------------------------onclick SIGNUP of signin<-->create act display----------------------------
-
-  // let switch_boxes = document.getElementById("switch_boxes");
-  // switch_boxes.addEventListener("click", () => {
-  //   login_box_div.style.display = "none";
-  //   create_act_div.style.display = "block";
-  // });
-
-  // let back_btn = document.getElementById("back_click");
-  // back_btn.addEventListener("click", () => {
-  //   create_act_div.style.display = "none";
-  //   login_box_div.style.display = "block";
-  // });
-
-  // // ----------------------------------------create account FUNCTIONALITY------------------------------------
-  // let create_acc = document.querySelector("#createaccount");
-  // create_acc.onsubmit = (event) => {
-  //   Register(event);
-  // };
-  // async function Register(e) {
-  //   e.preventDefault();
-  //   try {
-  //     var register_data = {
-  //       name: document.getElementById("username").value,
-  //       email: document.getElementById("name").value,
-  //       password: document.getElementById("password").value,
-  //       username: document.getElementById("email").value,
-  //       mobile: document.getElementById("confirm_password").value,
-  //       description: document.getElementById("last_name").value,
-  //     };
-  //     register_data = JSON.stringify(register_data);
-  //     console.log("data", register_data);
-  //   } catch (err) {
-  //     console.log("err:", err);
-  //   }
-  //   let reg_api = `https://masai-api-mocker.herokuapp.com/auth/register`;
-
-  //   let response = await fetch(reg_api, {
-  //     method: "POST",
-  //     body: register_data,
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-
-  //   let data = await response.json();
-  //   console.log(data);
-  //   // message{message: 'Registration Success', error: false}
-  //   if (data.message == "Registration Success") {
-  //     alert("Registration Success Please Go Back Sign In");
-  //   }
-  // }
-
-  //   --------------------------------signIN FUNCTIONALITY---------------------------------
-
-  // let login_acc = document.querySelector("#login_acc");
-  // login_acc.onsubmit = (event) => {
-  //   login(event);
-  // };
-  // async function login(e) {
-  //   e.preventDefault();
-  //   let login_data = {
-  //     username: document.getElementById("username-login").value,
-  //     password: document.getElementById("password-login").value,
-  //   };
-  //   login_data = JSON.stringify(login_data);
-
-  //   let login_url = `https://masai-api-mocker.herokuapp.com/auth/login`;
-
-  //   let response = await fetch(login_url, {
-  //     method: "POST",
-  //     body: login_data,
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-
-  //   let data = await response.json();
-  //   let username = document.getElementById("username-login").value;
-  //   getUser(username, data.token);
-  // }
-
-  // async function getUser(username, token) {
-  //   let api = `https://masai-api-mocker.herokuapp.com/user/${username}`;
-
-  //   let response = await fetch(api, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   });
-  //   let data = await response.json();
-  //   console.log("data:", data);
-  //   // {mobile: 'ybsskm', username: 'ybsskm@gmail.com', email: 'ybsskm', description: 'ybsskm', token: 'd36250ae00b9a68d642e3b4b864f973b', …}
-  //   if (data.username === username) {
-  //     alert(`Welcome ${data.email.toUpperCase()}`);
-  //     localStorage.setItem("current_user", JSON.stringify(data));
-  //     window.location.href = "./index";
-  //   } else {
-  //     alert("Invalid Email or Password");
-  //   }
-  // }
   async function logged() {
     let logged_user = await fetch("http://localhost:2000/yashraj");
     let message = await logged_user.json();
@@ -376,7 +256,7 @@ async function navbar_responsive() {
         };
         localStorage.setItem("clickedJewelleryData", JSON.stringify(obj));
 
-        window.location.href = `shopitem?id=${_id}`;
+        window.location.href = `/shopitem/${_id}`;
       };
       location.append(div);
     });

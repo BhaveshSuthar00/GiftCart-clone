@@ -131,9 +131,8 @@
         <p>Online fragrance stores in India are a growing trend, and buying online is a smart way to do your shopping. It gives you the option to be creative about the kind of perfume you want to purchase and also, gives you an almost unlimited number of options to do that. At giftcart, customer satisfaction is the number one priority and we aim to please. A variety of exciting deals on perfumes is available, since Fragrances are a big part of the Online Beauty and personal care shopping experience. It is one aspect where a fashion conscious individual is always willing to go that extra mile.
             </p>
     </div>
-    <div id="footer">
-      <%- include("../public/components/footer.html") %>
-
+    <div id="footer" style="margin-top: 13%;">
+        <%- include("../public/components/footer.html") %>
     </div>
 </body>
 </html>
@@ -142,13 +141,8 @@
 </script>
 <script src="/scripts/perfumes.js"></script>
 <script type="module">
-     // navbar html are imported here
-//   import navbar_part from "/components/navbar.js";
-//   let navbar_com = await navbar_part();
-//   document.querySelector(".nav_bar_container").innerHTML = navbar_com;
-  // navbar logic are imported here
-  import navbar_responsive from "/scripts/header.js";
-  await navbar_responsive();
+    import navbar_responsive from "/scripts/header.js";
+    await navbar_responsive();
     let clickdiv = document.querySelector('.material-icons-outlined');
     clickdiv.addEventListener('click',()=>{
         window.location.href = '/product/random'
