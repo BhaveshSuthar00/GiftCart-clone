@@ -53,7 +53,9 @@ router.get('/:id', async (req, res) =>{
                 user_id : user_id,
                 product_ids : [req.params.id,],
             });
-        res.render(`cart`, {items: items.product_ids});
+            res.redirect(`/cart/currentuser/${user_id}`);
+// 
+        // res.render(`cart`, {items: items.product_ids});
 
         } else {
             let ans = async()=>{
@@ -67,9 +69,9 @@ router.get('/:id', async (req, res) =>{
             items = await Cart.findOne({user_id : user_id}).populate({path : 'product_ids'}).lean().exec();
             
             // this work properly but at second time
-            res.render(`cart`, {items : items.product_ids});
+            // res.render(`cart`, {items : items.product_ids});
             // this is just a try
-            // res.redirect(`/cart/currentuser/${user_id}`);
+            res.redirect(`/cart/currentuser/${user_id}`);
         }
     }
     catch (err) {
