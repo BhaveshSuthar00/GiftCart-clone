@@ -8,7 +8,7 @@ const Cart = require("../models/cart.model");
 router.get('/', async (req, res) => {
     try {
         const user = await Cart.findOne({user_id: user_id}).lean().exec();
-        console.log(user);
+        // console.log(user);
         if(!user){
             res.render('cart', {items : null});
         } else { 

@@ -54,6 +54,7 @@ router.get("/login", async (req, res) => {
 });
 
 
+
 router.get("/login/account", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
@@ -68,7 +69,6 @@ router.get("/login/account", async (req, res) => {
     }
     const token = newToken(user)
     // console.log('token:', token)
-
 
     res.cookie("Bearer ", token, {httpOnly: true});
     // req.user = user;
