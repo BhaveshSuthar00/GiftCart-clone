@@ -29,7 +29,7 @@ const Address = require("./models/address.model");
 const addressController = require("./controllers/address_controller");
 const adminController = require("./controllers/admin_controller");
 
-const checkoutController = require('./controllers/checkout_controller');
+const checkoutController = require("./controllers/checkout_controller");
 
 const shopitemController = require('./controllers/shopitem_controller');
 const { newToken, router } = require("./controllers/user_controller");
@@ -69,10 +69,10 @@ app.get(
     failureRedirect: "/auth/google/failure",
   }),
   (req, res) => {
-    let {user}= req
+    let { user } = req;
     const token = newToken(user);
-    console.log('token:', token)
-    return res.redirect("/index")
+    res.cookie("Bearer ", token, { httpOnly: true });
+    return res.redirect("/index");
   }
 );
 
@@ -86,11 +86,31 @@ function updateRequestMethod(req, res, next) {
 
 app.use(updateRequestMethod);
 
-const authenticate = require("./middlewares/authenticate")
+const { authenticate } = require("./middlewares/authenticate");
+
+app.get("/yashraj", authenticate, async (req, res) => {
+  try {
+    if (req.user != undefined) {
+      return res.status(200).json({ user: req.user });
+    }
+  } catch (error) {
+    return res.status(500).send({ logged: "not user" });
+  }
+});
+
+app.get("/karthik", authenticate, async (req, res) => {
+  try {
+    res.clearCookie("Bearer");
+    res.status(200).json({ message: "sign out success" });
+  } catch (error) {
+    return res.status(500).send({ message: "sign out error" });
+  }
+});
+
 app.use("/cart", cartController);
 app.use("/admin", adminController);
 app.use("/product", productController);
-app.use("/checkout", checkoutController)
+app.use("/checkout", checkoutController);
 app.use("/wishlist_layout", wishlistController);
 app.use("/shopitem", shopitemController);
 app.use("/register", router);
@@ -105,6 +125,10 @@ app.get("/payment",async (req, res) => {
     return res.status(500).send({ message: err.message });
   }
 });
+
+app.use("/shopitem", productController);
+app.use("/register", router);
+
 app.use('/index', async (req, res) =>{
   try {
     res.render('index');
@@ -128,6 +152,15 @@ app.use("/admin", (req, res) => {
     return res.status(500).send({ message: err.message });
   }
 });
+
+// app.get("/payment", (req, res) => {
+//   try {
+//     res.render("payment");
+//   } catch (err) {
+//     return res.status(500).send({ message: err.message });
+//   }
+// });
+
 app.listen(port, async () => {
   try {
     await connect();

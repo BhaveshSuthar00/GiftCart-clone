@@ -9,9 +9,9 @@ const verifyToken = (token) => {
     });
   });
 };
-module.exports = async (req, res, next) => {
-  console.log(req.headers, "headers")
+const authenticate = async (req, res, next) => {
   const cookieHeader = req.headers?.cookie;
+  if(!cookieHeader) return res.status(400).send({ message: "Please login" });
   let token = cookieHeader.split("=")[1];
   console.log(cookieHeader, "cookieheader")
   let user;
@@ -19,7 +19,7 @@ module.exports = async (req, res, next) => {
     user = await verifyToken(token);
     // console.log(user);
   } catch (error) {
-    return res.status(400).send({ message: "Authorization token invalid" });
+    return res.status(500).send({ message: "Authorization token invalid" });
   }
   //   console.log(user)
   req.user = user.user;
@@ -28,3 +28,5 @@ module.exports = async (req, res, next) => {
   //   console.log('user:', req.user);
   return next();
 };
+
+module.exports = {authenticate, verifyToken};
