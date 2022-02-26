@@ -128,7 +128,25 @@ app.get("/payment", authenticate, async (req, res) => {
     return res.status(500).send({ message: err.message });
   }
 });
-
+const CartSingle = require('./models/userSingle_model');
+app.get("/payment/single", authenticate, async (req, res) => {
+  try {
+    let user_id = req.user._id;
+    const cart = await CartSingle.findOne({ user_id: user_id })
+      .populate({ path: "product_id" })
+      .lean()
+      .exec();
+      let address = {
+        first_name: "admin",
+        last_name: "admin",
+        street_address : "000",
+        phone_number : "1010101010"
+      }
+    return res.render("payment", { items: cart.product_id, address: address });
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
 
 app.use("/index", async (req, res) => {
   try {

@@ -2,7 +2,27 @@ const express = require("express");
 
 const router = express.Router();
 
-const Cart = require("../models/cart.model");
+const Cart = require("../models/userSingle_model");
+router.get('/single/:id', async (req, res) =>{
+    try {
+        const user_id = req.user._id;
+        let cart = await Cart.findOne({user_id : user_id}).lean().exec();
+        if(cart){
+            cart = await Cart.findOneAndReplace({user_id : user_id}, {user_id : user_id,product_id : [req.params.id]}).lean().exec();
+        }
+        if(!cart){
+            cart = await Cart.create({
+                user_id : user_id,
+                product_id : [req.params.id]
+            });
+        }
+        return res.redirect('/payment/single');
+    }
+    catch(err){
+        console.log(err.message);
+        res.render('error');
+    }
+})
 
 router.get('/', async (req, res) => {
     try {
