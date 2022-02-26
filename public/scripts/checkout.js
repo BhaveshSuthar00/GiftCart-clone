@@ -1,10 +1,5 @@
-let items = JSON.parse(localStorage.getItem('productlist'));
-document.getElementById('Bs_total_Citems').innerText = `${items.length} Items in Cart`
+document.getElementById('Bs_total_Citems').innerText = `Items in Cart`
 let cart_items = document.getElementById('Bs_cart_items_div');
-
-
-
-displayTable(items,cart_items);
 
 
 let shownoshow = document.querySelector('#Bs_cart_items_div');
@@ -21,31 +16,6 @@ redio5.addEventListener('click',function(){
         shownoshow.style.display = 'block';
     }
 })
-
-
-
-
-function displayTable(items,location){
-    items.forEach(({image,product,price,product_count})=>{
-        let main_div = document.createElement('div');
-        main_div.setAttribute('class','Bs_pro_main_div')
-        main_div.innerHTML = `
-        <div class="Bs_pro_img_div">
-                <img src=${image} alt="">
-            </div>
-            <div>
-                <p class="Bs_cart_p1">${product}</p>
-                <p class="Bs_cart_p2">Qty ${product_count}</p>
-                <p class="Bs_cart_p3">${price*product_count}</p>
-            </div>
-        `
-        location.append(main_div)
-    })
-}
-
-
-
-
 function FormData(event) {
     event.preventDefault()
     let first_name = document.getElementById('Bs_F_name').value;
@@ -64,5 +34,4 @@ function FormData(event) {
         alert('Enter All Credantials');
         return;
     }
-    // window.location.href = '/product/payment';
 }

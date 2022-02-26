@@ -31,23 +31,22 @@ const adminController = require("./controllers/admin_controller");
 
 const checkoutController = require('./controllers/checkout_controller');
 
+const shopitemController = require('./controllers/shopitem_controller');
+const { newToken, router } = require("./controllers/user_controller");
+
 const static_path = path.join(__dirname, "../public");
 
 // console.log('static_path:', static_path)
 
 const app = express();
+
 const bodyParser = require("body-parser");
-
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static(static_path));
-
 app.set("view engine", "ejs");
 // -----------------------------------------GOOGLE OAUTH-----------------------------------------------------
-const { newToken, router } = require("./controllers/user_controller");
 
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -77,8 +76,6 @@ app.get(
   }
 );
 
-// use the following routes to render your page with the data you required for your page
-// app.use("/admin", adminController);
 function updateRequestMethod(req, res, next) {
   if (req.body.method) {
     req.method = req.body.method; // req.method = "delete" route = /users/:id
@@ -89,29 +86,33 @@ function updateRequestMethod(req, res, next) {
 
 app.use(updateRequestMethod);
 
+const authenticate = require("./middlewares/authenticate")
 app.use("/cart", cartController);
-
 app.use("/admin", adminController);
-
 app.use("/product", productController);
 app.use("/checkout", checkoutController)
 app.use("/wishlist_layout", wishlistController);
-app.use("/admin", adminController);
-
-app.get("/shopitem/:id", async (req, res) => {
-  try {
-    const item = await Product.findById(req.params.id).lean().exec();
-    res.render("shopitem", { item });
-  } catch (err) {
-    res.send(err.message);
-  }
-});
-
-app.use("/shopitem", productController);
+app.use("/shopitem", shopitemController);
 app.use("/register", router);
 
-const authenticate = require("./middlewares/authenticate")
-
+const user_id = "6217a63b90c3cf0eea423c81"
+app.get("/payment",async (req, res) => {
+  try {
+    const cart = await Cart.findOne({user_id : user_id}).populate({path : "product_ids"}).lean().exec();
+    const address = await Address.findOne({user_id : user_id}).lean().exec();
+    res.render("payment", {items : cart.product_ids, address : address});
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+});
+app.use('/index', async (req, res) =>{
+  try {
+    res.render('index');
+  }
+  catch (err) {
+    res.render('error')
+  }
+})
 app.use("/", async (req, res) => {
   try {
     res.render("index");
@@ -127,16 +128,6 @@ app.use("/admin", (req, res) => {
     return res.status(500).send({ message: err.message });
   }
 });
-
-
-// app.get("/payment", (req, res) => {
-//   try {
-//     res.render("payment");
-//   } catch (err) {
-//     return res.status(500).send({ message: err.message });
-//   }
-// });
-
 app.listen(port, async () => {
   try {
     await connect();

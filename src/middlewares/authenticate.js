@@ -10,9 +10,10 @@ const verifyToken = (token) => {
   });
 };
 module.exports = async (req, res, next) => {
+  console.log(req.headers, "headers")
   const cookieHeader = req.headers?.cookie;
   let token = cookieHeader.split("=")[1];
-  
+  console.log(cookieHeader, "cookieheader")
   let user;
   try {
     user = await verifyToken(token);

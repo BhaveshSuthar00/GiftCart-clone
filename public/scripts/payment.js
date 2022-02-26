@@ -1,10 +1,3 @@
-function RazonPayment() {
-    // let paymetn_amount = 10;
-
-    // yash you can write your code here
-}
-
-// this is for applying discount code Masai99 the total price become 10Rs.
 function discountApply() {
     let dd = document.getElementById('Bs_discount_code').value;
 
@@ -25,22 +18,8 @@ function discountApply() {
 
 }
 
-// let btn1 = document.getElementById('Bs_payment_btn1');
-// btn1.addEventListener('click',()=> {
-//     console.log('ere')
-//     // yash add your payment getway here
-// })
-
-// let btn2 = document.getElementById('Bs_payment_btn2');
-// btn2.addEventListener('click',()=> {
-//     console.log('ere2')
-//     //  add payment getway here too
-
-// })
-
 function HardCode(event) {
     event.preventDefault()
-    console.log('ere')
     let card_number = document.getElementById('Bs_card_number').value;
     let card_cvv = document.getElementById('BS_card_cvv').value;
     let card_exp = document.getElementById('BS_card_expiry').value;
@@ -65,7 +44,7 @@ function HardCode(event) {
     }
     else {
         alert('Your payment is successful, Thank you using giftcard.')
-        window.location.href = './index';
+        window.location.href = '/cart/removeUser';
     }
 }
 
@@ -79,15 +58,6 @@ btn3.addEventListener('click',()=> {
 
 })
 
-
-
-
-
-
-
-
-
-
 let btn_pay = document.getElementById('Bs_btn_for_payment');
 btn_pay.addEventListener('click',function (){
     let payment_page = document.getElementById("Bs_payment_hard_div");
@@ -97,37 +67,36 @@ btn_pay.addEventListener('click',function (){
 
 
 
-let items = JSON.parse(localStorage.getItem('productlist'));
-document.getElementById('Bs_total_Citems').innerText = `${items.length} Items in Cart`
-let cart_items = document.getElementById('Bs_cart_items_div');
+document.getElementById('Bs_total_Citems').innerText = `Items in Cart`
+// let cart_items = document.getElementById('Bs_cart_items_div');
 
 
-let {first_name,post_code,last_name,phone_number,state_name,address} = JSON.parse(localStorage.getItem('Address_users'));
-let totalDD = JSON.parse(localStorage.getItem('total_price'));
-{
-    let fullName = document.getElementsByClassName('Bs_username');
-    fullName.innerText = first_name,last_name;
-    let address_dd = document.getElementsByClassName('Bs_address');
-    address_dd.innerText = address;
-    let Bs_number = document.getElementsByClassName('Bs_phone_number');
-    for(let i = 0; i<Bs_number.length; i++){
-        fullName[i].innerText = first_name,last_name;
-        address_dd[i].innerText = address;
-        Bs_number[i].innerText = phone_number;
-    }
+// let {first_name,post_code,last_name,phone_number,state_name,address} = JSON.parse(localStorage.getItem('Address_users'));
+// let totalDD = JSON.parse(localStorage.getItem('total_price'));
+// {
+//     let fullName = document.getElementsByClassName('Bs_username');
+//     fullName.innerText = first_name,last_name;
+//     let address_dd = document.getElementsByClassName('Bs_address');
+//     address_dd.innerText = address;
+//     let Bs_number = document.getElementsByClassName('Bs_phone_number');
+//     for(let i = 0; i<Bs_number.length; i++){
+//         fullName[i].innerText = first_name,last_name;
+//         address_dd[i].innerText = address;
+//         Bs_number[i].innerText = phone_number;
+//     }
     
-}
+// }
 
-let fullName = document.querySelector('.Bs_username2');
-fullName.innerText = `${first_name} ${last_name}`;
-let address_dd = document.querySelector('.Bs_address2');
+// let fullName = document.querySelector('.Bs_username2');
+// fullName.innerText = `${first_name} ${last_name}`;
+// let address_dd = document.querySelector('.Bs_address2');
 
-address_dd.innerText = `${address} `;
-let state_country = document.querySelector('.Bs_state_country');
-state_country.innerText = `${state_name} ${post_code}, India`
+// address_dd.innerText = `${address} `;
+// let state_country = document.querySelector('.Bs_state_country');
+// state_country.innerText = `${state_name} ${post_code}, India`
 
-let Bs_number = document.querySelector('.Bs_phone_number2');
-Bs_number.innerText = `${phone_number}`;
+// let Bs_number = document.querySelector('.Bs_phone_number2');
+// Bs_number.innerText = `${phone_number}`;
 
 
 let div1 = document.getElementById('Bs_payment_method1');
@@ -181,7 +150,7 @@ radio3.addEventListener('click',function(){
     
 })
 
-displayTable(items,cart_items);
+// displayTable(items,cart_items);
 
 
 function displayTable(items,location){

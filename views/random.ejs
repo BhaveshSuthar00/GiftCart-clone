@@ -23,7 +23,9 @@
     />
 </head>
 <body>
-    <div class="nav_bar_container"></div>
+    <div class="nav_bar_container">
+      <%- include("../public/components/navbar.html") %>
+    </div>
     
     <div class="nav_header">
         
@@ -75,6 +77,9 @@
         <p>Online fragrance stores in India are a growing trend, and buying online is a smart way to do your shopping. It gives you the option to be creative about the kind of perfume you want to purchase and also, gives you an almost unlimited number of options to do that. At giftcart, customer satisfaction is the number one priority and we aim to please. A variety of exciting deals on perfumes is available, since Fragrances are a big part of the Online Beauty and personal care shopping experience. It is one aspect where a fashion conscious individual is always willing to go that extra mile.
             </p>
     </div>
+    <div class="footer">
+      <%- include("../public/components/navbar.html") %>
+    </div>
 </body>
 </html>
 <script>
@@ -84,16 +89,12 @@
 <!-- /////////////////////script for jewelry data starts here  -->
 <script type="module">
   // navbar html are imported here
-  import navbar_part from "/components/navbar.js";
-  let navbar_com = await navbar_part();
-  document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+  // import navbar_part from "/components/navbar.js";
+  // let navbar_com = await navbar_part();
+  // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
   // navbar logic are imported here
   import navbar_responsive from "/scripts/header.js";
   await navbar_responsive();
-  let getcart = JSON.parse(localStorage.getItem("productlist"));
-
-  let cart_count = document.getElementById("cart_cc");
-  cart_count.textContent = `${getcart.length}`;
 
   let jewellery_div = document.getElementById("jewellery_container");
   import { getJewellery, appendJewellery } from "/scripts/jewellery.js";

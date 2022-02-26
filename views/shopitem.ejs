@@ -7,17 +7,25 @@
     <script src="https://kit.fontawesome.com/ee2bd34551.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Open+Sans:wght@500;800&family=Poppins:wght@100;200&family=Shippori+Antique+B1&family=Source+Sans+3:wght@200&display=swap" rel="stylesheet">
     <title>Product: Product page</title>
+    <link rel="stylesheet" href="/styles/landing_page.css" />
     <link rel="stylesheet" href="/styles/shopitem2.css">
+    <link rel="stylesheet" href="/styles/footer.css">
 </head>
 <body>
+    <div class="nav_bar_container">
+        <%- include("../public/components/navbar.html") %>
+    </div>
+
     <div class="bs_container_for_img">
         <div class="bs_main_img_div">
-            <img src="https://style.giftcart.com/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/c/a/cab100m23.jpg" alt="">
+            <!-- <img src="https://style.giftcart.com/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/c/a/cab100m23.jpg" alt=""> -->
+            <img src="<%= item.image %>" alt="">
         </div>
         <div class="bs_right_side_div_ofimg">
             <div class="bs_product_name_div">
                 <p class="ttl">
-                    Calvin Klein Be 100 ml For Men
+                    <!-- Calvin Klein Be 100 ml For Men -->
+                    <%= item.product %>
                 </p>
             </div>
             <div class="bs_start_andall_ext">
@@ -40,10 +48,12 @@
                     MRP(incl gst)
                 </p>
                 <p class="bs_main_price">
-                    ₹2391.00
+                    <!-- ₹2391.00 -->
+                    <%= item.price  %>
                 </p>
                 <p class="bs_discounted_price">
-                    ₹3391.00
+                    <!-- ₹3391.00 -->
+                    <%= item.price+2000 %>
                 </p>
             </div>
             <div class="bs_yourSave_div">
@@ -81,9 +91,11 @@
                     <div class="value-button" id="increase" onclick="increaseValue()" value="">+</div>
                   </form>
                 <div class="bs_addtocart_div">
-                    <button class="btnA">
-                        ADD TO CART
-                    </button>
+                    <form action="/cart/<%- item._id %>">
+                        <button type="submit" class="btnA">
+                            ADD TO CART
+                        </button>
+                    </form>
                 </div>
                 <div class="bs_buynow_div">
                     <button class="btnB">
@@ -95,13 +107,14 @@
                 <i></i>
                 <span class="fnl">
                     <i class="fa-solid fa-heart"></i>
-
                     ADD TO WISHLIST
                 </span>
             </div>
         </div>
     </div>
-    
+    <div style="margin-top: 20px;" id="footer">
+        <%- include("../public/components/footer.html") %>
+    </div>
 </body>
 </html>
 <script>
@@ -121,3 +134,12 @@ function decreaseValue() {
 }
     
 </script>
+<script type="module">
+    // navbar html are imported here
+    // import navbar_part from "/components/navbar.js";
+    // let navbar_com = await navbar_part();
+    // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+    // navbar logic are imported here
+    import navbar_responsive from "/scripts/header.js";
+    await navbar_responsive();
+</script>  
