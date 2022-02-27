@@ -1,26 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/ee2bd34551.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Open+Sans:wght@500;800&family=Poppins:wght@100;200&family=Shippori+Antique+B1&family=Source+Sans+3:wght@200&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/ee2bd34551.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Open+Sans:wght@500;800&family=Poppins:wght@100;200&family=Shippori+Antique+B1&family=Source+Sans+3:wght@200&display=swap"
+      rel="stylesheet"
+    />
     <title>Product: Product page</title>
     <link rel="stylesheet" href="/styles/landing_page.css" />
-    <link rel="stylesheet" href="/styles/shopitem2.css">
-    <link rel="stylesheet" href="/styles/footer.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/styles/shopitem2.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+  </head>
+  <body>
     <div class="nav_bar_container">
-        <%- include("../public/components/navbar.html") %>
+      <%- include("../public/components/navbar.html") %>
     </div>
 
     <div class="bs_container_for_img">
-        <div class="bs_main_img_div">
-            <!-- <img src="https://style.giftcart.com/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/c/a/cab100m23.jpg" alt=""> -->
-            <img src="<%= item.image %>" alt="">
+      <div class="bs_main_img_div">
+        <img src="<%= item.image %>" alt="" />
+      </div>
+      <div class="bs_right_side_div_ofimg">
+        <div class="bs_product_name_div">
+          <p class="ttl">
+            <!-- Calvin Klein Be 100 ml For Men -->
+            <%= item.product %>
+          </p>
         </div>
+        <div class="bs_start_andall_ext">
+          <p>#CM09FSSD178 |</p>
+          <p class="a1">26 REVIEWS |</p>
+          <p>
+            <i
+              ><span class="stars">
+                <i class="fas fa-star clr"></i>
+                <i class="fas fa-star clr"></i>
+                <i class="fas fa-star clr"></i>
+                <i class="fas fa-star clr"></i>
+                <i class="far fa-star clr"></i> </span
+            ></i>
+          </p>
+          <p class="a2">ADD REVIEW</p>
+        </div>
+        <div class="bs_mrp_price">
+          <p class="a3">MRP(incl gst)</p>
+          <p class="bs_main_price">
+            <!-- ₹2391.00 -->
+            <%= item.price %>
+          </p>
+          <p class="bs_discounted_price">
+            <!-- ₹3391.00 -->
+            <%= item.price+2000 %>
+          </p>
+        </div>
+        <div class="bs_yourSave_div">
+          <p>Your Save <span style="color: red">10%</span></p>
+        </div>
+        <div class="bs_free_shipping_div">
+          <p>Free Shipping</p>
+        </div>
+        <div class="bs_delivery_div">
+          <p class="aa1">Delivery 4 - 6 Working Days</p>
+          <p class="aa2">
+            <i class="fa-solid fa-truck"></i>
         <div class="bs_right_side_div_ofimg">
             <div class="bs_product_name_div">
                 <p class="ttl">
@@ -74,51 +122,298 @@
                 <p class="aa2">
                     <i class="fa-solid fa-truck"></i>
 
-                    Delivery Coverage & Charges
-                </p>
-            </div>
-            <div class="bs_hidden_div_for_pincode">
-                <!-- this is hidden div check the css u will find display none -->
-                <input class="hidden_input" type="number">
-                <button class="bs_btn_hidden_div">
-                    Check
-                </button>
-            </div>
-            <div class="bs_inp_btn">
-                <form>
-                    <div class="value-button" id="decrease" onclick="decreaseValue()" value="">-</div>
-                    <input type="number" id="number" value="0" />
-                    <div class="value-button" id="increase" onclick="increaseValue()" value="">+</div>
-                  </form>
-                <div class="bs_addtocart_div">
-                    <form action="/cart/<%- item._id %>">
-                        <button type="submit" class="btnA">
-                            ADD TO CART
-                        </button>
-                    </form>
-                </div>
-                <div class="bs_buynow_div">
-                    <form action="/cart/single/<%- item._id %>">
-                        <button class="btnB">
-                            BUY NOW
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="bs_addtoCart_div">
-                <i></i>
-                <span class="fnl">
-                    <i class="fa-solid fa-heart"></i>
-                    ADD TO WISHLIST
-                </span>
-            </div>
+            Delivery Coverage & Charges
+          </p>
         </div>
+        <!-- <div class="bs_hidden_div_for_pincode">
+          this is hidden div check the css u will find display none
+          <input class="hidden_input" type="number" />
+          <button class="bs_btn_hidden_div">Check</button>
+        </div> -->
+        <div id="sk_div">
+          <div id="sk_inc_dec">
+            <img src="/images/inx_dec.png" alt="" />
+          </div>
+          <div id="sk_addtocart">
+            <form action="/cart/<%- item._id %>">
+              <button type="submit">ADD TO CART</button>
+            </form>
+          </div>
+          <div id="sk_buynow">
+            <form action="/cart/single/<%- item._id %>">
+              <button>BUY NOW</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div style="margin-top: 20px;" id="footer">
-        <%- include("../public/components/footer.html") %>
+    <div id="sk_item_details">
+      <div id="sk_item_details_div1">
+        <div id="sk_item_details_div11">
+          <div id="sk_item_details_div111">KEY FEATURES</div>
+          <div id="sk_item_details_div112">DETAILS</div>
+          <div id="sk_item_details_div113">BRAND DETAILS</div>
+          <div id="sk_item_details_div114">REVIEWS</div>
+        </div>
+        <div id="sk_item_details_div12">
+          <div id="sk_item_details_div121">
+            <table
+              class="data table additional-attributes"
+              id="product-attribute-specs-table"
+            >
+              <tbody>
+                <tr>
+                  <th class="col" scope="row" style="border-top: none">
+                    <span style="color: red">■ &nbsp;</span>Female
+                  </th>
+                </tr>
+                <tr>
+                  <th class="col" scope="row" style="border-top: none">
+                    <span style="color: red">■ &nbsp;</span> Eau de Perfume
+                  </th>
+                </tr>
+                <tr>
+                  <th class="col" scope="row" style="border-top: none">
+                    <span style="color: red">■ &nbsp;</span> 100 ml
+                  </th>
+                </tr>
+                <tr>
+                  <th class="col" scope="row" style="border-top: none">
+                    <span style="color: red">■ &nbsp;</span>
+                    Casual/Floral sweet
+                  </th>
+                </tr>
+                <tr>
+                  <th class="col" scope="row" style="border-top: none">
+                    <span style="color: red">■ &nbsp;</span> Country of Origin:
+                    India
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="sk_item_details_div122">
+            Wear a fragrance that's refreshing and reviving for a long lasting
+            impression. A sophisticated and charming aroma, the base note of
+            Provocative by Elizabeth Arden is a blend of white sand notes,
+            Hinoki wood and red amber. Its earthy sensuality is hard to miss.
+            The middle note is a mixture of variety of essences, such as
+            midnight orchid, papaya blossom and pink freesia and the top note is
+            composed of quince, water lotus, and ginger lily. The sweet floral
+            essence of this 100 ml Eau de Perfume is sure to attract a lot of
+            attention.
+          </div>
+          <div id="sk_item_details_div123">
+            <b>Manufacturer / Packer / Importer:</b><br />Shree Traders<br />101,
+            AL SANA HOUSE,Maharashtra, 400049
+          </div>
+          <div id="sk_item_details_div124">
+            <div class="fieldset review-fieldset" data-hasrequired="">
+              <legend class="legend review-legend">
+                <span>You're reviewing:</span
+                ><strong>Elizabeth Arden Provocative 100 ml for women</strong>
+              </legend>
+              <span id="input-message-box"></span>
+              <div class="field required review-field-ratings">
+                <!--<div class="title-inline" style="margin-bottom: 15px;">
+                        <h5 class="heading full"><span>Your Rating *</span></h5>
+                    </div>-->
+                <div class="control">
+                  <div class="nested" id="product-review-table">
+                    <div class="field choice review-field-rating">
+                      <div class="control review-control-vote">
+                        <div class="table-responsive">
+                          <table class="add-review-table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>1 star</th>
+                                <th>2 star</th>
+                                <th>3 star</th>
+                                <th>4 star</th>
+                                <th>5 star</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th>
+                                  <span id="Rating_rating_label"
+                                    ><span>Rating</span></span
+                                  >
+                                </th>
+                                <td>
+                                  <input
+                                    type="radio"
+                                    name="ratings[1]"
+                                    id="Rating_1"
+                                    value="1"
+                                    class="radio"
+                                    data-validate="{required:true, messages:{required:'Please select one of each of the ratings above.'}}"
+                                    aria-labelledby="Rating_rating_label Rating_1_label"
+                                    aria-required="true"
+                                  />
+                                </td>
+                                <td>
+                                  <input
+                                    type="radio"
+                                    name="ratings[1]"
+                                    id="Rating_2"
+                                    value="2"
+                                    class="radio"
+                                    data-validate="{required:true, messages:{required:'Please select one of each of the ratings above.'}}"
+                                    aria-labelledby="Rating_rating_label Rating_2_label"
+                                    aria-required="true"
+                                  />
+                                </td>
+                                <td>
+                                  <input
+                                    type="radio"
+                                    name="ratings[1]"
+                                    id="Rating_3"
+                                    value="3"
+                                    class="radio"
+                                    data-validate="{required:true, messages:{required:'Please select one of each of the ratings above.'}}"
+                                    aria-labelledby="Rating_rating_label Rating_3_label"
+                                    aria-required="true"
+                                  />
+                                </td>
+                                <td>
+                                  <input
+                                    type="radio"
+                                    name="ratings[1]"
+                                    id="Rating_4"
+                                    value="4"
+                                    class="radio"
+                                    data-validate="{required:true, messages:{required:'Please select one of each of the ratings above.'}}"
+                                    aria-labelledby="Rating_rating_label Rating_4_label"
+                                    aria-required="true"
+                                  />
+                                </td>
+                                <td>
+                                  <input
+                                    type="radio"
+                                    name="ratings[1]"
+                                    id="Rating_5"
+                                    value="5"
+                                    class="radio"
+                                    data-validate="{required:true, messages:{required:'Please select one of each of the ratings above.'}}"
+                                    aria-labelledby="Rating_rating_label Rating_5_label"
+                                    aria-required="true"
+                                  />
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="hidden"
+                    name="validate_rating"
+                    class="validate-rating"
+                    value=""
+                    aria-required="true"
+                  />
+                </div>
+              </div>
+              <div class="field review-field-nickname required">
+                <div class="control">
+                  <input
+                    type="text"
+                    name="nickname"
+                    id="nickname_field"
+                    placeholder="Nickname *"
+                    class="input-text"
+                    data-validate="{required:true}"
+                    data-bind="value: nickname()"
+                    aria-required="true"
+                  />
+                </div>
+              </div>
+              <br />
+              <!--<div class="field review-field-summary required">
+                    <div class="control">
+                        <input type="text" name="title" id="summary_field" placeholder="Summary" class="input-text"  data-bind="value: review().title" />
+                    </div>
+                </div>-->
+              <div class="field review-field-text required">
+                <div class="control">
+                  <textarea
+                    name="detail"
+                    class="form-control"
+                    id="review_field"
+                    cols="5"
+                    placeholder="Review"
+                    rows="3"
+                    data-bind="value: review().detail"
+                    aria-required="true"
+                    spellcheck="false"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+    <div style="margin-top: 20px" id="footer">
+      <%- include("../public/components/footer.html") %>
+    </div>
+  </body>
 </html>
+<script>
+  // let switch_boxes = document.getElementById("switch_boxes");
+  // switch_boxes.addEventListener("click", () => {
+  //   login_box_div.style.display = "none";
+  //   create_act_div.style.display = "block";
+  // });
+  var kf_div = document.getElementById("sk_item_details_div121");
+  var de_div = document.getElementById("sk_item_details_div122");
+  var bd_div = document.getElementById("sk_item_details_div123");
+  var re_div = document.getElementById("sk_item_details_div124");
+
+  let kf = document.querySelector("#sk_item_details_div111");
+  kf.addEventListener("click", () => {
+    kf_div.style.display = "block";
+    de_div.style.display = "none";
+    bd_div.style.display = "none";
+    re_div.style.display = "none";
+  });
+
+  let de = document.querySelector("#sk_item_details_div112");
+  de.addEventListener("click", () => {
+    de_div.style.display = "block";
+    kf_div.style.display = "none";
+    bd_div.style.display = "none";
+    re_div.style.display = "none";
+  });
+
+  let bd = document.querySelector("#sk_item_details_div113");
+  bd.addEventListener("click", () => {
+    bd_div.style.display = "block";
+    de_div.style.display = "none";
+    kf_div.style.display = "none";
+    re_div.style.display = "none";
+  });
+
+  let re = document.querySelector("#sk_item_details_div114");
+  re.addEventListener("click", () => {
+    re_div.style.display = "block";
+    de_div.style.display = "none";
+    kf_div.style.display = "none";
+    bd_div.style.display = "none";
+  });
+</script>
+<script type="module">
+  // navbar html are imported here
+  // import navbar_part from "/components/navbar.js";
+  // let navbar_com = await navbar_part();
+  // document.querySelector(".nav_bar_container").innerHTML = navbar_com;
+  // navbar logic are imported here
+  import navbar_responsive from "/scripts/header.js";
+  await navbar_responsive();
+</script>
 <script src="/scripts/shopitem.js"></script>
 <script type="module">
     import navbar_responsive from "/scripts/header.js";
