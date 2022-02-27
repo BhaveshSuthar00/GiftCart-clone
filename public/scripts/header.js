@@ -165,7 +165,7 @@ async function navbar_responsive() {
 
   document.querySelector("#search_btn").addEventListener("click", () => {
     product = search_item.value;
-    getDataFromDataBase(get_url, product);
+    window.location.href = `/product/random?item=${arr[0].category}&sub=${arr[0].sub_category}`;
   });
   var id;
   function debounce(func, delay) {
