@@ -5,6 +5,10 @@ const express = require("express");
 
 const router = express.Router();
 
+const EventEmitter = require("events");
+const eventEmitter = new EventEmitter();
+const { welcomeMail } = require("../utils");
+
 const newToken = (user) => {
   return jwt.sign({ user }, process.env.JWT_SECRET_KEY);
 };
@@ -31,6 +35,14 @@ router.post("/account", async (req, res) => {
       });
       const token = newToken(new_user);
       res.cookie("Bearer ", token, { httpOnly: true });
+
+      eventEmitter.on("User Register", welcomeMail);
+      eventEmitter.emit("User Register", {
+        from: "admin@giftcart.com",
+        to: new_user.email,
+        new_user,
+      });
+
       return res.redirect("/index");
     }
   } catch (err) {
