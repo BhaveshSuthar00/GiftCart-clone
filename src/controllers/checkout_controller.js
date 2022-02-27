@@ -7,16 +7,17 @@ router.get('/address', async (req,res) => {
     try {
         let user_id = req.user._id;
         const address = await Address.findOne({user_id : user_id}).lean().exec();
-        const product = await Cart.findOne({user_id : user_id}).populate({path : "product_ids"}).lean().exec();
-        if(address=== null && product.product_ids.length !== 0){
-            return res.render("checkout", {address : null , items : product.product_ids});
+        const product = await Cart.findOne({user_id : user_id}).populate({path : "product_id"}).lean().exec();
+        if(address=== null && product.product_id.length !== 0){
+            return res.render("checkout", {address : null , items : product.product_id});
         }
         else if(!address){
             return res.render("checkout", {address : null , items : null});
         }
-        return res.render("checkout", {address : address, items : product.product_ids});
+        return res.render("checkout", {address : address, items : product.product_id});
     }
     catch (err) {
+        console.log(err)
         return res.render('error')
     }
 })

@@ -37,14 +37,14 @@
           <p>#CM09FSSD178 |</p>
           <p class="a1">26 REVIEWS |</p>
           <p>
-            <i
-              ><span class="stars">
+            <!-- <i -->
+              <span class="stars">
                 <i class="fas fa-star clr"></i>
                 <i class="fas fa-star clr"></i>
                 <i class="fas fa-star clr"></i>
                 <i class="fas fa-star clr"></i>
-                <i class="far fa-star clr"></i> </span
-            ></i>
+                <i class="far fa-star clr"></i> 
+              </span>
           </p>
           <p class="a2">ADD REVIEW</p>
         </div>
@@ -52,11 +52,11 @@
           <p class="a3">MRP(incl gst)</p>
           <p class="bs_main_price">
             <!-- ₹2391.00 -->
-            <%= item.price %>
+            ₹<%= item.price %>.00
           </p>
           <p class="bs_discounted_price">
             <!-- ₹3391.00 -->
-            <%= item.price+2000 %>
+            ₹<%= item.price+2000 %>.00
           </p>
         </div>
         <div class="bs_yourSave_div">
@@ -69,71 +69,15 @@
           <p class="aa1">Delivery 4 - 6 Working Days</p>
           <p class="aa2">
             <i class="fa-solid fa-truck"></i>
-        <!-- <div class="bs_right_side_div_ofimg">
-            <div class="bs_product_name_div">
-                <p class="ttl">
-                    <!-- Calvin Klein Be 100 ml For Men -->
-                    <!-- <%= item.product %>
-                </p>
-            </div>
-            <div class="bs_start_andall_ext">
-                <p>#CM09FSSD178 |</p>
-                <p class="a1">26 REVIEWS |</p>
-                <p> 
-                    <i><span class="stars">
-                        <i class="fas fa-star clr  "></i>
-                        <i class="fas fa-star clr "></i>
-                        <i class="fas fa-star clr "></i>
-                        <i class="fas fa-star clr "></i>
-                        <i class="far fa-star clr "></i>
-                    </span></i>
-                    
-                </p>
-                <p class="a2"> ADD REVIEW</p>
-            </div> --> -->
-            <!-- <div class="bs_mrp_price">
-                <p class=" a3">
-                    MRP(incl gst)
-                </p>
-                <p class="bs_main_price">
-                    ₹<%= item.price  %>
-                </p>
-                <p class="bs_discounted_price">
-                    ₹<%= item.price+2000 %>
-                </p>
-            </div> -->
-            <!-- <div class="bs_yourSave_div">
-                <p>
-                    Your Save <span style="color: red">10%</span>
-                </p>
-            </div> -->
-            <!-- <div class="bs_free_shipping_div">
-                <p>
-                    Free Shipping
-                </p>
-            </div>
-            <div class="bs_delivery_div"> -->
-                <!-- <p class="aa1">
-                    
-                    Delivery 4 - 6 Working Days
-                </p> -->
-                <!-- <p class="aa2">
-                    <i class="fa-solid fa-truck"></i> -->
-
             Delivery Coverage & Charges
           </p>
         </div>
-        <!-- <div class="bs_hidden_div_for_pincode">
-          this is hidden div check the css u will find display none
-          <input class="hidden_input" type="number" />
-          <button class="bs_btn_hidden_div">Check</button>
-        </div> -->
         <div id="sk_div">
           <div id="sk_inc_dec">
             <img src="/images/inx_dec.png" alt="" />
           </div>
           <div id="sk_addtocart">
-            <form action="/cart/<%- item._id %>">
+            <form action="/cart/Multiple/<%- item._id %>">
               <button type="submit">ADD TO CART</button>
             </form>
           </div>

@@ -119,11 +119,11 @@ app.get("/payment", authenticate, async (req, res) => {
   try {
     let user_id = req.user._id;
     const cart = await Cart.findOne({ user_id: user_id })
-      .populate({ path: "product_ids" })
+      .populate({ path: "product_id" })
       .lean()
       .exec();
     const address = await Address.findOne({ user_id: user_id }).lean().exec();
-    res.render("payment", { items: cart.product_ids, address: address });
+    res.render("payment", { items: cart.product_id, address: address });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }

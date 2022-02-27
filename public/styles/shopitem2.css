@@ -6,6 +6,9 @@
   font-family: "Source Sans 3", sans-serif;
   font-weight: bolder;
 }
+.stars {
+  color: red;
+}
 .bs_container_for_img {
   /* border: 2px solid red; */
   display: flex;
@@ -107,7 +110,7 @@
 }
 
 #sk_inc_dec {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   flex: 1;
 }
 
@@ -118,7 +121,7 @@
 
 #sk_addtocart {
   background-color: #f28300;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   flex: 2;
   text-align: center;
   font-weight: bold;
@@ -135,7 +138,7 @@
 
 #sk_buynow {
   background-color: red;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   flex: 2;
   text-align: center;
   padding-top: 5px;
