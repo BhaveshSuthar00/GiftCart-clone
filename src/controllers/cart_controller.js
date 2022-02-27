@@ -20,7 +20,6 @@ router.get('/single/:id', async (req, res) =>{
         return res.redirect('/payment/single');
     }
     catch(err){
-        console.log(err.message);
         res.render('error');
     }
 })
@@ -35,7 +34,6 @@ router.get('/', async (req, res) => {
             res.redirect(`/cart/currentuser`)
         }
     } catch (err) {
-        console.log(err);
         res.render('cart', {items : null});
     }
 })
@@ -46,7 +44,6 @@ router.get('/removeUser', async (req, res)=> {
         let removeUser = await Cart.findByIdAndDelete({_id : user._id}).lean().exec();
         return res.redirect('/index');
     } catch(err) {
-        console.log(err)
         res.render('error');
     }
 })
@@ -66,13 +63,11 @@ router.get('/Multiple/:id', async (req, res) =>{
         let user_id = req.user._id;
         let item_push = req.params.id;
         var items = await Cart.findOne({user_id : user_id}).lean().exec();
-        console.log(items);
         if(!items){
             items = await Cart.create({
                 user_id : user_id,
                 product_id : [req.params.id,],
             });
-            console.log(items)
             res.redirect("/cart/currentuser");
         } else {
             let ans = async()=>{

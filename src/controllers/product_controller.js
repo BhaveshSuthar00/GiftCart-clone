@@ -8,8 +8,6 @@ router.get("/jewellery", async (req, res) => {
     const items = await Product.find({ category: "jewellery" }).lean().exec();
     res.render("jewellery", { products: items });
   } catch (err) {
-    console.log(err);
-
     res.render("error");
   }
 });

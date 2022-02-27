@@ -81,11 +81,8 @@ router.get("/login/account", async (req, res) => {
       });
     }
     const token = newToken(user);
-    // console.log('token:', token)
 
     res.cookie("Bearer ", token, { httpOnly: true });
-    // req.user = user;
-    // console.log(req.user)
     res.redirect("/index");
   } catch (error) {
     res.send(error.message);

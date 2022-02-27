@@ -6,7 +6,7 @@ module.exports = nodemailer.createTransport({
   port: 587,
   secure: false, // true for 465, false for other ports
   auth: {
-    user: "0a6bca5b081307", // generated ethereal user
-    pass: "e1a5eb1d01cc12", // generated ethereal password
+    user: "679c5a4c5b2e62",
+    pass: "873ffb178fe81c"
   },
 });

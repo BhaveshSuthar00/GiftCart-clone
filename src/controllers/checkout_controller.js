@@ -17,7 +17,6 @@ router.get('/address', async (req,res) => {
         return res.render("checkout", {address : address, items : product.product_id});
     }
     catch (err) {
-        console.log(err)
         return res.render('error')
     }
 })
@@ -38,7 +37,6 @@ router.post('/address/register', async (req, res) => {
         return res.redirect('/payment');
     }
     catch (err) {
-        console.log(err.message);
         return res.render("error");
     }
 })
