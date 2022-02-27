@@ -9,7 +9,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:2000/auth/google/callback",
+      callbackURL:
+        "https://giftcart-backend.herokuapp.com/auth/google/callback",
       passReqToCallback: true,
     },
     async function (request, accessToken, refreshToken, profile, done) {
@@ -20,14 +21,14 @@ passport.use(
         .findOne({ email: profile?.email })
         .lean()
         .exec();
-        if (!user) {
-          user = await userSchema.create({
-            first_name: profile?.given_name,
-            last_name: profile?.family_name,
-            email: profile?.email,
-            password: uuidv4(),
-          });
-        }
+      if (!user) {
+        user = await userSchema.create({
+          first_name: profile?.given_name,
+          last_name: profile?.family_name,
+          email: profile?.email,
+          password: uuidv4(),
+        });
+      }
 
       // console.log(user);
       //   console.log("email:", profile?.email);

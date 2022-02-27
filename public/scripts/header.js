@@ -109,7 +109,9 @@ async function navbar_responsive() {
   });
 
   async function logged() {
-    let logged_user = await fetch("http://localhost:2000/yashraj");
+    let logged_user = await fetch(
+      "https://giftcart-backend.herokuapp.com/yashraj"
+    );
     let message = await logged_user.json();
     if (!message.message) {
       document.querySelector(
@@ -121,7 +123,9 @@ async function navbar_responsive() {
       let y = document.querySelector("#karthik_d");
       y.innerHTML += log;
       document.querySelector("#sign_out").onclick = async () => {
-        let logged_user = await fetch("http://localhost:2000/karthik");
+        let logged_user = await fetch(
+          "https://giftcart-backend.herokuapp.com/karthik"
+        );
         let message = await logged_user.json();
         window.location.href = "/index";
       };
@@ -146,7 +150,7 @@ async function navbar_responsive() {
   }
   // search functionality
   // const get_url = `https://giftcartbackendapp.herokuapp.com/api/products`;
-  const get_url = `http://localhost:2000/admin`;
+  const get_url = `https://giftcart-backend.herokuapp.com/admin`;
   let search_item = document.querySelector("#prod_search_input");
   let product;
   let arr;
