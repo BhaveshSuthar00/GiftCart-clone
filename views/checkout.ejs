@@ -1,190 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout Page</title>
-    <link rel="stylesheet" href="/styles/checkout.css">
+    <link rel="stylesheet" href="/styles/checkout.css" />
     <link rel="stylesheet" href="/styles/landing_page.css" />
     <script
-    src="https://kit.fontawesome.com/2281802e38.js"
-    crossorigin="anonymous"
-  ></script>
-  <link
+      src="https://kit.fontawesome.com/2281802e38.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
-  <link
+    <link
       rel="icon"
       type="image/x-icon"
       href="https://style.giftcart.com/pub/media/favicon/stores/1/16x16.png"
     />
-</head>
-<body>
+  </head>
+  <body>
     <div class="nav_bar_container">
-        <%- include("../public/components/navbar.html") %>
+      <%- include("../public/components/navbar.html") %>
     </div>
 
     <div class="Bs_orange_line_div">
-        <div class="Bs_orange1">
-            <p class="Bs_number"><img src="https://www.kindpng.com/picc/m/558-5584414_right-okay-check-icon-png-transparent-png.png" alt=""></p>
-            <div class="Bs_line"></div>
+      <div class="Bs_orange1">
+        <p class="Bs_number">
+          <img
+            src="https://www.kindpng.com/picc/m/558-5584414_right-okay-check-icon-png-transparent-png.png"
+            alt=""
+          />
+        </p>
+        <div class="Bs_line"></div>
 
-            <p>Shipping</p>
-        </div>
-        <div class="Bs_orange2">
-            <div class="Bs_line2"></div>
-            <p class="Bs_number2">2</p>
-            
-            <p>Review & Payments</p>
-        </div>
+        <p>Shipping</p>
+      </div>
+      <div class="Bs_orange2">
+        <div class="Bs_line2"></div>
+        <p class="Bs_number2">2</p>
+
+        <p>Review & Payments</p>
+      </div>
     </div>
-        <p id="Bs_your_details">YOUR DETAILS</p>
+    <p id="Bs_your_details">YOUR DETAILS</p>
     <div id="Bs_main">
-        <% if(address === null) { %>
-        <div id="Bs_main_div1">
-            <p id="Bs_your_details2">SHIPPING ADDRESS</p>
-            <form id="Bs_main_form" action="/checkout/address/register" method="POST">
-                <p>First Name<span>*</span></p>
-                <input id="Bs_F_name" name="first_name" type="text">
-                <p>Last Name<span>*</span></p>
-                <input id="Bs_F_last_name" name="last_name" type="text">
-                <p>Street Address<span>*</span></p>
-                <input id="Bs_address" name="address" type="text"><br>
-                <input type="text"><br>
-                <input type="text"><br>
-                <p>Landmark</p>
-                <input id="Bs_landmark" type="text">
-                <p>City<span>*</span></p>
-                <input type="text" name="city">
-                <p>State/Province<span>*</span></p>
-                <select id="Bs_state_name" name="state">
-                    <option value="">Please Select State</option>
-                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                    <option value="home">Assam</option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Gujarat">Gujarat</option>
-                    <option value="Haryana">Haryana</option>
-                    <option value="Himachal Pradesh	">Himachal Pradesh</option>
-                    <option value="Jharkhand">Jharkhand</option>
-                    <option value="Karnataka">Karnataka</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Manipur">Manipur</option>
-                    <option value="Meghalaya">Meghalaya</option>
-                    <option value="Mizoram">Mizoram</option>
-                    <option value="Nagaland">Nagaland</option>
-                    <option value="Odisha">Odisha</option>
-                    <option value="Punjab">Punjab</option>
-                    <option value="Rajasthan">Rajasthan</option>
-                    <option value="Sikkim">Sikkim</option>
-                    <option value="Tamil Nadu">Tamil Nadu</option>
-                    <option value="Telangana">Telangana</option>
-                    <option value="Tripura">Tripura</option>
-                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                    <option value="Uttarakhand">Uttarakhand</option>
-                    <option value="West Bengal">West Bengal</option>
-                </select>
-                <p>Zip/Post Code<span>*</span></p>
-                <input id="Bs_post_code" name="pincode" type="text">
-                <p>Country<span>*</span></p>
-                <select id="Bs_country" name="country">
-                    <option value="india">India</option>
-                </select>
-                <p>Phone Number<span>*</span></p>
-                <input id="Bs_number"name="number" type="number">
+      <% if(address === null) { %>
+      <div id="Bs_main_div1">
+        <p id="Bs_your_details2">SHIPPING ADDRESS</p>
+        <form
+          id="Bs_main_form"
+          action="/checkout/address/register"
+          method="POST"
+        >
+          <p>First Name<span>*</span></p>
+          <input id="Bs_F_name" name="first_name" type="text" />
+          <p>Last Name<span>*</span></p>
+          <input id="Bs_F_last_name" name="last_name" type="text" />
+          <p>Street Address<span>*</span></p>
+          <input id="Bs_address" name="address" type="text" /><br />
+          <input type="text" /><br />
+          <input type="text" /><br />
+          <p>Landmark</p>
+          <input id="Bs_landmark" type="text" />
+          <p>City<span>*</span></p>
+          <input type="text" name="city" />
+          <p>State/Province<span>*</span></p>
+          <select id="Bs_state_name" name="state">
+            <option value="">Please Select State</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="home">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh	">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+          </select>
+          <p>Zip/Post Code<span>*</span></p>
+          <input id="Bs_post_code" name="pincode" type="text" />
+          <p>Country<span>*</span></p>
+          <select id="Bs_country" name="country">
+            <option value="india">India</option>
+          </select>
+          <p>Phone Number<span>*</span></p>
+          <input id="Bs_number" name="number" type="number" />
 
-                <p>SHIPPING METHODS</p>
-                <div id="Bs_main_form_indiv">
-                    <div id="Bs_form_div" onclick="FormData(event)">
-                        <p >
-                            <input value="ondd" id="Bs_checkbox_d" type="checkbox">
-                            <span> 
-                                <label  class="BS_label_checkbox" for="Bs_checkbox_d">₹160.00</label>
-                            </span>
-                        </p>
-                        <p>Standard Delivery</p>
-                        <p>Standard Delivery</p>
-                    </div>
-                </div>
-                <input id="Bs_Next_btn" type="submit" value="NEXT">
-            </form>
-        </div>
-        <% } else {  %>
-            <div id="Bs_main_div1" class="bs_example_address_parent">
-                <div class="bs_example_address">
-                    <p>
-                        <%=  address.first_name %> <%= address.last_name %>
-                    </p>
-                    <p>
-                        <%=  address.street_address %>
-                    </p>
-                    <p>
-                        <%=  address.phone_number %>
-                    </p>
-                    <p>
-                        <%=  address.city %>, <%=  address.state %> <%=  address.pincode %>
-                    </p>
-                </div>
-                <form action="/payment">
-                    <input id="Bs_Next_btn" class="bs_ex_next" type="submit" value="NEXT">
-                </form>
+          <p>SHIPPING METHODS</p>
+          <div id="Bs_main_form_indiv">
+            <div id="Bs_form_div" onclick="FormData(event)">
+              <p>
+                <input value="ondd" id="Bs_checkbox_d" type="checkbox" />
+                <span>
+                  <label class="BS_label_checkbox" for="Bs_checkbox_d"
+                    >₹160.00</label
+                  >
+                </span>
+              </p>
+              <p>Standard Delivery</p>
+              <p>Standard Delivery</p>
             </div>
-            <% }  %>
+          </div>
+          <input id="Bs_Next_btn" type="submit" value="NEXT" />
+        </form>
+      </div>
+      <% } else { %>
+      <div id="Bs_main_div1" class="bs_example_address_parent">
+        <div class="bs_example_address">
+          <p><%= address.first_name %> <%= address.last_name %></p>
+          <p><%= address.street_address %></p>
+          <p><%= address.phone_number %></p>
+          <p>
+            <%= address.city %>, <%= address.state %> <%= address.pincode %>
+          </p>
+        </div>
+        <form action="/payment">
+          <input
+            id="Bs_Next_btn"
+            class="bs_ex_next"
+            type="submit"
+            value="NEXT"
+          />
+        </form>
+      </div>
+      <% } %>
 
-        <div id="Bs_main_div2">
-            <div>
-                <div class="Bs_total_Citems_div">
-                    <p id="Bs_total_Citems"></p>
-                    <p id="Bs_dropdown_img"><img id="Bs_dropdown_img2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbtqVPaCb-itwvDwpNDn0Tm_ifn7OYoEzvfVt7kollzUMi5wdWTUDnKRvrxIhANj6d420&usqp=CAU" alt=""></p>
-                </div>
-                
-                <div id="Bs_cart_items_div">
-            <% if(items == null){  %>
-                <div class="Bs_pro_main_div">
-                </div>
-                <% } else { %>
-            <% items.forEach(function(items){ %>
-                <div class="Bs_pro_main_div">
-                <div class="Bs_pro_img_div">
-                    <img src="<%= items.image  %>" alt="">
-                </div>
-                <div>
-                    <p class="Bs_cart_p1">
-                        <%= items.product %>
-                    </p>
-                    <p class="Bs_cart_p2">
-                        QTY 1
-                    </p>
-                    <p class="Bs_cart_p3">
-                        <%=items.price %>
-                    </p>
-                </div>
+      <div id="Bs_main_div2">
+        <div>
+          <div class="Bs_total_Citems_div">
+            <p id="Bs_total_Citems"></p>
+            <p id="Bs_dropdown_img">
+              <img
+                id="Bs_dropdown_img2"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbtqVPaCb-itwvDwpNDn0Tm_ifn7OYoEzvfVt7kollzUMi5wdWTUDnKRvrxIhANj6d420&usqp=CAU"
+                alt=""
+              />
+            </p>
+          </div>
+
+          <div id="Bs_cart_items_div">
+            <% if(items == null){ %>
+            <div class="Bs_pro_main_div"></div>
+            <% } else { %> <% items.forEach(function(items){ %>
+            <div class="Bs_pro_main_div">
+              <div class="Bs_pro_img_div">
+                <img src="<%= items.image  %>" alt="" />
+              </div>
+              <div>
+                <p class="Bs_cart_p1"><%= items.product %></p>
+                <p class="Bs_cart_p2">QTY 1</p>
+                <p class="Bs_cart_p3"><%=items.price %></p>
+              </div>
             </div>
-            <% }) %>
-            <% } %>
-            
-                </div>
-                <div id="Bs_image_div">
-                <img src="https://www.giftcart.com/pub/static/frontend/Mgs/molly/en_US/images/Covid--19-banner.jpg" alt="">
-        
-                </div>
-            </div>
+            <% }) %> <% } %>
+          </div>
+          <div id="Bs_image_div">
+            <img
+              src="https://www.giftcart.com/pub/static/frontend/Mgs/molly/en_US/images/Covid--19-banner.jpg"
+              alt=""
+            />
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
 <script type="module">
-    import navbar_responsive from "/scripts/header.js";
-    await navbar_responsive();
-    let clickdiv = document.querySelector('.material-icons-outlined');
-    clickdiv.addEventListener('click',()=>{
-        window.location.href = '/product/random'
-    })
+  import navbar_responsive from "/scripts/header.js";
+  await navbar_responsive();
 </script>
 <script src="/scripts/checkout.js"></script>

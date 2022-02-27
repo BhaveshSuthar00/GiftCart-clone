@@ -9,8 +9,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <link rel="stylesheet" href="/styles/wishlist_layout.css">
-    <link rel="stylesheet" href="/styles/landing_page.css">
+    <link rel="stylesheet" href="/styles/wishlist_layout.css" />
+    <link rel="stylesheet" href="/styles/landing_page.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
@@ -34,7 +34,7 @@
           <div id="wishlist_dashboard_details">
             <p>MY ACCOUNT</p>
             <hr />
-            <ul id="dashboard_opts" >
+            <ul id="dashboard_opts">
               <li><a href="#" style="color: red">MY WISHLIST</a></li>
               <hr />
               <li><a href="#">ACCOUNT DASHBOARD</a></li>
@@ -60,9 +60,7 @@
               >per page
             </div>
           </div>
-          <div id="item_details_div">
-            
-          </div>
+          <div id="item_details_div"></div>
           <div id="wishlist_options">
             <button id="update_wishlist" class="wo">UPDATE WISHLIST</button>
             <button id="share_wishlist" class="wo">SHARE WISHLIST</button>
@@ -75,9 +73,7 @@
   </body>
 </html>
 
-<script src="/scripts/wishlist_layout.js">
-
-</script>
+<script src="/scripts/wishlist_layout.js"></script>
 <script type="module">
   // navbar html are imported here
   import navbar_part from "/components/navbar.js";
@@ -86,13 +82,4 @@
   // navbar logic are imported here
   import navbar_responsive from "/scripts/header.js";
   await navbar_responsive();
-  let getcart = JSON.parse(localStorage.getItem('productlist'));
-
-    console.log(getcart.length)
-    let cart_count = document.getElementById('cart_cc');
-    cart_count.textContent = `${getcart.length}`;
-    let clickdiv = document.querySelector('.material-icons-outlined');
-    clickdiv.addEventListener('click',()=>{
-        window.location.href = '/product/random'
-    })
 </script>

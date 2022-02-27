@@ -142,13 +142,8 @@
   await navbar_responsive();
 
   let jewellery_div = document.getElementById("jewellery_container");
-  import { getJewellery, appendJewellery } from "/scripts/jewellery.js";
   const url = "https://giftcartbackendapp.herokuapp.com/api/products";
 
-  let clickdiv = document.querySelector(".material-icons-outlined");
-  clickdiv.addEventListener("click", () => {
-    window.location.href = "/product/random";
-  });
   ///////////////////////script for jewelry data ends here///////////////////////////
   document.addEventListener("click", (e) => {
     const isDropdownButton = e.target.matches("[data-dropdown-button]");

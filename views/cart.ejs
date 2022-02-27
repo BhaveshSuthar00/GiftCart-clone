@@ -1,183 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart Page</title>
     <link rel="stylesheet" href="/styles/landing_page.css" />
-    <link rel="stylesheet" href="/styles/footer.css">
-    <link rel="stylesheet" href="/styles/cart.css">
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/cart.css" />
     <script
-    src="https://kit.fontawesome.com/2281802e38.js"
-    crossorigin="anonymous"
-  ></script>
-  <link
-  href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-  rel="stylesheet"
-/> 
-  <link
+      src="https://kit.fontawesome.com/2281802e38.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
       rel="icon"
       type="image/x-icon"
       href="https://style.giftcart.com/pub/media/favicon/stores/1/16x16.png"
     />
-</head>
-<body>
+  </head>
+  <body>
     <div class="nav_bar_container">
-        <%- include("../public/components/navbar.html") %>
-
+      <%- include("../public/components/navbar.html") %>
     </div>
 
     <div id="Bs-link-to-home">
-        <a href="/index">Home</a>
-        <span>/</span>
-        <a href="/perfume">shopping</a>
+      <a href="/index">Home</a>
+      <span>/</span>
+      <a href="/perfume">shopping</a>
     </div>
     <div id="Bs_main_div">
-        <div id="Bs_product_list">
-            <div class="linediv"></div>
-            <div id="Bs_list_div">
-                <table id="Bs_items_list_table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>ITEM</th>
-                            <th>PRICE</th>
-                            <th>QTY</th>
-                            <th>SUBTOTAL</th>
-                        </tr>
-                    </thead>
-                    <tbody id="Bs_table_data">
-                        <% if(items !== null) { %>
-                        <% items.forEach(function(items){ %>
-                        <tr>
-                            <td>
-                                <div class="Bs_remove_div">
-                                    <button>
-                                        <span>
-                                            MOVE TO WHISHLIST
-                                        </span> 
-                                        <img  src="https://www.publicdomainpictures.net/pictures/50000/velka/pencil-silhouette.jpg" height="15" alt="">
-                                    </button>
-                                    <form action="/cart/remove/<%- items._id  %>">
-                                    <button type="submit" class="Bs_delete_icon">
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                    </form>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="Bs_item_div_intable">
-                                    <img src="<%= items.image %>" alt="">
-                                    <h4>
-                                        <%= items.product %>
-                                    </h4>
-                                </div>
-                            </td>
-                            <td class="Bs_product_price">
-                                ₹<%= items.price %>
-                            </td>
-                            <td>
-                                <div class="Bs_qty_div">
-                                    <input class="product_count" min="1" type="number" value="1">
-                                    <button class="Bs_update_btn">
-                                        UPDATE
-                                    </button>
-                                </div>
-                            </td>
-                            <td class="Bs_product_price2">
-                                ₹<%= items.price %>
-                            </td>
-                        </tr>
-                        <% }) %>
-                    <% } %>
-                    </tbody>
-                </table>
-                <div class="Bs_continue_btn_div">
-                    <a href="/index"><button>CONTINUE SHOPPING</button></a>
-                </div>
-            </div>
+      <div id="Bs_product_list">
+        <div class="linediv"></div>
+        <div id="Bs_list_div">
+          <table id="Bs_items_list_table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>ITEM</th>
+                <th>PRICE</th>
+                <th>QTY</th>
+                <th>SUBTOTAL</th>
+              </tr>
+            </thead>
+            <tbody id="Bs_table_data">
+              <% if(items !== null) { %> <% items.forEach(function(items){ %>
+              <tr>
+                <td>
+                  <div class="Bs_remove_div">
+                    <button>
+                      <span> MOVE TO WHISHLIST </span>
+                      <img
+                        src="https://www.publicdomainpictures.net/pictures/50000/velka/pencil-silhouette.jpg"
+                        height="15"
+                        alt=""
+                      />
+                    </button>
+                    <form action="/cart/remove/<%- items._id  %>">
+                      <button type="submit" class="Bs_delete_icon">
+                        <i class="far fa-trash-alt"></i>
+                      </button>
+                    </form>
+                  </div>
+                </td>
+                <td>
+                  <div class="Bs_item_div_intable">
+                    <img src="<%= items.image %>" alt="" />
+                    <h4><%= items.product %></h4>
+                  </div>
+                </td>
+                <td class="Bs_product_price">₹<%= items.price %></td>
+                <td>
+                  <div class="Bs_qty_div">
+                    <input
+                      class="product_count"
+                      min="1"
+                      type="number"
+                      value="1"
+                    />
+                    <button class="Bs_update_btn">UPDATE</button>
+                  </div>
+                </td>
+                <td class="Bs_product_price2">₹<%= items.price %></td>
+              </tr>
+              <% }) %> <% } %>
+            </tbody>
+          </table>
+          <div class="Bs_continue_btn_div">
+            <a href="/index"><button>CONTINUE SHOPPING</button></a>
+          </div>
         </div>
-        <div id="Bs_checkout_list">
-            <div>
-               <div id="Bs_checkout_list_div1">
-                   <p>TOTAL</p>
-                   <p>
-                       <span>Subtotal</span>
-                       <span class="Bs_total_price">0</span>
-                   </p>
-                   <p>
-                       <span>Order total</span>
-                       <span class="Bs_total_price2">0</span>
-                   </p>
-               </div>
-               <div id="Bs_checkout_list_div2">
-                    <a href="/checkout/address">
-                        <button>
-                            PROCEED TO CHECKOUT
-                        </button>
-                    </a>    
-               </div>
-               <div id="Bs_checkout_list_div3">
-                    <p>APPLY DISCOUNT CODE</p>
-                    <input type="text" placeholder="Entere discount code">
-                    <button>APPLY DISCOUNT</button>
-               </div>
-            </div>
+      </div>
+      <div id="Bs_checkout_list">
+        <div>
+          <div id="Bs_checkout_list_div1">
+            <p>TOTAL</p>
+            <p>
+              <span>Subtotal</span>
+              <span class="Bs_total_price">0</span>
+            </p>
+            <p>
+              <span>Order total</span>
+              <span class="Bs_total_price2">0</span>
+            </p>
+          </div>
+          <div id="Bs_checkout_list_div2">
+            <a href="/checkout/address">
+              <button>PROCEED TO CHECKOUT</button>
+            </a>
+          </div>
+          <div id="Bs_checkout_list_div3">
+            <p>APPLY DISCOUNT CODE</p>
+            <input type="text" placeholder="Entere discount code" />
+            <button>APPLY DISCOUNT</button>
+          </div>
         </div>
+      </div>
     </div>
-    <div style="margin-top: 20px;" id="footer">
-        <%- include("../public/components/footer.html") %>
-        
+    <div style="margin-top: 20px" id="footer">
+      <%- include("../public/components/footer.html") %>
     </div>
-</body>
+  </body>
 </html>
 <script>
-    let totalvaue = document.querySelectorAll('.Bs_product_price');
-    let totalvaue2 = document.querySelectorAll('.Bs_product_price2');
-    let update_btn = document.querySelectorAll('.Bs_update_btn');
-    let value_div = document.querySelectorAll('.product_count');
-    let sub = document.querySelector('.Bs_total_price');
-    let sub_total2 = document.querySelector('.Bs_total_price2');
-    let arr = [];
-    let value_arr = [];
-    let sub_total = 0;
-    function subtotal_Fun(){
-        let totalnow = 0;
-        totalvaue.forEach(function(elem, index){
-            let price = elem.textContent.split('₹')[1];
-            price = +price
-            let value = +value_div[index].value;
-            arr[index] = price*value;
-            totalnow += arr[index];
-        })
-        return totalnow;
-    }
-    let startpirce = subtotal_Fun();
-    sub.innerHTML = startpirce;
-    sub_total2.innerHTML = startpirce;
-    value_div.forEach(function(elem){
-        value_arr.push(+elem.value)
-    })
-    let newprice = 0;
-    update_btn.forEach(function(elem, index){
-        elem.addEventListener('click', ()=>{
-            let newvalue = subtotal_Fun();
-            sub.innerHTML = newvalue;
-            sub_total2.innerHTML = newvalue;
-            sub_total = 0;
-            totalvaue2[index].textContent = arr[index];
-        })
-    })
-
+  let totalvaue = document.querySelectorAll(".Bs_product_price");
+  let totalvaue2 = document.querySelectorAll(".Bs_product_price2");
+  let update_btn = document.querySelectorAll(".Bs_update_btn");
+  let value_div = document.querySelectorAll(".product_count");
+  let sub = document.querySelector(".Bs_total_price");
+  let sub_total2 = document.querySelector(".Bs_total_price2");
+  let arr = [];
+  let value_arr = [];
+  let sub_total = 0;
+  function subtotal_Fun() {
+    let totalnow = 0;
+    totalvaue.forEach(function (elem, index) {
+      let price = elem.textContent.split("₹")[1];
+      price = +price;
+      let value = +value_div[index].value;
+      arr[index] = price * value;
+      totalnow += arr[index];
+    });
+    return totalnow;
+  }
+  let startpirce = subtotal_Fun();
+  sub.innerHTML = startpirce;
+  sub_total2.innerHTML = startpirce;
+  value_div.forEach(function (elem) {
+    value_arr.push(+elem.value);
+  });
+  let newprice = 0;
+  update_btn.forEach(function (elem, index) {
+    elem.addEventListener("click", () => {
+      let newvalue = subtotal_Fun();
+      sub.innerHTML = newvalue;
+      sub_total2.innerHTML = newvalue;
+      sub_total = 0;
+      totalvaue2[index].textContent = arr[index];
+    });
+  });
 </script>
 
 <script type="module">
-    import navbar_responsive from "/scripts/header.js";
-    await navbar_responsive();
-
-    let clickdiv = document.querySelector('.material-icons-outlined');
-    clickdiv.addEventListener('click',()=>{
-        window.location.href = '/product/random'
-    })
+  import navbar_responsive from "/scripts/header.js";
+  await navbar_responsive();
 </script>
