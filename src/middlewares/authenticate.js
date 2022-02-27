@@ -11,7 +11,7 @@ const verifyToken = (token) => {
 };
 const authenticate = async (req, res, next) => {
   const cookieHeader = req.headers?.cookie;
-  if(!cookieHeader) return res.status(400).send({ message: "Please login" });
+  if (!cookieHeader) return res.status(200).send({ message: "Please login" });
   let token = cookieHeader.split("=")[1];
   // console.log(cookieHeader, "cookieheader")
   let user;
@@ -23,10 +23,10 @@ const authenticate = async (req, res, next) => {
   }
   //   console.log(user)
   req.user = user.user;
-//   console.log(req.user);
+  //   console.log(req.user);
 
   //   console.log('user:', req.user);
   return next();
 };
 
-module.exports = {authenticate, verifyToken};
+module.exports = { authenticate, verifyToken };
