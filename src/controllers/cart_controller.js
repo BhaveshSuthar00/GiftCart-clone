@@ -2,16 +2,17 @@ const express = require("express");
 
 const router = express.Router();
 
-const Cart = require("../models/userSingle_model");
+const Cart = require("../models/cart.model");
+const CartSingle = require('../models/userSingle_model')
 router.get('/single/:id', async (req, res) =>{
     try {
         const user_id = req.user._id;
-        let cart = await Cart.findOne({user_id : user_id}).lean().exec();
+        let cart = await CartSingle.findOne({user_id : user_id}).lean().exec();
         if(cart){
-            cart = await Cart.findOneAndReplace({user_id : user_id}, {user_id : user_id,product_id : [req.params.id]}).lean().exec();
+            cart = await CartSingle.findOneAndReplace({user_id : user_id}, {user_id : user_id,product_id : [req.params.id]}).lean().exec();
         }
         if(!cart){
-            cart = await Cart.create({
+            cart = await CartSingle.create({
                 user_id : user_id,
                 product_id : [req.params.id]
             });
@@ -31,7 +32,7 @@ router.get('/', async (req, res) => {
         if(!user){
             res.render('cart', {items : null});
         } else { 
-            res.redirect(`/cart/currentuser/${user_id}`)
+            res.redirect(`/cart/currentuser`)
         }
     } catch (err) {
         console.log(err);
@@ -52,36 +53,37 @@ router.get('/removeUser', async (req, res)=> {
 router.get('/remove/:id', async (req,res)=> {
     try {
         let user_id = req.user._id;
-        const items = await Cart.updateOne({user_id : user_id}, {$pull : {product_ids : req.params.id}}).lean().exec();
-        return res.redirect(`/cart/currentuser/${user_id}`);
+        const items = await Cart.updateOne({user_id : user_id}, {$pull : {product_id : req.params.id}}).lean().exec();
+        return res.redirect(`/cart/currentuser`);
     }
     catch (err) {
         res.send(err.message);
         res.render('error')
     }
 })
-router.get('/:id', async (req, res) =>{
+router.get('/Multiple/:id', async (req, res) =>{
     try {
         let user_id = req.user._id;
         let item_push = req.params.id;
         var items = await Cart.findOne({user_id : user_id}).lean().exec();
+        console.log(items);
         if(!items){
-            let items = await Cart.create({
+            items = await Cart.create({
                 user_id : user_id,
-                product_ids : [req.params.id,],
+                product_id : [req.params.id,],
             });
-            res.redirect(`/cart/currentuser/${user_id}`);
+            console.log(items)
+            res.redirect("/cart/currentuser");
         } else {
             let ans = async()=>{
                 return items =  await Cart.findOneAndUpdate(
                     { user_id: user_id }, 
-                    { $push : { product_ids: item_push } }, 
-                    {new : true}
+                    { $push : { product_id: item_push } }, 
+                    // {new : true}
                 ).lean().exec();
             }
             await ans();
-            items = await Cart.findOne({user_id : user_id}).populate({path : 'product_ids'}).lean().exec();
-            res.redirect(`/cart/currentuser/${user_id}`);
+            res.redirect("/cart/currentuser");
         }
     }
     catch (err) {
@@ -90,14 +92,14 @@ router.get('/:id', async (req, res) =>{
     }
 });
 
-router.get("/currentuser/:id", async (req, res) => {
+router.get("/currentuser", async (req, res) => {
     try {
         let user_id = req.user._id;
         const items = await Cart.findOne({ user_id: user_id })
-        .populate({ path: "product_ids" })
+        .populate({ path: "product_id"})
         .lean()
         .exec();
-        return res.render("cart", { items: items.product_ids });
+        return res.render("cart", { items: items.product_id });
     } catch (err) {
         res.send(err.message);
         res.render('error')
