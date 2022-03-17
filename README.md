@@ -55,3 +55,7 @@ All pages are not responsive yet , those pages are might not be properly visible
   
 - 👤 Ankit Singh
   Github: https://github.com/AnkitSingh60
+  
+- 👤 Mayur Shelar
+  Github: https://github.com/MS1098
+
