@@ -11,7 +11,7 @@ const verifyToken = (token) => {
 };
 const authenticate = async (req, res, next) => {
   const cookieHeader = req.headers?.cookie;
-  if (!cookieHeader) return res.status(200).send({ message: "Please login" });
+  if (!cookieHeader) return res.status(200).redirect('/register/login');
   let token = cookieHeader.split("=")[1];
   // console.log(cookieHeader, "cookieheader")
   let user;
