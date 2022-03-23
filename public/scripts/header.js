@@ -110,7 +110,7 @@ async function navbar_responsive() {
 
   async function logged() {
     let logged_user = await fetch(
-      "https://giftcart-backend.herokuapp.com/yashraj"
+      "https://enigmatic-beach-48011.herokuapp.com/yashraj"
     );
     let message = await logged_user.json();
     if (!message.message) {
@@ -124,7 +124,7 @@ async function navbar_responsive() {
       y.innerHTML += log;
       document.querySelector("#sign_out").onclick = async () => {
         let logged_user = await fetch(
-          "https://giftcart-backend.herokuapp.com/karthik"
+          "https://enigmatic-beach-48011.herokuapp.com/karthik"
         );
         let message = await logged_user.json();
         window.location.href = "/index";
@@ -150,7 +150,7 @@ async function navbar_responsive() {
   }
   // search functionality
   // const get_url = `https://giftcartbackendapp.herokuapp.com/api/products`;
-  const get_url = `https://giftcart-backend.herokuapp.com/admin`;
+  const get_url = `https://enigmatic-beach-48011.herokuapp.com/admin`;
   let search_item = document.querySelector("#prod_search_input");
   let product;
   let arr;
