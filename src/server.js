@@ -137,10 +137,10 @@ app.get("/payment/single", authenticate, async (req, res) => {
       .lean()
       .exec();
       let address = {
-        first_name: "admin",
-        last_name: "admin",
-        street_address : "000",
-        phone_number : "1010101010"
+        first_name: ".",
+        last_name: ".",
+        street_address : ".",
+        phone_number : "."
       }
     return res.render("payment", { items: cart.product_id, address: address });
   } catch (err) {
