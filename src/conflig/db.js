@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
+require("dotenv").config();
 
 
 module.exports = () => {
-    return mongoose.connect(
-        'mongodb+srv://bhavesh:bhavesh_98333@cluster0.wszxi.mongodb.net/Gift_cart?retryWrites=true&w=majority'
-    )
+    return mongoose.connect(process.env.MONGODB)
 }
