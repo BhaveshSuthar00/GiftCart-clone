@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search Product</title>
-    <link rel="stylesheet" href="/styles/jewellery.css" />
-
-    <link rel="stylesheet" href="/styles/random.css" />
-    <link rel="stylesheet" href="/styles/footer.css" />
+    
     <link rel="stylesheet" href="/styles/landing_page.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/random.css" />
+    <!-- <link rel="stylesheet" href="/styles/jewellery.css" /> -->
 
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link
@@ -61,12 +61,14 @@
 
     <div id="jewellery_container">
       <% products.forEach(function(element) { %> %>
-      <a href="/shopitem/<%- element._id %>">
+      <a class="product_atag" href="/shopitem/<%- element._id %>">
         <div class="divmain">
-          <img src="<%= element.image %>" alt="" />
+          <div class="BS_img_div">
+            <img src="<%= element.image %>" alt="" />
+          </div>
           <div class="main_titleDiv">
             <div>
-              <p><%= element.product %></p>
+              <%= element.product %>
             </div>
             <div class="heart_div">
               <i class="far fa-heart"></i>
@@ -77,11 +79,9 @@
             <div>
               <p>MRP (incl gst)</p>
             </div>
-            <div>
+            <div class="mrp_div_inner_2">
               <p>₹<%= element.price %></p>
-            </div>
-            <div>
-              <p><%= element.price %></p>
+              <p>₹<%= element.price %></p>
             </div>
           </div>
 
