@@ -30,6 +30,7 @@ router.get("/random", async (req, res) => {
     })
       .lean()
       .exec();
+      // console.log(req.query.item, req.query.sub);
     return res.render("random", { products });
   } catch (err) {
     return res.render("error");

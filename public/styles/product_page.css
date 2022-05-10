@@ -5,18 +5,19 @@
 #Bs_container_div {
   display: flex;
   gap: 20px;
+  width: 100%;
   margin: auto;
   margin-top: 10px;
   width: 90%;
 }
 .Bs_item_div {
+  height: 370px;
   padding: 10px 7px;
-  height: 400px;
-  width: 23%;
+  width: 21%;
   margin-left: 5px;
-  /* border: 1px solid black; */
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
 .Bs_item_div:hover {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
@@ -42,12 +43,16 @@
   background-color: rgb(238, 238, 238, 0.2);
   opacity: 1;
 }
+.Bs_atag_Product{
+  width: 100%;
+  height: 100%;
+}
 .Bs_image_div {
   position: relative;
   width: 100%;
   height: 60%;
 }
-.Bs_image_div > img {
+.Bs_atag_Product > img {
   width: 100%;
   height: 100%;
 }
@@ -70,16 +75,32 @@
   display: inline-block;
   background-color: rgb(238, 238, 238, 0.3);
 }
-.Bs_slide_p > div > p {
+.Bs_slide_p > div > a {
   margin: 0%;
+  text-decoration: none;
+  color: black;
 }
-.Bs_slide_p > div > p:hover {
+.Bs_slide_p > div > a:hover {
   color: red;
 }
 
 .Bs_text_div_1 {
   display: flex;
+  margin-top: 3%;
+  height : 22px;
+  overflow : hidden;
   justify-content: space-between;
+}
+.Bs_text_div_1>p:first-child {
+  width : 85%;
+}
+.Bs_text_div_1>p:first-child:after {
+  content: "....";
+}
+.Bs_text_div_1>p{
+  height:100%;
+  margin: 0;
+  padding: 0;
 }
 .Bs_text_div_1 > p:last-child {
   margin-right: 2%;
@@ -89,7 +110,7 @@
 }
 .Bs_text_div_2 {
   display: flex;
-  margin: 0%;
+  margin-top: 3%;
   line-height: 18px;
   margin-bottom: 7%;
 }
@@ -240,15 +261,30 @@
   display: inline-block;
   background-color: rgb(238, 238, 238, 0.3);
 }
-.Ms_slide_p > div > p {
-  margin: 0%;
+.Ms_slide_p > div >  a {
+  text-decoration: none;
+  color: black;  
 }
-.Ms_slide_p > div > p:hover {
+.Ms_slide_p > div > a:hover {
   color: red;
 }
 .Ms_text_div_1 {
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
+  height: 22px;
+  margin: 3% 0%;
+}
+.Ms_text_div_1 > p {
+  margin: 0;
+  padding: 0;
+}
+.Ms_text_div_1 > p:first-child {
+  width: 80%;
+}
+
+.Ms_text_div_1 > p:first-child::after {
+  content: "..."
 }
 .Ms_text_div_1 > p:last-child {
   margin-right: 2%;

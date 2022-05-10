@@ -124,7 +124,7 @@ body {
   grid-template-rows: 380px;
   margin: auto;
   margin-top: 3%;
-  gap: 2%;
+  gap: 1%;
 }
 .product_atag {
   padding: 2%;
@@ -201,15 +201,4 @@ body {
 .start_div {
   margin-left: 2%;
   color: red;
-}
-
-/* ////////////////////////////////////////////////////////// */
-#jewellery_info {
-  border: 1px solid lightgray;
-  width: 90%;
-  margin: auto;
-  padding: 10px;
-  position: relative;
-  top: 140px;
-  line-height: 22px;
 }

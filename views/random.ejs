@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/styles/landing_page.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
     <link rel="stylesheet" href="/styles/random.css" />
-    <!-- <link rel="stylesheet" href="/styles/jewellery.css" /> -->
 
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link
@@ -29,34 +28,6 @@
   <body>
     <div class="nav_bar_container">
       <%- include("../public/components/navbar.html") %>
-    </div>
-
-    <div class="nav_header">
-      <div class="filters">
-        <p class="filter">FILTER:</p>
-        <a class="anchor" onclick="myfun()" id="clicks"
-          >Category <i class="fa fa-caret-down"></i>
-        </a>
-        <div class="dropdown">
-          <div id="dropcontent" class="dropdowncontent">
-            <a href="#">For Him</a>
-            <a href="#"> For Her</a>
-          </div>
-        </div>
-        <a class="anchor">Price <i class="fa fa-caret-down"></i></a>
-        <a class="anchor">Color <i class="fa fa-caret-down"></i></a>
-      </div>
-      <div class="sorting">
-        <h3>Sort By</h3>
-        <select name="Relevance" class="options">
-          <option value="price">Price</option>
-          <option value="high">high</option>
-          <option value="low">low</option>
-        </select>
-        <button class="arrow">
-          <i class="fas fa-arrow-up"></i>
-        </button>
-      </div>
     </div>
 
     <div id="jewellery_container">
@@ -97,7 +68,7 @@
       <!-- ejs loop ends here -->
       <% }) %>
     </div>
-    <div id="jewellery_info">
+    <!-- <div id="jewellery_info">
       <h1>ONLINE FRAGRANCE SHOPPING</h1>
       <p>
         Be it a birthday or an anniversary, what you give to that special
@@ -131,7 +102,7 @@
         It is one aspect where a fashion conscious individual is always willing
         to go that extra mile.
       </p>
-    </div>
+    </div> -->
     <div class="footer" style="margin-top: 13%">
       <%- include("../public/components/footer.html") %>
     </div>

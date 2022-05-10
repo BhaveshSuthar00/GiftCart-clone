@@ -9,6 +9,7 @@ const passport = require("./conflig/google-oauth");
 const connect = require("./conflig/db");
 
 const productController = require("./controllers/product_controller");
+const Product = require("./models/product.model");
 
 const wishlistController = require("./controllers/wishlist_controller");
 
@@ -150,14 +151,56 @@ app.get("/payment/single", authenticate, async (req, res) => {
 
 app.use("/index", async (req, res) => {
   try {
-    res.render("index");
+    
+    const items = await Product.find({ category: "jewellery" }).limit(5).lean().exec();
+    const items2 = await Product.find({ category: "Cards" }).limit(4).lean().exec();
+    const items3 = await Product.find({
+      $or: [{ category: 'teddy' }, { sub_category: 'teddy' }],
+    }).limit(4)
+      .lean()
+      .exec();
+      const val = await Product.find({category : 'Promise Day'}).limit(4).lean().exec();
+      const lowPrice = await Product.find().sort({price : 1}).limit(5).lean().exec();
+      const highPrice = await Product.find({
+        $or: [{ category: 'Religious' }, { sub_category: 'Spiritual' }],
+      }).limit(5)
+        .lean()
+        .exec();
+        const personal = await Product.find({
+          $or: [{ category: 'Personalised Gift' }, { sub_category: 'Flower' }],
+        }).limit(4)
+          .lean()
+          .exec();
+    res.render("index", {personalisedGift : personal,jewellery : items, purfumes : items2, teddy : items3, valentine : val, sale : lowPrice, high : highPrice });
+    
   } catch (err) {
     res.render("error");
   }
 });
 app.use("/", async (req, res) => {
   try {
-    res.render("index");
+    
+    const items = await Product.find({ category: "jewellery" }).limit(5).lean().exec();
+    const items2 = await Product.find({ category: "Cards" }).limit(4).lean().exec();
+    const items3 = await Product.find({
+      $or: [{ category: 'teddy' }, { sub_category: 'teddy' }],
+    }).limit(4)
+      .lean()
+      .exec();
+      const val = await Product.find({category : 'Promise Day'}).limit(4).lean().exec();
+      const lowPrice = await Product.find().sort({price : 1}).limit(5).lean().exec();
+      const highPrice = await Product.find({
+        $or: [{ category: 'Religious' }, { sub_category: 'Spiritual' }],
+      }).limit(5)
+        .lean()
+        .exec();
+        const personal = await Product.find({
+          $or: [{ category: 'Personalised Gift' }, { sub_category: 'Flower' }],
+        }).limit(4)
+          .lean()
+          .exec();
+    res.render("index", {personalisedGift : personal,jewellery : items, purfumes : items2, teddy : items3, valentine : val, sale : lowPrice, high : highPrice });
+    
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
