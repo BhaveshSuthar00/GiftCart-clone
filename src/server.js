@@ -159,7 +159,7 @@ app.use("/index", async (req, res) => {
     }).limit(4)
       .lean()
       .exec();
-      const val = await Product.find({category : 'Promise Day'}).limit(4).lean().exec();
+      const val = await Product.find({category : 'Personalised Gift'}).limit(4).lean().exec();
       const lowPrice = await Product.find().sort({price : 1}).limit(5).lean().exec();
       const highPrice = await Product.find({
         $or: [{ category: 'Religious' }, { sub_category: 'Spiritual' }],
@@ -167,7 +167,7 @@ app.use("/index", async (req, res) => {
         .lean()
         .exec();
         const personal = await Product.find({
-          $or: [{ category: 'Personalised Gift' }, { sub_category: 'Flower' }],
+          $or: [{ category: 'plant' }, { sub_category: 'Flower' }],
         }).limit(4)
           .lean()
           .exec();
@@ -187,7 +187,7 @@ app.use("/", async (req, res) => {
     }).limit(4)
       .lean()
       .exec();
-      const val = await Product.find({category : 'Promise Day'}).limit(4).lean().exec();
+      const val = await Product.find({category : 'Personalised Gift'}).limit(4).lean().exec();
       const lowPrice = await Product.find().sort({price : 1}).limit(5).lean().exec();
       const highPrice = await Product.find({
         $or: [{ category: 'Religious' }, { sub_category: 'Spiritual' }],
@@ -195,7 +195,7 @@ app.use("/", async (req, res) => {
         .lean()
         .exec();
         const personal = await Product.find({
-          $or: [{ category: 'Personalised Gift' }, { sub_category: 'Flower' }],
+          $or: [{ category: 'plant' }, { sub_category: 'Flower' }],
         }).limit(4)
           .lean()
           .exec();

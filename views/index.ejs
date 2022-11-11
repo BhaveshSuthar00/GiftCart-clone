@@ -34,7 +34,7 @@
         <%- include("../public/components/navbar.html") %>
     </div>
         <!--FRONT PAGE-->
-    <div id="Bs_slide_images">
+    <!-- <div id="Bs_slide_images">
         <div class="main-container">
             <div class="container">
                 <button onclick="backward()">  
@@ -45,12 +45,14 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div id="head">
         <h2 >HATKE GIFTS</h2>
         <div id="line"></div>
-        <h3 >View More</h3>
+        <h3 >
+            <a href="/product/random?item=Personalised Gift">View More</a>
+        </h3>
     </div>
     <div id="Bs_container_div">
         <% personalisedGift.forEach(function(element) { %>
@@ -61,7 +63,7 @@
                     </a>
                     <div class="Bs_slide_p">
                         <div>
-                                <a href="/product/jewellery">
+                                <a href="/product/random?item=<%- element.category %>&sub=<%- element.sub_category %>">
                                     Similar Gifts
                                 </a>
                         </div>
@@ -96,7 +98,9 @@
     <div id="head">
         <h2 >OUR FAVOURITE PRODUCTS</h2>
         <div id="line"></div>
-        <h3 >Best and The Brightest</h3>
+        <h3 >
+            <a href="/product/random?item=Cards">Best and The Brightest</a>
+        </h3>
             </div>
             <div id="Bs_container_div">
             <% purfumes.forEach(function(element) { %>
@@ -107,7 +111,7 @@
                         </a>
                         <div class="Bs_slide_p">
                             <div>
-                                    <a href="/product/perfume">
+                                    <a href="/product/random?item=<%- element.category %>&sub=<%- element.sub_category %>">
                                         Similar Gifts
                                     </a>
                             </div>
@@ -143,7 +147,11 @@
     <div id="head">
         <h2 >VALENTINE DAY GIFT</h2>
         <div id="line"></div>
-        <h3 >View More</h3>
+        <h3 >
+            <a href="/product/random?item=Personalised Gift">
+                View More
+            </a>
+        </h3>
     </div>
     
         <div id="Bs_container_div">
@@ -191,44 +199,55 @@
     <div id="head">
         <h2 >POPULAR THIS WEEK</h2>
         <div id="line"></div>
-        <h3 >Our most loved picks</h3>
-        </div>
+        <h3 >
+            <a href="/product/jewellery">
+                Our most loved picks
+            </a>
+        </h3>
+    </div>
             <div class="main">
-             <div >
-        <img src="https://style.giftcart.com/pub/media/allbanners/HPS_3.jpeg" id="img">
-             </div>
-             <div >
-                 <img src="https://style.giftcart.com/pub/media/allbanners/cushion-banner-updated_banner.jpg" id="img">
-             </div>
-             <div>
-                 <img src="https://style.giftcart.com/pub/media/allbanners/Category-Banner-3.jpg" id="img">
-             </div>
-             <div>
-                 <img src="https://style.giftcart.com/pub/media/allbanners/Persnalised_custom_Photo_lamps.jpg" id="img">
-             </div>
-   
-        </div>
+                <div >
+                    <img onclick="functionDr('6214d3ac022c83ffdc983047')" src="https://res.cloudinary.com/dqmzkayzb/image/upload/v1668082560/giftcard/asg4ybhzyxwcalricjel.jpg" class="img_BS">
+                </div>
+                <div >
+                    <img onclick="functionDr('6214d3ac022c83ffdc983048')" src="https://res.cloudinary.com/dqmzkayzb/image/upload/v1668082536/giftcard/ayp0hvzq8iuvkh5wggsu.jpg" class="img_BS">
+                </div>
+                <div>
+                    <img onclick="functionDr('6214d3ac022c83ffdc983049')" src="https://res.cloudinary.com/dqmzkayzb/image/upload/v1668082549/giftcard/re9dmsigocfgnofhuuxi.jpg" class="img_BS">
+                </div>
+                <div>
+                    <img onclick="functionDr('6214d3ac022c83ffdc98304a')" src="https://res.cloudinary.com/dqmzkayzb/image/upload/v1668082502/giftcard/apet86dchutjxb5m1oyw.png" class="img_BS">
+                </div>
+            </div>
         <div id="head">
                 <h2>GET INSPIRED</h2>
                 <div id="line"></div>
-                <h3 >Innovating Gifts Ideas for all</h3>
+                <h3>
+                    <a href="/product/random?item=plant">
+                        Innovating Gifts Ideas for all
+                    </a>
+                </h3>
             </div>
         <div class="box">
               <div>
-                  <img src="https://style.giftcart.com/pub/media/allbanners/Roses.jpg" id="img2">
+                  <img onclick="functionDr('6214d3ac022c83ffdc983071')" src="https://res.cloudinary.com/dqmzkayzb/image/upload/v1668087933/giftcard/twfqf7biyfhxm0n4vku3.jpg" id="img2">
               </div>
               <div>
-                  <img src="https://style.giftcart.com/pub/media/allbanners/Hatke_Gifts.jpg" id="img2">
+                  <img onclick="functionDr('6214d3ac022c83ffdc98307e')" src="https://res.cloudinary.com/dqmzkayzb/image/upload/v1668089358/giftcard/qpizmbsmfqv9i9znv3sh.jpg" id="img2">
               </div>
               <div>
-               <img src="https://style.giftcart.com/pub/media/allbanners/Roses.jpg" id="img2">
+               <img onclick="functionDr('6214d3ac022c83ffdc983084')" src="https://res.cloudinary.com/dqmzkayzb/image/upload/v1668089288/giftcard/zy687howvgoeyfz9uelr.jpg" id="img2">
               </div>
    
-    </div>
+        </div>
     <div id="head">
         <h2 >ON SALE</h2>
         <div id="line"></div>
-        <h3 >View more</h3>
+        <h3 >
+            <a href="/product/random?item=Cards">
+                View more
+            </a>
+        </h3>
     </div>
     <div id="Ms_container_div">
         <% sale.forEach(function(element) { %>
@@ -269,134 +288,6 @@
             </div>
         </div>        
         <% }) %>
-        <!-- <div class="Ms_item_div">
-            <div class="Ms_image_div">
-                <img src="https://style.giftcart.com/pub/media/catalog/product/cache/54a34f5dbb4a497b03140173a959d3f4/c/o/co-cm01gbgt0188-0.jpg" alt="">
-                <div class="Ms_slide_p">
-                    <div>
-                        <p>Similar Gifts</p>
-                    </div>
-                </div>
-            </div>
-            <div class="Ms_text_div">
-                <div class="Ms_text_div_1">
-                    <p>
-                        Personalised Photo on Rotating cube
-                    </p>
-                    <p>
-                        <i class="fas fa-heart"></i>
-
-                    </p>
-                </div>
-                <div class="Ms_text_div_2">
-                    <p>MRP(incl gst)</p>
-                    <p>₹2344.00</p>
-                </div>
-            </div>
-            <div class="Ms_star_image_div">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-        </div>
-        <div class="Ms_item_div">
-            <div class="Ms_image_div">
-                <img src="https://style.giftcart.com/pub/media/catalog/product/cache/54a34f5dbb4a497b03140173a959d3f4/5/_/5_mb_in_one_tube-7.jpg" alt="">
-                <div class="Ms_slide_p">
-                    <div>
-                        <p>Similar Gifts</p>
-                    </div>
-                </div>
-            </div>
-            <div class="Ms_text_div">
-                <div class="Ms_text_div_1">
-                    <p>
-                        Personalised Messages on Bottles
-                    </p>
-                    <p>
-                        <i class="fas fa-heart"></i>
-
-                    </p>
-                </div>
-                <div class="Ms_text_div_2">
-                    <p>MRP (incl gst)</p>
-                    <p>₹ 2344.00</p>
-                </div>
-            </div>
-            <div class="Ms_star_image_div">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-        </div>
-        <div class="Ms_item_div">
-            <div class="Ms_image_div">
-                <img src="https://style.giftcart.com/pub/media/catalog/product/cache/54a34f5dbb4a497b03140173a959d3f4/c/m/cm01gbgt1098-1.jpg" alt="">
-                <div class="Ms_slide_p">
-                    <div>
-                        <p>Similar Gifts</p>
-                    </div>
-                </div>
-            </div>
-            <div class="Ms_text_div">
-                <div class="Ms_text_div_1">
-                    <p>
-                        Personalised Photo-Stand
-                    </p>
-                    <p>
-                        <i class="fas fa-heart"></i>
-
-                    </p>
-                </div>
-                <div class="Ms_text_div_2">
-                    <p>MRP(incl gst)</p>
-                    <p>₹2344.00</p>
-                </div>
-            </div>
-            <div class="Ms_star_image_div">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-        </div>
-        <div class="Ms_item_div">
-            <div class="Ms_image_div">
-                <img src="https://style.giftcart.com/pub/media/catalog/product/cache/54a34f5dbb4a497b03140173a959d3f4/c/m/cm01gbgt2157-1.jpg" alt="">
-                <div class="Ms_slide_p">
-                    <div>
-                        <p>Similar Gifts</p>
-                    </div>
-                </div>
-            </div>
-            <div class="Ms_text_div">
-                <div class="Ms_text_div_1">
-                    <p>
-                        Personalised map poster
-                    </p>
-                    <p>
-                        <i class="fas fa-heart"></i>
-
-                    </p>
-                </div>
-                <div class="Ms_text_div_2">
-                    <p>MRP(incl gst)</p>
-                    <p>₹ 1744.00</p>
-                </div>
-            </div>
-            <div class="Ms_star_image_div">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-        </div> -->
     </div>
     <!--SECOND CONTAINER-->
 
@@ -404,7 +295,11 @@
     <div id="head">
         <h2 >TOP GIFTS</h2>
         <div id="line"></div>
-        <h3 >Make Room For New Gifts</h3>
+        <h3 >
+            <a href="/product/random?item=Religious">
+                Make Room For New Gifts
+            </a>
+        </h3>
     </div>
     <div id="Ms_container_div">
         <% high.forEach(function(element) { %>
@@ -453,7 +348,11 @@
     <div id="head">
         <h2 >New Products</h2>
         <div id="line"></div>
-        <h3 >Make Room For New Gifts</h3>
+        <h3>
+            <a href="/product/jewellery">
+                Make Room For New Gifts
+            </a>
+        </h3>
     </div>
         <div id="Ms_container_div">
             <% jewellery.forEach(function(element) { %>
@@ -513,7 +412,7 @@
 
     
 
-<script>
+<!-- <script>
 
 var container = document.querySelector(".container");
 var image = [
@@ -538,4 +437,9 @@ if(index < 0){
 }
 container.style.backgroundImage = `url(${image[index]})`;
 }
+</script> -->
+<script>
+    function functionDr(value){
+        window.location.href = `/shopitem/${value}`;
+    }
 </script>
