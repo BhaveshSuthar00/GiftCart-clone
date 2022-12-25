@@ -73,7 +73,6 @@ function appendWishlist(items) {
     document.getElementById("item_details_div").append(parent_main);
 
     remove_btn.addEventListener("click", function () {
-      console.log("here", index);
       items.splice(index, 1);
       localStorage.setItem("wishListData", JSON.stringify(items));
       appendWishlist(items);
@@ -92,6 +91,5 @@ add_allto_cart.addEventListener("click", function () {
   }
   localStorage.setItem("productlist", JSON.stringify(arr2));
   localStorage.setItem("wishListData", JSON.stringify(arr));
-  console.log(arr2);
   window.location.href = "./cart";
 });

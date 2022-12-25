@@ -1,7 +1,7 @@
 const express = require("express");
 
 const port = process.env.PORT || 2000;
-
+const cors = require("cors");
 const path = require("path");
 
 const passport = require("./conflig/google-oauth");
@@ -32,7 +32,7 @@ const static_path = path.join(__dirname, "../public");
 const app = express();
 
 const bodyParser = require("body-parser");
-
+app.use(cors());
 app.use(express.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
